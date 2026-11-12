@@ -1,0 +1,44 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# PostgreSQL local data
+/data/db/
+/data/postgres/
+*.sql.dump
+*.dump
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Node.js
+node_modules/
+dist/
+build/
+.next/
+coverage/
+
+# Java
+target/
+.gradle/
+build/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Graphify generated data
+graphify-out/
+
+# Logs
+*.log
+logs/
