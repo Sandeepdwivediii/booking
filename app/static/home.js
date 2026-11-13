@@ -52,10 +52,15 @@
         const body = make("div", undefined, "dest-body");
         body.append(make("strong", city), make("span", country.name, "muted"));
         card.append(media, body);
-        card.addEventListener("click", () => { setValue("destination_country", country.name); focusSearch(); });
+        card.addEventListener("click", () => {
+          setValue("destination_country", country.name);
+          window.UI?.toast(`Destination set to ${country.name}.`, "info", 2600);
+          focusSearch();
+        });
         grid.append(card);
       }
     }
+    window.UI?.reveal(grid.children);
   }
 
   function renderIdeas() {
@@ -74,11 +79,14 @@
           document.getElementById("add-child").click();
           kids.lastElementChild.querySelector("input").value = age;
         }
+        window.UI?.toast(`"${idea.title}" loaded into the search.`, "info", 2600);
         focusSearch();
       });
       card.append(btn);
       grid.append(card);
     }
+    window.UI?.reveal(grid.children);
+    window.UI?.reveal(document.querySelectorAll(".how-step"));
   }
 
   function renderCredits() {

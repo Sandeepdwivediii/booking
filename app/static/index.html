@@ -20,7 +20,7 @@
         <button type="submit" class="secondary">Find booking</button>
       </form>
       <div class="top-actions">
-        <span id="health" class="pill" title="Backend status">checking…</span>
+        <span id="health" class="pill" data-tip="Backend and catalog status">checking…</span>
         <button type="button" id="theme-toggle" class="icon-btn" aria-label="Switch to dark mode" title="Toggle theme">
           <span class="icon-sun" aria-hidden="true">☀</span><span class="icon-moon" aria-hidden="true">☾</span>
         </button>
@@ -32,7 +32,10 @@
     <div id="planner">
       <section class="hero">
         <div class="hero-inner">
-          <h1>Find your perfect holiday</h1>
+          <ol class="steps" aria-label="Booking progress">
+            <li class="current" aria-current="step">Search</li><li>Itinerary</li><li>Customise</li><li>Confirm</li>
+          </ol>
+          <h1>Find your perfect <span class="accent">holiday</span></h1>
           <p class="hero-sub">Flights, hotels, transfers and sightseeing in Japan and the UAE, built into one checked package.</p>
 
           <div class="search-card card">
@@ -124,6 +127,7 @@
   </footer>
 
   <script src="/static/itinerary.js"></script>
+  <script src="/static/ui.js"></script>
   <script src="/static/app.js"></script>
   <script src="/static/home.js"></script>
 </body>
