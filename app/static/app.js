@@ -368,6 +368,7 @@ function renderPackage(view) {
   head.append(actions, el("small", `Package ID: ${view.package_id}`, "hint"), message, panel);
   box.append(head, renderBudget(t), renderItinerary(t, ctx));
   showView("package");
+  window.scrollTo({ top: 0 });
 }
 
 async function openPackage(id) {
@@ -398,12 +399,14 @@ function renderBuildOutcome(status, body) {
       el("div", `${body.reason} Cheapest possible total: ${inr(body.cheapest_total_inr)} (${inr(body.shortfall_inr)} over your budget).`, "banner warn"));
     if (body.suggestion) box.append(el("p", "Suggestion: " + body.suggestion));
     $("planner").hidden = false; box.hidden = false;
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
   if (body?.status === "NO_PACKAGE") {
     box.append(el("h2", "No package is possible"), el("div", body.reason, "banner error"));
     if (body.suggestion) box.append(el("p", "Suggestion: " + body.suggestion));
     $("planner").hidden = false; box.hidden = false;
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
   box.hidden = true;
