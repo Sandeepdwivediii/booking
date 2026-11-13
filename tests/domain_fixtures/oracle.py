@@ -63,8 +63,9 @@ def _last_legal(t, latest, minutes):
 
 # ------------------------------------------------------------------ brute force
 
-def brute_force_cheapest(cat, req):
-    """(min_total, trip) over every combination, or None if no valid package exists."""
+def brute_force_cheapest(cat, req, collect: list | None = None):
+    """(min_total, trip) over every combination, or None if no valid package exists. With `collect`, every
+    valid package (one attraction per full day) is appended as (cost, trip) and no cost pruning is used."""
     A, ages = req["adults"], req["children_ages"]
     C, T = len(ages), A + len(ages)
     H, S, N = req["departure_city"], date.fromisoformat(req["start_date"]), req["nights"]
@@ -147,13 +148,16 @@ def brute_force_cheapest(cat, req):
         for o, r, hs, ics, ats in itertools.product(outs, rets, itertools.product(*hotel_opts),
                                                    itertools.product(*inter_opts), itertools.product(*attr_opts)):
             cost = o[0] + r[0] + sum(h[0] for h in hs) + sum(x[0] for x in ics) + sum(x[0] for x in ats)
-            if best[0] is not None and cost >= best[0]:
+            if collect is None and best[0] is not None and cost >= best[0]:
                 continue
             trip = _assemble(cat, req, segs, o, r, hs, ics, ats, A, C, T, E)
             if trip is None:
                 continue
             if all(v["code"] == "OVER_BUDGET" for v in validate_trip(cat, trip, "initial")):
-                best = [cost, trip]
+                if collect is not None:
+                    collect.append((cost, trip))
+                if best[0] is None or cost < best[0]:
+                    best = [cost, trip]
     return None if best[0] is None else tuple(best)
 
 
