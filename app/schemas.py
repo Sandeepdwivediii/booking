@@ -80,6 +80,13 @@ class RemoveAttractionIn(_ChangeBase):
     item_id: _Id
 
 
+class ChangeCityPlanIn(_ChangeBase):  # G3 extension body (Tanish's 0d7c931 proposal; contract doc update pending)
+    op: Literal["change_city_plan"]
+    cities: Annotated[list[_Id], Field(min_length=1, max_length=10)]
+    nights: Annotated[list[Annotated[int, Field(ge=1, le=60)]], Field(min_length=1, max_length=10)]
+
+
 ChangeIn = Annotated[
-    Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn], Field(discriminator="op")
+    Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn, ChangeCityPlanIn],
+    Field(discriminator="op"),
 ]
