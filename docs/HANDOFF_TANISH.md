@@ -1,5 +1,34 @@
 # Handoff — Tanish (Developer A, domain)
 
+## Budget Rescue — domain (latest)
+
+```text
+Implemented: app/domain/rescue.py  rescue(catalog, trip, target_budget_inr, locked_attraction_ids, max_changes)
+  Adapter: Domain.rescue (extra method, NOT part of frozen DomainPort v1.1.0 — interface needs Sandeep's approval).
+  Reuses edits.apply_change for every substitution (catalog pricing, transfer re-selection, validate "modified").
+Result: {status: RESCUED | NO_RESCUE_FOUND | NO_CHANGES_NEEDED, original_total_inr, target_budget_inr,
+  locked_attraction_ids, proposals[<=3]: {trip, original_total_inr, proposed_total_inr, savings_inr,
+  number_of_changes, preference_penalty, changes[{component, item_id, action, old/new catalog & room ids,
+  price_diff_inr}], dependent_adjustments[{airport transfer, old/new id+start, price_diff_inr}],
+  locked_attraction_ids, target_achieved, candidate_id}, reason, optimality, search{candidates_verified, cap_reached}}
+Input errors -> InvalidRequestError: unknown / absent locked IDs, bad target or max_changes (1..4), booked or
+  invalid draft. Never mutates the trip or catalog; never fabricates records or prices.
+Ranking: (changes, preference_penalty, target - total, candidate_id); penalty = attraction replaced +1, removed +2,
+  hotel star loss x nights, extra flight stops +1. Exact within the documented search space (standalone-saving
+  options per component; <= max_changes applied jointly; dependent transfers reported, not counted) unless the
+  4,000-candidate cap is hit -> optimality BEST_FOUND.
+Tests: tests/domain/test_budget_rescue.py — 16 tests; branch 529 passed, 3 skipped (API BLOCKED).
+```
+
+BR-D IDs (the shared matrix was not found in any branch; IDs defined from the brief — reconcile with Sandeep):
+D01 exact pricing/breakdown · D02 locked never removed/substituted · D03 unknown locked ID · D04 locked ID not in
+trip · D05 fewest changes → quality → closest to target · D06 hotel covers every night (room-night stock) · D07
+flight seats · D08 attraction day/hours · D09 dependent transfer re-selection priced · D10 deterministic ranking ·
+D11 trip/catalog immutability · D12 impossible target / already within target · D13 max_changes hard limit + input
+validation · D14 official catalog: every proposal passes validate_trip and the independent judge oracle.
+
+---
+
 ## Phase 10 — optional G4 recommendations (latest)
 
 ```text

@@ -11,6 +11,7 @@ from pathlib import Path
 from app.domain.catalog import Catalog, load_catalog
 from app.domain.edits import apply_change, list_alternatives
 from app.domain.planner import build_trip, city_plan_options, rebuild_city_plan, recommend_packages
+from app.domain.rescue import rescue
 from app.domain.validator import validate_trip
 
 
@@ -49,6 +50,10 @@ class Domain:
     # ---- G4 extension (NOT part of frozen DomainPort v1.1.0)
     def recommend(self, request: dict, trip_id: str) -> dict:
         return recommend_packages(self._catalog, request, trip_id)
+
+    # ---- Budget Rescue (NOT part of frozen DomainPort v1.1.0)
+    def rescue(self, trip: dict, target_budget_inr: int, locked_attraction_ids=(), max_changes: int = 3) -> dict:
+        return rescue(self._catalog, trip, target_budget_inr, locked_attraction_ids, max_changes)
 
 
 def create_domain(catalog_dir: str | Path) -> Domain:
