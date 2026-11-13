@@ -1,5 +1,51 @@
 # Handoff — Tanish (Developer A, domain)
 
+## Phase 4 — integration checkpoint (latest)
+
+```text
+Developer: Tanish (A)
+Phase: 4 — domain side verified against Sandeep's platform; shared-branch merge PENDING (integration owner)
+Branches: origin/integration = c49a9cd (contract freeze only, no API yet)
+          origin/sandeep     = 4cedb49 (platform Phases 1-2: build/get/export, PostgreSQL)
+          feat/tanish-domain = b3b37be + this Phase 4 commit
+Integration candidate (scratch, NOT merged): git archive 4cedb49 + app/domain & tests from b3b37be;
+  `git merge-tree origin/sandeep feat/tanish-domain` -> clean, no conflicts.
+Tests actually run on the candidate (disposable PostgreSQL 17 on 127.0.0.1:55432, bookingDB_test):
+  full suite (platform + domain)                     -> 488 passed, 0 failed, 1 skipped*
+  tests/domain/test_phase4_api_roundtrip.py (new)     -> 21 passed
+  real uvicorn HTTP smoke (bookingDB, 3 official builds + OVER_BUDGET/NO_PACKAGE/422) -> all as expected
+  *skip = Sandeep's test_phase1_readiness placeholder "app.domain is present; covered by integration tests"
+On feat/tanish-domain alone: 369 passed, 1 skipped (round-trip module BLOCKED: app.main not on branch)
+Domain-side changes needed for compatibility: none
+Next action: Sandeep merges sandeep + feat/tanish-domain into integration; rerun
+  `python -m pytest -q tests/domain/test_phase4_api_roundtrip.py` there with TEST_DATABASE_URL set.
+```
+
+**Verified end to end (candidate):** `POST /api/packages/build` → 201 DRAFT v1 with `ETag "1"` →
+PostgreSQL row (`id == trip_id == package_id`, JSONB trip/request lossless, `total_inr`/`budget_inr`
+denormalized) → `GET` (also from a fresh app instance = restart) → `/export` (draft shape,
+identical to the stored trip apart from top-level `status`). Each export re-validated by
+`validate_trip(…, "initial") == []` and repriced from the catalog (item quantity/price and totals
+equal). Japan (BLR, Menon, INR 215,544) and UAE (BOM INR 128,426; DEL INR 52,037) builds 0.01–0.06 s.
+`OVER_BUDGET` / `NO_PACKAGE` → 200, nothing persisted; invalid input and client `total_inr` → 422
+`VALIDATION_ERROR`, nothing persisted; unknown/malformed id → 404; catalog SHA-256 unchanged.
+
+**Overnight airport pickup (Menon):** FL-405 lands NRT 21:30 → earliest legal pickup 22:30. The
+Shinagawa bus (06:30–22:00, INR 4,480 for 2A+1C) is closed then, so the cheapest package uses the
+06:30 next-morning bus; the taxi (06:00–23:00, INR 15,120) could leave at 22:30 for INR 10,640 more.
+Both satisfy §4 (≥ 60 min after landing, inside service hours; no maximum-wait rule); the item carries
+a warning and the warning survives persistence/export. 7 of 28 sampled official builds contain such a
+pickup. **Open product decision (owner: Tanish/user):** keep "cheapest" for BUILT, or prefer a
+same-day pickup when it fits the budget (contract allows BUILT total ≥ `cheapest_total_inr`).
+
+**For Sandeep:** (1) merge both branches into `integration` (clean); (2) the readiness placeholder skip
+can point at `tests/domain/test_phase4_api_roundtrip.py`; (3) still open: commit `TEAM_RULES.md` /
+personal docs, untrack `docker/data/db/**`; (4) minor: starlette TestClient/httpx deprecation warning.
+
+---
+
+## Phase 3 summary
+
 ```text
 Developer: Tanish (A)
 Phase: 3 (exact planner, full validate_trip, M8) — complete. Phases 0-2 complete (20dbe5b).
