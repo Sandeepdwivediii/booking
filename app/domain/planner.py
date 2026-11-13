@@ -73,6 +73,37 @@ class Segment:
         return tuple(d for d in days if trip_start < d < trip_end)
 
 
+LONG_EXTRA_WAIT = timedelta(hours=3)  # waiting beyond the mandatory 60/180-minute buffers
+
+
+def _hm(delta: timedelta) -> str:
+    minutes = int(delta.total_seconds() // 60)
+    return f"{minutes // 60} h {minutes % 60:02d} min"
+
+
+def arrival_wait_warnings(flight, pickup: datetime) -> list[str]:
+    """Visible warning for a next-day or unusually long airport wait (legal, never a rejection)."""
+    landed = parse_local(flight["arrival_local"])
+    wait = pickup - landed
+    if pickup.date() > landed.date():
+        return [f"Pickup is the next day ({format_local(pickup)}), {_hm(wait)} after landing: the transfer "
+                f"does not run earlier, so travelers wait at the airport."]
+    if wait - MIN_LANDING_TO_PICKUP >= LONG_EXTRA_WAIT:
+        return [f"Long wait: pickup at {format_local(pickup)} is {_hm(wait)} after landing (transfer service hours)."]
+    return []
+
+
+def departure_wait_warnings(flight, transfer, pickup: datetime) -> list[str]:
+    departs = parse_local(flight["departure_local"])
+    early = departs - transfer_arrival(transfer, pickup)
+    if pickup.date() < departs.date():
+        return [f"Pickup is the day before the flight ({format_local(pickup)}); travelers reach the airport "
+                f"{_hm(early)} before departure because of the transfer's service hours."]
+    if early - MIN_AIRPORT_BEFORE_DEPARTURE >= LONG_EXTRA_WAIT:
+        return [f"Long wait: travelers reach the airport {_hm(early)} before departure (transfer service hours)."]
+    return []
+
+
 def _midnight(d: date) -> datetime:
     return datetime(d.year, d.month, d.day)
 
@@ -398,9 +429,7 @@ def assemble_trip(catalog, request: dict, trip_id: str, plan: dict) -> dict:
     _, f_out, t_arr, pickup_arr, _ = plan["arrival"]
     add_flight(f_out, "outbound_flight", segs[0].city)
     add_transfer(t_arr, "arrival_transfer", segs[0].city, pickup_arr)
-    if pickup_arr.date() > parse_local(f_out["arrival_local"]).date():
-        items[-1]["warnings"].append(f"Pickup is the next morning ({format_local(pickup_arr)}): the transfer "
-                                     f"does not run at night, so travelers wait at the airport.")
+    items[-1]["warnings"] = arrival_wait_warnings(f_out, pickup_arr)
     for i, seg in enumerate(segs):
         if i:
             _, t, dep = plan["intercity"][i - 1]
@@ -413,9 +442,7 @@ def assemble_trip(catalog, request: dict, trip_id: str, plan: dict) -> dict:
                 format_local(start + timedelta(minutes=a["visit_minutes"])), T, attraction_price(a, A, C))
     _, f_ret, t_dep, pickup_dep = plan["return"]
     add_transfer(t_dep, "departure_transfer", segs[-1].city, pickup_dep)
-    if pickup_dep.date() < parse_local(f_ret["departure_local"]).date():
-        items[-1]["warnings"].append(f"Pickup is the evening before the flight ({format_local(pickup_dep)}) "
-                                     f"because of the transfer's service hours.")
+    items[-1]["warnings"] = departure_wait_warnings(f_ret, t_dep, pickup_dep)
     add_flight(f_ret, "return_flight", home_city)
     start = date.fromisoformat(request["start_date"])
     return {

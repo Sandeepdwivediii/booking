@@ -1,6 +1,53 @@
 # Handoff — Tanish (Developer A, domain)
 
-## Phase 4 — integration checkpoint (latest)
+## Phase 5 — edits and alternatives (latest)
+
+```text
+Developer: Tanish (A)
+Phase: 5 — domain complete on feat/tanish-domain; shared integration still PENDING (integration owner)
+Remote state checked: origin/sandeep = 8b8df4d (his Phase 3 PATCH/confirm + Phase 4 checkpoint, includes my
+  b3b37be merged into HIS branch); origin/integration = c49a9cd (unchanged). No Tanish files touched upstream.
+Implemented: app/domain/edits.py  apply_change() + list_alternatives() (real; skeleton removed)
+             app/domain/planner.py arrival_wait_warnings()/departure_wait_warnings() shared by planner + edits
+Tests on feat/tanish-domain: python -m pytest -q -> 408 passed, 2 skipped (both API modules BLOCKED: no app.main)
+PASS IDs: ED-01..ED-08, PR-16 (+ AT-15 remove-to-zero, max 2/day, over-budget edit, stable codes)
+Integration candidate (scratch, NOT merged: 8b8df4d + this domain; disposable PostgreSQL 127.0.0.1:55433):
+  tests/domain/test_phase5_api_edits.py + test_phase4_api_roundtrip.py + contract -> 58 passed
+  tests/platform -> 316 passed, 1 skipped, 1 FAILED = test_phase4_integration.py::
+    test_real_edits_report_not_available_until_phase5 (asserts 503 "not implemented"; obsolete now) -> Sandeep
+```
+
+**change():** validate change shape (`UNKNOWN_OP`, `CHANGE_MALFORMED`) → deep copy → op handler
+(`ITEM_NOT_FOUND`, `ITEM_WRONG_TYPE`, `ITEM_NOT_REMOVABLE`, `NO_CHANGE`, `UNKNOWN_CATALOG_ID`,
+`ROOM_HOTEL_MISMATCH`, `HOTEL_WRONG_CITY`, `ROOM_CAPACITY`) → dependent airport transfers → order items →
+full catalog repricing → `validate_trip(…, "modified")`; first passing candidate wins, otherwise the
+first candidate's violations. Input never mutated; `TRIP_BOOKED` / `TRIP_MALFORMED` rejected, never raised.
+- Room count for `replace_hotel` = minimal fitting k (cheapest, least stock).
+- Transfer policy: hotel change keeps the current transfer (and time) if still valid; flight change re-times
+  the current transfer to the most convenient legal pickup (arrival: earliest ≥ landing+60; departure:
+  latest with airport ≥ 180 min early); then other transfers cheapest first. Each change is described in
+  `adjustments`. No legal transfer → `NO_AIRPORT_TRANSFER` plus the root-cause violations (e.g.
+  `FLIGHT_WRONG_AIRPORT`). Intercity transfers do not depend on hotels/flights and are untouched.
+- `add_attraction` without `start_time`: earliest legal, non-overlapping start from 09:00, else earliest legal
+  at all (avoids 00:00 visits for 24 h sites; never changes feasibility). Attractions are never moved or
+  removed implicitly; conflicts reject (e.g. ED-04 `ATTRACTION_TIMELINE`).
+
+**alternatives():** every candidate is simulated through `change()`, so only accepted options are listed,
+sorted by `new_total_inr` (ties by IDs), `price_diff_inr = new_total - trip.total` exact incl. transfer
+re-selection; attraction alternatives carry `start_time`; return-day/outside dates → `[]`; malformed
+filters / unknown hotel item / malformed trip → `InvalidRequestError`; `limit` default 20.
+
+**Pickup policy (as approved):** cheapest stays the default; next-day pickups and waits ≥ 3 h beyond the
+60/180-minute buffers get a visible warning; no max-wait rule. Convenience is offered via flight/hotel
+alternatives (Menon: FL-401 same-day arrival, +INR 3,780, removes the overnight wait). A dedicated
+"transfer" alternative is NOT possible under the frozen contract (no component/op) — contract proposal if wanted.
+
+**For Sandeep:** (1) retire/flip `test_real_edits_report_not_available_until_phase5`; (2) merge into
+`integration` when ready and run `tests/domain/test_phase4_api_roundtrip.py` + `test_phase5_api_edits.py` there.
+
+---
+
+## Phase 4 — integration checkpoint
 
 ```text
 Developer: Tanish (A)

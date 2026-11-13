@@ -204,21 +204,18 @@ def test_official_options():
     assert opts["rules"]["first_night"] == "2027-04-01" and opts["rules"]["last_departure"] == "2027-04-20"
 
 
-def test_adapter_satisfies_port_and_unbuilt_methods_do_not_fake(cat):
-    """Phase 5 skeletons: argument errors follow the contract; real work is not faked."""
+def test_adapter_satisfies_port_and_argument_errors(cat):
+    """Argument errors follow the contract (InvalidRequestError / ok=false), never fake results."""
     from app.contracts import InvalidRequestError
     domain = Domain(cat)
     assert isinstance(domain, DomainPort)
-    with pytest.raises(NotImplementedError):
-        domain.alternatives({}, "hotel", {"item_id": "i3"})
-    with pytest.raises(NotImplementedError):
-        domain.alternatives({}, "attraction", {"date": "2027-04-11"})
-    with pytest.raises(NotImplementedError):
-        domain.change({}, {"op": "remove_attraction", "item_id": "i4"})
-    for component, filters in (("spa", {}), ("hotel", {}), ("attraction", {"date": "11/04/2027"})):
+    for component, filters in (("spa", {}), ("hotel", {}), ("attraction", {"date": "11/04/2027"}),
+                               ("hotel", {"item_id": "i3"})):  # last: malformed trip
         with pytest.raises(InvalidRequestError):
             domain.alternatives({}, component, filters)
     rejected = domain.change({}, {"op": "teleport"})
     assert rejected["ok"] is False and rejected["violations"][0]["code"] == "UNKNOWN_OP"
+    malformed = domain.change({}, {"op": "remove_attraction", "item_id": "i4"})
+    assert malformed["ok"] is False and malformed["violations"][0]["code"] == "TRIP_MALFORMED"
     with pytest.raises(InvalidRequestError):
         domain.build({}, "t")
