@@ -1,4 +1,4 @@
-"""Phase 1 routes: health, catalog options, build (validate -> domain.build -> persist BUILT only)."""
+"""Routes: health, catalog options, build (persist BUILT only), get package, judge export."""
 
 from __future__ import annotations
 
@@ -9,9 +9,12 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 
 from app.api.errors import ApiError
-from app.contracts import build_result_shape_errors
-from app.models import AppPackage
+from app.contracts import booked_trip_shape_errors, build_result_shape_errors
 from app.schemas import BuildRequestIn
+from app.services.export import ExportError, draft_export
+from app.services.packages import (
+    get_package, get_reservation_for, insert_draft, package_view, parse_package_id, transaction,
+)
 from app.services.request_validation import validate_against_options
 from app.services.runtime import Runtime
 
@@ -61,7 +64,45 @@ def build_package(body: BuildRequestIn, request: Request):
         return JSONResponse(status_code=200, content=result)
 
     trip = result["trip"]
-    with rt.sessionmaker.begin() as session:
-        session.add(AppPackage(id=trip_id, status="DRAFT", version=1, request=build_request, trip=trip,
-                               total_inr=trip["total_inr"], budget_inr=trip["budget_inr"]))
-    return JSONResponse(status_code=201, content={"package_id": trip_id, "version": 1, "status": "DRAFT", "trip": trip})
+    with transaction(rt.sessionmaker) as session:
+        insert_draft(session, trip_id, build_request, trip)
+    return JSONResponse(status_code=201, content={"package_id": trip_id, "version": 1, "status": "DRAFT", "trip": trip},
+                        headers={"ETag": '"1"', "Location": f"/api/packages/{trip_id}"})
+
+
+@router.get("/packages/{package_id}")
+def get_package_route(package_id: str, request: Request):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    rt.require_db()
+    with transaction(rt.sessionmaker) as session:
+        pkg = get_package(session, pid)
+        view = package_view(pkg, get_reservation_for(session, pid))
+    return JSONResponse(content=view, headers={"ETag": f'"{view["version"]}"', "Cache-Control": "no-store"})
+
+
+@router.get("/packages/{package_id}/export")
+def export_package_route(package_id: str, request: Request):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    rt.require_db()
+    with transaction(rt.sessionmaker) as session:
+        pkg = get_package(session, pid)
+        reservation = get_reservation_for(session, pid)
+        status, trip, snapshot = pkg.status, pkg.trip, (reservation.snapshot if reservation else None)
+        reference = reservation.reference if reservation else None
+    try:
+        if status == "BOOKED":
+            if snapshot is None:
+                raise ExportError(["BOOKED package has no reservation snapshot"])
+            problems = booked_trip_shape_errors(snapshot, reference)
+            if problems:
+                raise ExportError(problems)
+            body = snapshot
+        else:
+            body = draft_export(trip)
+    except ExportError as e:
+        log.error("refusing to export malformed package %s: %s", pid, e.problems[:5])
+        raise ApiError(500, "INTERNAL_ERROR", "Package could not be exported.") from None
+    return JSONResponse(content=body, headers={
+        "Content-Disposition": f'attachment; filename="trip-{pid}.json"', "Cache-Control": "no-store"})

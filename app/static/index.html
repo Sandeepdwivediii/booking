@@ -9,7 +9,7 @@
 <body>
   <header class="top"><h1>Build My Holiday</h1><span id="health" class="pill">checking…</span></header>
   <main>
-    <section class="card">
+    <section class="card" id="planner">
       <h2>Plan your trip</h2>
       <div id="form-error" class="banner error" hidden></div>
       <form id="build-form" novalidate>
@@ -50,7 +50,9 @@
       </form>
     </section>
     <section id="result" class="card" hidden aria-live="polite"></section>
+    <div id="package" hidden aria-live="polite"></div>
   </main>
+  <script src="/static/itinerary.js"></script>
   <script src="/static/app.js"></script>
 </body>
 </html>
