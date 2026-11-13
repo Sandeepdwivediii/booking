@@ -177,7 +177,7 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** 
 
 `origin/integration` was fast-forwarded `c49a9cd → 8b8df4d` (no force), with Sandeep's approval. Tanish sync: `git merge --ff-only origin/integration`.
 
-## Phase 5 — Edits (M6): BLOCKED (real domain edits not available)
+## Phase 5 — Edits (M6): PASS (unblocked by Tanish `49f3bc6`, merged `e04a201`)
 
 ### Status of Tanish's domain
 
@@ -219,7 +219,7 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** 
 
 Tanish: implement `list_alternatives` / `apply_change` (contract §2: hotel incl. same-hotel rooms, flights, attractions with `start_time`; all-or-nothing, re-price, `validate(…, "modified")`, `adjustments`). No platform change is needed; rerun `python -m pytest -q tests/platform/test_phase5_edits.py`.
 
-## Phase 6 — Confirmation and reservations (M7)
+## Phase 6 — Confirmation and reservations (M7): PASS
 
 ### Implemented
 
@@ -257,7 +257,7 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 
 `python -m pytest -q` → **667 passed, 0 failed, 15 skipped**. Skips: 11 Phase 5 [real] + 2 Phase 6 [real] BLOCKED on real `change()`, 1 fake-not-applicable, 1 obsolete "adapter missing" test.
 
-### Tanish Phase 5 (`49f3bc6`) — evaluated, NOT merged (awaiting Sandeep approval)
+### Tanish Phase 5 (`49f3bc6`) — evaluated, then merged with approval (see checkpoint below)
 
 - `49f3bc6 domain: Phase 5 change() and alternatives()`: 6 files, all Tanish-owned; no `NotImplementedError` left.
 - Evaluated in a throwaway detached worktree (sandeep `5c750f3` + `49f3bc6`, clean merge; removed afterwards; `sandeep` not changed):
@@ -267,6 +267,13 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 - The only failure in the first evaluation run was my own obsolete Phase 4 assertion ("real edits → 503"). It's now adaptive (503 while unimplemented, contract-valid 200 after), and the smoke real mode exercises real edits when available.
 - To close Phase 5: merge `49f3bc6` into `sandeep`, rerun the full suite on `sandeep`, fast-forward `integration`.
 
+## Phase 5–6 integration checkpoint: PASS
+
+- Merged approved `49f3bc6` into `sandeep` with `--no-ff` (merge `e04a201`); the remote had no other unreviewed Tanish commits. The merge changed only 6 Tanish-owned files; dry run clean; 0 `docker/` changes. Catalog, docs and frozen contract unchanged since `c49a9cd` / `37fc0f0`.
+- Full suite on the merged branch: **726 passed, 0 failed, 2 skipped** (domain 340, platform 386). Skips: SY-18 [fake] (fake does not re-price; [real] PASS) and the obsolete "adapter missing" loader test. **No BLOCKED cases remain.**
+- Real domain, now PASS: ED-09…ED-19, PR-18, SY-18, BK-10, BK-11 (+ all Phase 6 BK/SY and Phase 4 SY IDs as before).
+- Browser smoke: real 12/12 (incl. real edit → v2, real confirm, `00…` reference, SY-16 Back), fake 22/22; no JS errors.
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).
@@ -275,7 +282,6 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 
 - `docker/data/db/**` shows as locally modified (live Postgres writes to tracked files). Never stage them; avoid `git checkout -- .`, `reset --hard`, `stash`, or branch switches that touch those paths.
 
-## Next
+## Next: Phase 7 (awaiting Sandeep approval)
 
-- When Tanish's Phase 5 lands: merge, rerun `test_phase5_edits.py` (11 BLOCKED → expected to run), browser smoke real mode with edits.
-- Phase 6 (awaiting approval): formal BK-01..BK-16 + SY-16 on the real domain (confirm/lookup machinery exists since Phase 3), restart/retry evidence, 20-confirm race, booked UI polish.
+Final rehearsal: `python -m pytest -q` on isolated DB, clean `docker compose up --build` (needs a Dockerfile/app service; the existing compose password must be handled), browser walkthrough, 20-confirm race + restart, README (start commands, architecture, city rule, limits), SY-20, evidence report by test ID, final merge. Pending decisions: `docker/data/db/**` untracking, compose credentials.
