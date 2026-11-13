@@ -45,3 +45,26 @@ logs/
 
 
 .venv/
+# Local PostgreSQL data (compose volume ./docker/data/db) — never commit
+docker/data/
+
+# Caches and test artifacts
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Internal development files (agent instructions, team plans, personal handoffs, scratch data)
+CLAUDE.md
+.claude/
+SANDEEP.md
+TANISH.md
+TEAM_RULES.md
+PHASED_BUILD_TEST_PLAN.md
+prompt.md
+docs/HANDOFF_*.md
+docs/progress/
+docs/ai/
+temp_dataset/
+data/experimental/
+*.zip
