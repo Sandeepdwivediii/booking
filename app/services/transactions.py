@@ -31,6 +31,7 @@ from app.contracts import (
     change_result_shape_errors, trip_shape_errors, violation_shape_errors,
 )
 from app.models import AppIdempotencyRecord, AppPackage, AppReservation
+from app.services import rescue
 from app.services.export import ExportError, booked_export
 from app.services.packages import get_package, get_reservation_for, package_view, transaction
 
@@ -110,6 +111,8 @@ def _extension(domain, name: str):
 
 
 def _apply_change(domain, trip: dict, change: dict) -> dict:
+    if change["op"] == rescue.RESCUE_OP:
+        return rescue.apply(domain, trip, change)
     if change["op"] == CITY_PLAN_OP:
         return _extension(domain, "rebuild_city_plan")(trip, list(change["cities"]), list(change["nights"]))
     return domain.change(trip, change)
@@ -117,8 +120,9 @@ def _apply_change(domain, trip: dict, change: dict) -> dict:
 
 def edit_package(factory: sessionmaker, domain: DomainPort, package_id: str, if_match: int, key: str,
                  change: dict) -> Outcome:
-    if not isinstance(change, dict) or change.get("op") not in CHANGE_OPS | {CITY_PLAN_OP}:
-        raise ApiError(422, "VALIDATION_ERROR", f"Change op must be one of: {', '.join(sorted(CHANGE_OPS | {CITY_PLAN_OP}))}.")
+    ops = CHANGE_OPS | {CITY_PLAN_OP, rescue.RESCUE_OP}
+    if not isinstance(change, dict) or change.get("op") not in ops:
+        raise ApiError(422, "VALIDATION_ERROR", f"Change op must be one of: {', '.join(sorted(ops))}.")
     req_hash = request_hash({"change": change})
     with transaction(factory) as session:
         _lock_timeout(session)

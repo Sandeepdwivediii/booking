@@ -10,8 +10,8 @@ from fastapi.responses import JSONResponse
 
 from app.api.errors import ApiError
 from app.contracts import booked_trip_shape_errors, build_result_shape_errors
-from app.schemas import BuildRequestIn, ChangeIn, RecommendSelectIn
-from app.services import recommendations
+from app.schemas import BuildRequestIn, ChangeIn, RecommendSelectIn, RescueIn
+from app.services import recommendations, rescue
 from app.services.export import ExportError, draft_export
 from app.services.packages import (
     get_package, get_reservation_for, insert_draft, package_view, parse_package_id, transaction,
@@ -172,6 +172,16 @@ def city_plans_route(package_id: str, request: Request):
     domain = rt.require_domain()
     rt.require_db()
     return get_city_plans(rt.sessionmaker, domain, pid)
+
+
+@router.post("/packages/{package_id}/rescue")
+def rescue_route(package_id: str, body: RescueIn, request: Request):
+    """Trip Rescue preview: up to three cheaper validated variants of the saved draft. Persists nothing."""
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    domain = rt.require_domain()
+    rt.require_db()
+    return rescue.preview(rt.sessionmaker, domain, pid, body.model_dump())
 
 
 @router.patch("/packages/{package_id}")

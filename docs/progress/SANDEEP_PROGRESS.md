@@ -341,3 +341,17 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 - Tests `tests/platform/test_phase10_g4.py` (real domain + PostgreSQL, raw-catalog metric oracle): G4-B01..B08 PASS (16 tests).
   Full suite 881 passed / 2 skipped; browser smoke fake 22/22, real 15/15; scratch CDP flow (dark desktop + light mobile) PASS.
 - Pending joint approval: write the G4 interface into `app/contracts.py` / `docs/INTEGRATION_CONTRACT.md` as v1.3.0 (additive).
+
+## Trip Rescue (Budget Rescue) — platform, UI, adversarial tests
+
+- Merged Tanish's `b360a5f` only (`5504993`): optional `Domain.rescue(trip, target_budget_inr, locked_attraction_ids, max_changes)`.
+  Scope: cheaper validated variants of a SAVED DRAFT; never changes dates, cities/nights, travellers or locked attractions.
+- API: `POST /api/packages/{id}/rescue` (preview, persists nothing, no trips/prices accepted from the client) and PATCH
+  `{"op":"apply_rescue", target_budget_inr, locked_attraction_ids, max_changes, candidate_id}` — the server re-runs the rescue on
+  the locked current draft and saves only that candidate (If-Match, idempotency, atomic write unchanged). Missing capability -> 503;
+  domain input errors -> 422; unverifiable proposals (shape, fixed fields, totals, validation) -> 500, never shown or saved.
+- UI: "Find savings" panel (target, activities to keep) -> proposals with per-change names, signed differences, new total;
+  Apply; empty/no-change/error states; refused over-budget change offers "Find savings". Domain text cleaned for customers (₹, no codes).
+- Tests `tests/platform/test_trip_rescue.py`: 25 tests, real domain + PostgreSQL + raw-catalog oracle. RS-B01 rescue part BLOCKED
+  (domain does not rescue failed builds/dates); RS-B05 adapted (domain never changes dates/cities). Full suite 922 passed / 2 skipped.
+- Pending joint approval: write the rescue interface into the frozen contract (with G4) as additive v1.3.0.

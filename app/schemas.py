@@ -86,8 +86,23 @@ class ChangeCityPlanIn(_ChangeBase):  # G3 extension body (Tanish's 0d7c931 prop
     nights: Annotated[list[Annotated[int, Field(ge=1, le=60)]], Field(min_length=1, max_length=10)]
 
 
+class RescueIn(BaseModel):  # Trip Rescue preview parameters (Tanish's Domain.rescue)
+    model_config = ConfigDict(strict=True, extra="forbid")
+    target_budget_inr: Annotated[int, Field(ge=0, le=100_000_000)]
+    locked_attraction_ids: Annotated[list[_Id], Field(max_length=40)] = []
+    max_changes: Annotated[int, Field(ge=1, le=4)] = 3
+
+
+class ApplyRescueIn(_ChangeBase):  # apply one previewed rescue; the server recomputes it, never trusts a trip/price
+    op: Literal["apply_rescue"]
+    target_budget_inr: Annotated[int, Field(ge=0, le=100_000_000)]
+    locked_attraction_ids: Annotated[list[_Id], Field(max_length=40)] = []
+    max_changes: Annotated[int, Field(ge=1, le=4)] = 3
+    candidate_id: Annotated[str, Field(min_length=1, max_length=400)]
+
+
 ChangeIn = Annotated[
-    Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn, ChangeCityPlanIn],
+    Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn, ChangeCityPlanIn, ApplyRescueIn],
     Field(discriminator="op"),
 ]
 

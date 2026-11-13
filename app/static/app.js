@@ -15,7 +15,8 @@ const KIND_LABEL = { departure: "Departure from home", arrival: "Arrival day", c
 // Display-only: domain notes may carry catalog codes and ISO timestamps; customers see plain text.
 const customerText = (t) => String(t)
   .replace(/\s*\((?:FL|HTL|RM|TR|ATT)-[A-Z0-9-]+\)/g, "")
-  .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/g, "$1 $2");
+  .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/g, "$1 $2")
+  .replace(/INR\s?([\d,]+)/g, (_, n) => inr(Number(n.replace(/,/g, ""))));
 
 function el(tag, text, cls) {
   const e = document.createElement(tag);
@@ -234,7 +235,12 @@ function explainError(ctx, status, body) {
     case "CONFIRM_REJECTED": {
       const ul = el("ul");
       for (const v of err.details || []) ul.append(el("li", affectedLabel(ctx, v.item_id) + customerText(v.message)));
-      return packageMessage(ctx, err.code === "INVALID_CHANGE" ? "The change was refused. Nothing was saved." : "We couldn't confirm this booking. Nothing was charged or saved.", "error", ul);
+      const extra = el("div");
+      extra.append(ul);
+      if (ctx.editable && (err.details || []).some((v) => v.code === "OVER_BUDGET")) {
+        extra.append(actionButton("Find savings on this trip", () => showRescue(ctx)));
+      }
+      return packageMessage(ctx, err.code === "INVALID_CHANGE" ? "The change was refused. Nothing was saved." : "We couldn't confirm this booking. Nothing was charged or saved.", "error", extra);
     }
     case "VERSION_CONFLICT":
       ctx.panel.hidden = true;  // listed options/prices belong to an older version
@@ -325,6 +331,102 @@ async function showCityPlans(ctx) {
     ul.append(li);
   }
   panel.append(ul, actionButton("Close", async () => { panel.hidden = true; }));
+}
+
+// Trip Rescue: cheaper validated variants of the saved trip (same dates, cities and travellers).
+function showRescue(ctx) {
+  const panel = ctx.panel;
+  packageMessage(ctx, null);
+  const t = ctx.view.trip;
+  const form = el("form", undefined, "rescue-form");
+  const target = el("input");
+  Object.assign(target, { type: "number", min: "0", step: "1000", id: "rescue-target", required: true,
+    value: String(Math.max(0, Math.floor((t.total_inr * 0.9) / 1000) * 1000)) });
+  const label = el("label", "Target total (₹)", "field-label");
+  label.htmlFor = "rescue-target";
+  form.append(label, target);
+  const visits = t.items.filter((i) => i.type === "attraction");
+  if (visits.length) {
+    const keep = el("fieldset", undefined, "rescue-keep");
+    keep.append(el("legend", "Activities to keep"));
+    for (const v of visits) {
+      const lab = el("label");
+      const cb = el("input");
+      Object.assign(cb, { type: "checkbox", value: v.catalog_id, checked: true });
+      lab.append(cb, document.createTextNode(" " + v.name));
+      keep.append(lab);
+    }
+    form.append(keep);
+  }
+  const go = el("button", "Show savings", "primary");
+  go.type = "submit";
+  const results = el("div", undefined, "rescue-results");
+  form.append(go);
+  form.onsubmit = async (ev) => {
+    ev.preventDefault();
+    const value = Number(target.value);
+    if (!Number.isInteger(value) || value < 0) return results.replaceChildren(el("p", "Enter a whole amount in rupees.", "warning"));
+    const locked = [...form.querySelectorAll(".rescue-keep input:checked")].map((c) => c.value);
+    results.replaceChildren(el("p", "Looking for savings…", "hint"));  // older suggestions are cleared first
+    go.disabled = true;
+    UI.busy(go, true);
+    let res;
+    try {
+      res = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}/rescue`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ target_budget_inr: value, locked_attraction_ids: locked }),
+      });
+    } catch {
+      res = null;
+    } finally {
+      UI.busy(go, false);
+      go.disabled = false;
+    }
+    if (!res) return results.replaceChildren(el("p", "We couldn't reach the server. Nothing was changed.", "warning"));
+    renderRescue(ctx, results, res.status, res.body);
+  };
+  panel.replaceChildren(el("h3", "Find savings"),
+    el("p", "We keep your dates, cities, travellers and the activities you choose, and look for cheaper flights, hotels or activities.", "hint"),
+    form, results, actionButton("Close", async () => { panel.hidden = true; }));
+  panel.hidden = false;
+  panel.scrollIntoView({ behavior: UI.reduced() ? "auto" : "smooth", block: "nearest" });
+}
+
+function renderRescue(ctx, box, status, body) {
+  box.replaceChildren();
+  if (status !== 200) {
+    const known = ["SERVICE_UNAVAILABLE", "VALIDATION_ERROR"].includes(body?.error?.code);
+    if (["VERSION_CONFLICT", "ALREADY_BOOKED", "NOT_FOUND"].includes(body?.error?.code)) return explainError(ctx, status, body);
+    return box.append(el("p", known ? body.error.message : "We couldn't look for savings right now. Nothing was changed.", "warning"));
+  }
+  if (body.version !== ctx.view.version) return explainError(ctx, 409, { error: { code: "VERSION_CONFLICT" } });
+  if (body.status === "NO_CHANGES_NEEDED") return box.append(el("p", `Your trip already fits within ${inr(body.target_budget_inr)}.`, "hint empty"));
+  if (!body.proposals.length) {
+    const why = customerText(body.reason || "").replace("locked attractions", "the activities you kept")
+      .replace("Single-change savings add up to at most", "The most these changes could save is");
+    const empty = el("p", `We couldn't find savings that reach ${inr(body.target_budget_inr)}. ${why}`, "hint empty");
+    return box.append(empty, el("p", "Try a higher target or keep fewer activities.", "hint"));
+  }
+  const ul = el("ul", undefined, "alts rescue-list");
+  for (const [index, p] of body.proposals.entries()) {
+    const li = el("li");
+    li.style.setProperty("--i", String(index));
+    const info = el("div");
+    info.append(el("strong", `Save ${inr(p.savings_inr)} · ${p.number_of_changes} change(s)`));
+    const list = el("ul", undefined, "rescue-changes");
+    for (const d of p.details) {
+      const what = d.action === "remove" ? `${d.from} removed` : d.from === d.to ? `${d.from} (new time)` : `${d.from} → ${d.to}`;
+      const price = d.price_diff_inr ? ` (${signedDiff(d.price_diff_inr)})` : "";
+      list.append(el("li", `${d.dependent ? "Also updated · " : ""}${d.label}: ${what}${price}`));
+    }
+    const left = ctx.view.trip.budget_inr - p.proposed_total_inr;
+    info.append(list, el("small", `New total ${inr(p.proposed_total_inr)} · ${inr(left)} left of your budget`, "budget-ok"));
+    const price = el("span", undefined, "num price-col");
+    price.append(el("span", inr(p.proposed_total_inr)), el("span", signedDiff(p.price_diff_inr), "diff " + (p.price_diff_inr < 0 ? "down" : p.price_diff_inr > 0 ? "up" : "same")));
+    li.append(info, price, actionButton("Apply", () => applyChange(ctx, p.change)));
+    ul.append(li);
+  }
+  box.append(ul);
 }
 
 async function applyChange(ctx, change) {
@@ -462,7 +564,10 @@ function renderPackage(view) {
     const cities = actionButton("Change cities", () => showCityPlans(ctx));
     cities.className = "secondary";
     cities.id = "change-cities-btn";
-    actions.append(cities);
+    const save = actionButton("Find savings", () => showRescue(ctx));
+    save.className = "secondary";
+    save.id = "rescue-btn";
+    actions.append(cities, save);
   }
   const exp = el("a", "Download itinerary", "button");
   exp.href = `/api/packages/${encodeURIComponent(view.package_id)}/export`;

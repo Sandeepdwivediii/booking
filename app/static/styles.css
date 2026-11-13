@@ -429,3 +429,11 @@ dialog.modal::backdrop { background: rgba(26,38,51,.55); backdrop-filter: blur(3
 .rec dt { color: var(--muted); }
 .rec dd { margin: 0; }
 .rec button { margin-top: auto; }
+
+/* Trip Rescue panel (reuses .alts list styles) */
+.rescue-form { display: grid; gap: 8px; max-width: 420px; margin: 8px 0 12px; }
+.rescue-keep { border: 1px dashed var(--line); border-radius: var(--radius-sm); padding: 8px 12px; display: grid; gap: 4px; }
+.rescue-keep label { display: flex; gap: 8px; align-items: center; font-size: .9rem; }
+.rescue-keep input { width: auto; min-height: 0; }
+.rescue-changes { margin: 4px 0; padding-left: 18px; font-size: .88rem; }
+.alts .rescue-changes li { all: unset; display: list-item; color: var(--muted); margin: 2px 0; }
