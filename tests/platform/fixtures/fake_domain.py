@@ -159,6 +159,8 @@ class ApiFakeDomain:
                 return reject("UNKNOWN_ITEM", "No such attraction in this package.", change.get("item_id"))
             items.remove(it)
         elif op == "add_attraction":
+            if not change["attraction_id"].startswith("FAKE-"):
+                return reject("UNKNOWN_CATALOG_ID", "Unknown attraction.")
             d = change["date"]
             if not new["start_date"] <= d < new["end_date"]:
                 return reject("ATTRACTION_DAY_NOT_ALLOWED", "Attractions are not allowed on that day.")
@@ -178,6 +180,8 @@ class ApiFakeDomain:
             it = by_id.get(change.get("item_id"))
             if not it or it["type"] != "hotel":
                 return reject("UNKNOWN_ITEM", "No such hotel in this package.", change.get("item_id"))
+            if not (change["hotel_id"].startswith("FAKE-") and change["room_id"].startswith("FAKE-")):
+                return reject("UNKNOWN_CATALOG_ID", "Unknown hotel or room.", it["item_id"])
             it.update(catalog_id=change["hotel_id"], room_id=change["room_id"], name=f"Fake {change['hotel_id']}",
                       price_inr=10_000_000 if change["hotel_id"].endswith("PRICEY") else 1000)
         elif op == "replace_flight":

@@ -169,13 +169,16 @@ def confirm_package(factory: sessionmaker, domain: DomainPort, package_id: str, 
             return _remember(session, package_id, "CONFIRM", key, req_hash, (200, reservation_view(existing)))
 
         trip = pkg.trip  # latest committed draft, read under the lock
-        violations = domain.validate(trip, "confirm")
-        if violation_shape_errors(violations) or trip_shape_errors(trip, draft=True):
-            log.error("confirm: invalid validate() output or stored draft for %s", package_id)
+        violations = domain.validate(trip, "confirm")  # authoritative re-check against the catalog (SY-18)
+        if violation_shape_errors(violations):
+            log.error("confirm: invalid validate() output for %s", package_id)
             raise ApiError(500, "INTERNAL_ERROR", "Package could not be validated.")
         if violations:
             body = _error_body("CONFIRM_REJECTED", "The package is no longer valid and cannot be booked.", violations)
             return _remember(session, package_id, "CONFIRM", key, req_hash, (422, body))
+        if trip_shape_errors(trip, draft=True):  # domain says valid but shape is broken: inconsistency, never book
+            log.error("confirm: domain accepted a malformed stored draft for %s", package_id)
+            raise ApiError(500, "INTERNAL_ERROR", "Package could not be validated.")
 
         reservation = None
         for _ in range(MAX_REFERENCE_ATTEMPTS):

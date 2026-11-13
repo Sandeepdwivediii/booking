@@ -99,7 +99,7 @@ def test_stale_version_conflict_leaves_row_identical(client, db):  # ED-12/ED-19
 
 @pytest.mark.parametrize("change, code", [
     ({"op": "remove_attraction", "item_id": "i999"}, "UNKNOWN_ITEM"),
-    ({"op": "replace_hotel", "item_id": "i3", "hotel_id": "FAKE-HTL-PRICEY", "room_id": "R"}, "OVER_BUDGET"),  # ED-11 groundwork
+    ({"op": "replace_hotel", "item_id": "i3", "hotel_id": "FAKE-HTL-PRICEY", "room_id": "FAKE-ROOM-X"}, "OVER_BUDGET"),  # ED-11 groundwork
 ])
 def test_rejected_change_leaves_row_identical(client, db, change, code):
     pid, _ = persist(db)

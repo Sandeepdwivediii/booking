@@ -173,6 +173,52 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** 
 
 - Cheapest Menon package uses a next-morning airport pickup (legal, flagged in `warnings`, shown in the UI). Consider whether demo UX would prefer a same-evening option when the price is equal.
 
+### Phase 4 checkpoint closed
+
+`origin/integration` was fast-forwarded `c49a9cd → 8b8df4d` (no force), with Sandeep's approval. Tanish sync: `git merge --ff-only origin/integration`.
+
+## Phase 5 — Edits (M6): BLOCKED (real domain edits not available)
+
+### Status of Tanish's domain
+
+- `origin/feat/tanish-domain` @ `98ccbb0` adds only `tests/domain/test_phase4_api_roundtrip.py` and a handoff update. It was merged into `sandeep` (merge commit touches only those 2 files; dry run clean); his round-trip test passes against the platform (21 passed).
+- `app/domain/edits.py` is **still the Phase 5 skeleton** (`NotImplementedError` for real `alternatives()`/`change()`). The API returns an honest 503 "not available yet"; there is no fake fallback.
+
+### Implemented (platform)
+
+- Confirm ordering fix (SY-18): `domain.validate(…, "confirm")` now runs **before** the platform shape check. A tampered stored draft returns 422 `CONFIRM_REJECTED` with the domain's violations (it was a 500). 500 only if the domain accepts a malformed draft.
+- TEST-ONLY fake now rejects non-catalog (`FAKE-`) ids like a real catalog.
+- `tests/platform/test_phase5_edits.py`: each acceptance case runs as `[fake]` (platform machinery) and `[real]` (production loader, original catalog). Real cases needing a successful real edit skip as BLOCKED and **will run automatically** once Tanish implements `change()`/`alternatives()`.
+- The edit UI from Phase 3 already covers the Phase 5 UI items: no optimistic updates, backend price/version only, INVALID_CHANGE/VERSION_CONFLICT/ALREADY_BOOKED messages. Re-verified in the browser.
+
+### Tests (`python -m pytest -q` → 639 passed, 0 failed, 13 skipped)
+
+| ID | [fake] | [real] |
+|---|---|---|
+| ED-09 valid hotel/flight change | PASS | BLOCKED |
+| ED-10 remove attraction | PASS | BLOCKED |
+| ED-11 edit over budget rejected, row unchanged | PASS | BLOCKED |
+| ED-11 over-budget draft never confirmed | PASS | **PASS** |
+| ED-12 two tabs, same If-Match | PASS | BLOCKED |
+| ED-13 PATCH vs CONFIRM serializable | PASS | BLOCKED |
+| ED-14 same key + payload replays after version advanced | PASS | BLOCKED |
+| ED-15 same key, different payload → 409 | PASS | BLOCKED |
+| ED-16 crash between UPDATE and idempotency INSERT | PASS | BLOCKED |
+| ED-17 two keys sequential | PASS | BLOCKED |
+| ED-18 PATCH after confirm → ALREADY_BOOKED, snapshot intact | PASS | **PASS** |
+| ED-19 stale PATCH rechecked inside the row lock (holder commits v2 while locked) | PASS | **PASS** |
+| PR-18 client amounts/trip/version in PATCH → 422 | PASS | **PASS** |
+| PR-18 totals after edit are server-derived | PASS | BLOCKED |
+| SY-18 forged hotel/attraction/item ids on PATCH | PASS | BLOCKED |
+| SY-18 coherent forged price in stored draft caught at confirm | n/a (fake does not re-price) | **PASS** |
+
+- Real-domain results so far: 5 PASS, 11 BLOCKED. All fake-domain machinery passes on real PostgreSQL. Browser smoke: fake 20/20, real 8/8, no JS errors.
+- Regression: Phases 0–4 all pass (incl. 31 real-domain Phase 4 tests and Tanish's 294 domain tests).
+
+### Blocker
+
+Tanish: implement `list_alternatives` / `apply_change` (contract §2: hotel incl. same-hotel rooms, flights, attractions with `start_time`; all-or-nothing, re-price, `validate(…, "modified")`, `adjustments`). No platform change is needed; rerun `python -m pytest -q tests/platform/test_phase5_edits.py`.
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).
@@ -181,6 +227,7 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** 
 
 - `docker/data/db/**` shows as locally modified (live Postgres writes to tracked files). Never stage them; avoid `git checkout -- .`, `reset --hard`, `stash`, or branch switches that touch those paths.
 
-## Next: Phase 5 (awaiting Sandeep approval)
+## Next
 
-Wire real alternatives/PATCH once Tanish's `apply_change`/`list_alternatives` land; ED-09..ED-19, PR-18, SY-18 on the real domain (2-tab PATCH, PATCH vs confirm, idempotency, unchanged row on rejection); UI polish for edit errors.
+- When Tanish's Phase 5 lands: merge, rerun `test_phase5_edits.py` (11 BLOCKED → expected to run), browser smoke real mode with edits.
+- Phase 6 (awaiting approval): formal BK-01..BK-16 + SY-16 on the real domain (confirm/lookup machinery exists since Phase 3), restart/retry evidence, 20-confirm race, booked UI polish.
