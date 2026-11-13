@@ -328,3 +328,19 @@ def test_booked_export_real_catalog_consistent(real, db):
         i["status"], i["booking"] = "PLANNED", None
     assert check_export(as_draft, RawCatalog(CATALOG_DIR)) == []
     assert json.loads(real.get(f"/api/packages/{pid}/export").content) == exp  # stable across requests
+
+
+# ---------------------------------------------------------------- SY-20 (P2): enumeration / privacy safeguards
+
+def test_SY_20_reservation_lookup_privacy_safeguards(real, db):
+    """No auth in M1-M8 (by design). Safeguards: random 10^10 key space from `secrets`, identical 404 for
+    unknown vs malformed references (no existence oracle), no personal data in the summary.
+    Not implemented (documented limitation): per-client rate limiting."""
+    refs = {tx.random_reference() for _ in range(2000)}
+    assert len(refs) == 2000 and all(REFERENCE_RE.fullmatch(r) for r in refs)
+    assert any(r.startswith("0") for r in refs)  # full 10-digit space incl. leading zeros
+    unknown, malformed = real.get("/api/reservations/1357913579"), real.get("/api/reservations/abc")
+    assert unknown.status_code == malformed.status_code == 404 and unknown.json() == malformed.json()
+    res = confirm(real, build(real)["package_id"]).json()
+    assert res["trip"]["traveler"]["name"] is None
+    assert set(res) == {"reference", "package_id", "status", "booked_at", "trip"}
