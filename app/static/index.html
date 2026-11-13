@@ -20,7 +20,7 @@
         <button type="submit" class="secondary">Find booking</button>
       </form>
       <div class="top-actions">
-        <span id="health" class="pill" data-tip="Backend and catalog status">checking…</span>
+        <span id="health" class="pill" hidden>checking…</span>
         <button type="button" id="theme-toggle" class="icon-btn" aria-label="Switch to dark mode" title="Toggle theme">
           <span class="icon-sun" aria-hidden="true">☀</span><span class="icon-moon" aria-hidden="true">☾</span>
         </button>
@@ -32,9 +32,6 @@
     <div id="planner">
       <section class="hero">
         <div class="hero-inner">
-          <ol class="steps" aria-label="Booking progress">
-            <li class="current" aria-current="step">Search</li><li>Itinerary</li><li>Customise</li><li>Confirm</li>
-          </ol>
           <h1>Find your perfect <span class="accent">holiday</span></h1>
           <p class="hero-sub">Flights, hotels, transfers and sightseeing in Japan and the UAE, built into one checked package.</p>
 
@@ -104,7 +101,7 @@
       <section class="section" aria-labelledby="ideas-title">
         <div class="section-head">
           <h2 id="ideas-title">Holiday ideas</h2>
-          <p class="muted">Ready-made requests. Prices are calculated live from the catalog when you build.</p>
+          <p class="muted">Ready-made requests. Prices are checked live when you build your trip.</p>
         </div>
         <div id="ideas" class="idea-grid"></div>
       </section>

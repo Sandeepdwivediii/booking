@@ -108,7 +108,7 @@ try:
 
     js("document.getElementById('nights').value = '6'; document.getElementById('add-child').click(); document.querySelector('#children input').value = '6'; true")
     js("document.getElementById('submit').click(); true")
-    wait("document.body.innerText.includes('Day-by-day plan') && document.body.innerText.includes('Draft · version 1')", "build -> package view v1")
+    wait("document.body.innerText.includes('Day-by-day plan') && document.getElementById('package').dataset.version === '1'", "build -> package view v1")
     results.append(("PASS" if "?package=" in js("location.search") else "FAIL", "URL has ?package=<id>"))
     shot("1_package")
 
@@ -118,41 +118,41 @@ try:
              "real domain: change flight -> options or honest not-available message")
         if not js("document.body.innerText.includes('not available yet')"):  # real edits implemented
             click("Remove")
-            wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')",
+            wait("document.getElementById('package').dataset.version === '2' && document.body.innerText.includes('Your changes have been saved')",
                  "real remove attraction -> v2 (re-validated by domain)")
         real_pid = js("new URLSearchParams(location.search).get('package')")
         click("Confirm and book")
-        wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")
+        wait("/Your holiday is confirmed. Reservation number: [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")
         ref = js("new URLSearchParams(location.search).get('reservation')")
         shot("real_booked")
         if not EXTERNAL:
             results.append(("PASS" if ref.startswith("00") and len(ref) == 10 else "FAIL", f"BK-06 UI keeps leading zeros: {ref}"))
         cdp("Page.reload")
-        wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "real: refresh after booking shows reservation")
+        wait(f"document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')", "real: refresh after booking shows reservation")
         js("history.back(); true")  # SY-16: Back to the draft URL must show the persisted booked state
-        wait(f"location.search.includes('package={real_pid}') && document.body.innerText.includes('Booked · reservation {ref}')",
+        wait(f"location.search.includes('package={real_pid}') && document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')",
              "SY-16 real: Back shows booked state")
         results.append(("PASS" if not js("[...document.querySelectorAll('#package button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book','+ Add attraction'].includes(b.textContent))") else "FAIL",
                         "SY-16 real: no edit/confirm controls after Back"))
         cdp("Page.navigate", url=base + "/")
         wait("document.querySelectorAll('#departure_city option').length > 1", "back to planner")
         js(f"document.getElementById('lookup-ref').value = '{ref}'; document.querySelector('#lookup-form button').click(); true")
-        wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "lookup by reference opens booked summary")
-        exp = js("fetch([...document.querySelectorAll('#package a')].find(a => a.textContent === 'Download JSON').href).then(r => r.json())")
+        wait(f"document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')", "lookup by reference opens booked summary")
+        exp = js("fetch([...document.querySelectorAll('#package a')].find(a => a.hasAttribute('download')).href).then(r => r.json())")
         ok = exp and exp.get("status") == "BOOKED" and all(i["status"] == "BOOKED" and i["booking"] == {"reference": ref} for i in exp["items"])
         results.append(("PASS" if ok else "FAIL", f"Download JSON is the booked judge export ({len(exp.get('items', [])) if exp else 0} items)"))
         raise SystemExit
     click("Remove")
-    wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')", "remove attraction -> v2")
+    wait("document.getElementById('package').dataset.version === '2' && document.body.innerText.includes('Your changes have been saved')", "remove attraction -> v2")
     click("+ Add attraction")
     wait("[...document.querySelectorAll('button')].some(b => b.textContent === 'Choose')", "attraction alternatives listed")
     click("Choose")
-    wait("document.body.innerText.includes('Draft · version 3')", "add attraction -> v3")
+    wait("document.getElementById('package').dataset.version === '3'", "add attraction -> v3")
 
     click("Change hotel")
     wait("[...document.querySelectorAll('button')].filter(b => b.textContent === 'Choose').length === 2", "hotel alternatives listed")
     click("Choose", 1)  # pricey -> refused
-    wait("document.body.innerText.includes('The change was refused') && document.body.innerText.includes('exceed the budget') && document.body.innerText.includes('Draft · version 3')", "over-budget change refused, still v3")
+    wait("document.body.innerText.includes('The change was refused') && document.body.innerText.includes('exceed the budget') && document.getElementById('package').dataset.version === '3'", "over-budget change refused, still v3")
     shot("2_refused")
 
     # another tab edits the same package -> this tab's next edit gets VERSION_CONFLICT
@@ -161,22 +161,22 @@ try:
     click("Remove")
     wait("document.body.innerText.includes('changed in another tab')", "stale tab -> VERSION_CONFLICT message")
     click("Reload package")
-    wait("document.body.innerText.includes('Draft · version 4')", "reload shows v4")
+    wait("document.getElementById('package').dataset.version === '4'", "reload shows v4")
 
     cdp("Page.reload")
-    wait("document.body.innerText.includes('Draft · version 4') && document.body.innerText.includes('Day-by-day plan')", "browser refresh keeps package v4")
+    wait("document.getElementById('package').dataset.version === '4' && document.body.innerText.includes('Day-by-day plan')", "browser refresh keeps package v4")
 
     click("Confirm and book")
-    wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "confirm -> reservation number")
+    wait("/Your holiday is confirmed. Reservation number: [0-9]{10}/.test(document.body.innerText)", "confirm -> reservation number")
     ref = js("new URLSearchParams(location.search).get('reservation')")
     results.append(("PASS" if ref and len(ref) == 10 else "FAIL", f"URL has ?reservation={ref}"))
     results.append(("PASS" if not js("[...document.querySelectorAll('button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book'].includes(b.textContent))") else "FAIL", "booked view is read-only"))
     shot("3_booked")
 
     cdp("Page.reload")
-    wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "refresh after booking shows reservation")
+    wait(f"document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')", "refresh after booking shows reservation")
     cdp("Page.navigate", url=f"{base}/?package={pid}")  # SY-16: old draft URL
-    wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "SY-16: draft URL shows booked state")
+    wait(f"document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')", "SY-16: draft URL shows booked state")
     results.append(("PASS" if not js("[...document.querySelectorAll('#package button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book','+ Add attraction'].includes(b.textContent))") else "FAIL",
                     "SY-16: no edit/confirm controls on booked package"))
     js("document.getElementById('lookup-ref').value = '0000000000'; document.querySelector('#lookup-form button').click(); true")
@@ -184,7 +184,7 @@ try:
     js("document.getElementById('lookup-ref').value = '12ab'; document.querySelector('#lookup-form button').click(); true")
     wait("document.body.innerText.includes('exactly 10 digits')", "malformed reference -> message")
     js(f"document.getElementById('lookup-ref').value = '{ref}'; document.querySelector('#lookup-form button').click(); true")
-    wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "lookup by reference opens summary")
+    wait(f"document.getElementById('package').dataset.status === 'BOOKED' && document.body.innerText.includes('Reservation {ref}')", "lookup by reference opens summary")
     ws.close()
 except SystemExit:
     pass

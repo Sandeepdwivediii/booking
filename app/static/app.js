@@ -12,6 +12,11 @@ const ROLE_LABEL = {
 const KIND_LABEL = { departure: "Departure from home", arrival: "Arrival day", change: "City change",
   full: "Full day", return: "Return day" };
 
+// Display-only: domain notes may carry catalog codes and ISO timestamps; customers see plain text.
+const customerText = (t) => String(t)
+  .replace(/\s*\((?:FL|HTL|RM|TR|ATT)-[A-Z0-9-]+\)/g, "")
+  .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/g, "$1 $2");
+
 function el(tag, text, cls) {
   const e = document.createElement(tag);
   if (text !== undefined && text !== null) e.textContent = text;
@@ -175,12 +180,12 @@ function entryLine(e, ctx) {
   const what = el("div", undefined, "what");
   const title = e.kind === "check_out" ? `Check out of ${e.name}` : `${ROLE_LABEL[e.role] || e.type}: ${e.name}`;
   what.append(el("strong", title));
-  const meta = [e.city, e.catalog_id];
-  if (e.type === "hotel" && e.kind === "check_in") meta.push(`room ${e.room_id}`, `${e.quantity} room(s)`, `until ${e.end_date}`);
+  const meta = [e.city];
+  if (e.type === "hotel" && e.kind === "check_in") meta.push(`${e.quantity} room(s)`, `until ${e.end_date}`);
   else if (e.type === "flight" && e.end_time) meta.push(`arrives ${e.end_date} ${e.end_time} local`, `${e.quantity} seat(s)`);
-  else if (e.kind === "event") meta.push(`qty ${e.quantity}`);
+  else if (e.type === "attraction") meta.push(`${e.quantity} ticket(s)`);
   what.append(el("small", meta.filter(Boolean).join(" · ")));
-  for (const w of e.warnings) what.append(el("small", "⚠ " + w, "warning"));
+  for (const w of e.warnings) what.append(el("small", "⚠ " + customerText(w), "warning"));
   li.append(what);
   const side = el("div", undefined, "side");
   side.append(el("span", e.kind === "check_out" ? "" : inr(e.price_inr), "num"));
@@ -228,16 +233,16 @@ function explainError(ctx, status, body) {
     case "INVALID_CHANGE":
     case "CONFIRM_REJECTED": {
       const ul = el("ul");
-      for (const v of err.details || []) ul.append(el("li", affectedLabel(ctx, v.item_id) + v.message));
-      return packageMessage(ctx, err.code === "INVALID_CHANGE" ? "The change was refused. Nothing was saved." : err.message, "error", ul);
+      for (const v of err.details || []) ul.append(el("li", affectedLabel(ctx, v.item_id) + customerText(v.message)));
+      return packageMessage(ctx, err.code === "INVALID_CHANGE" ? "The change was refused. Nothing was saved." : "We couldn't confirm this booking. Nothing was charged or saved.", "error", ul);
     }
     case "VERSION_CONFLICT":
       ctx.panel.hidden = true;  // listed options/prices belong to an older version
-      return packageMessage(ctx, "This package was changed in another tab. Reload to see the latest version.", "warn", reload);
+      return packageMessage(ctx, "This trip was changed in another tab. Reload to see the latest details.", "warn", reload);
     case "ALREADY_BOOKED":
       return packageMessage(ctx, "This package is already booked and can no longer be changed.", "warn", reload);
     default:
-      return packageMessage(ctx, err?.message || `Request failed (${status}).`, "error");
+      return packageMessage(ctx, err?.code === "SERVICE_UNAVAILABLE" ? err.message : "Something went wrong and nothing was changed. Please try again.", "error");
   }
 }
 
@@ -270,8 +275,7 @@ async function showAlternatives(ctx, component, filters, title, currentPrice) {
     const li = el("li");
     li.style.setProperty("--i", String(Math.min(index, 10)));
     const diff = a.price_diff_inr ?? (a.price_inr - currentPrice);  // server value: whole-trip difference vs saved version
-    const meta = [a.catalog_id, a.room_id && `room ${a.room_id}`, a.start && `${a.start}${a.end ? " → " + a.end : ""}`]
-      .filter(Boolean).join(" · ");
+    const meta = a.start ? `${a.start.replace("T", " ")}${a.end ? " → " + a.end.replace("T", " ") : ""}` : "";
     const info = el("div");
     info.append(el("strong", a.name), el("small", meta));
     if (a.new_total_inr != null) {
@@ -324,7 +328,7 @@ async function showCityPlans(ctx) {
 }
 
 async function applyChange(ctx, change) {
-  packageMessage(ctx, "Checking the whole package…", "info");
+  packageMessage(ctx, "Saving your changes…", "info");
   let res;
   try {
     res = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}`, {
@@ -341,10 +345,10 @@ async function applyChange(ctx, change) {
     let list;
     if (adj.length) {
       list = el("ul");
-      for (const a of adj) list.append(el("li", a));
+      for (const a of adj) list.append(el("li", customerText(a)));
     }
-    UI.toast(adj.length ? `Package updated · ${adj.length} related change(s)` : "Package updated and re-checked.", "ok");
-    return packageMessage(currentCtx, adj.length ? "Package updated and re-checked. Also changed to keep it valid:" : "Package updated and re-checked.", "ok", list);
+    UI.toast(adj.length ? `Your changes have been saved · ${adj.length} related update(s)` : "Your changes have been saved.", "ok");
+    return packageMessage(currentCtx, adj.length ? "Your changes have been saved. We also updated these to keep your trip working:" : "Your changes have been saved.", "ok", list);
   }
   if (res.body?.error?.code === "INVALID_CHANGE") UI.toast("Change refused — your package is unchanged.", "error");
   explainError(ctx, res.status, res.body);
@@ -376,7 +380,7 @@ async function confirmBooking(ctx) {
 
 function renderReservation(res) {
   renderPackage({ package_id: res.package_id, version: null, status: "BOOKED", reference: res.reference, trip: res.trip });
-  packageMessage(currentCtx, `Booked! Your reservation number is ${res.reference}.`, "ok");
+  packageMessage(currentCtx, `Your holiday is confirmed. Reservation number: ${res.reference}.`, "ok");
 }
 
 function reservationNotFound(msg) {
@@ -394,7 +398,7 @@ async function openReservation(ref) {
   if (!/^[0-9]{10}$/.test(ref)) return reservationNotFound("A reservation number has exactly 10 digits.");
   const { status, body } = await api(`/api/reservations/${encodeURIComponent(ref)}`);
   if (status === 200) return renderReservation(body);
-  reservationNotFound(status === 404 ? "Reservation not found." : (body?.error?.message || `Lookup failed (${status}).`));
+  reservationNotFound(status === 404 ? "Reservation not found." : "We couldn't look up that reservation right now. Please try again.");
 }
 
 function renderItinerary(trip, ctx) {
@@ -427,18 +431,6 @@ function renderItinerary(trip, ctx) {
   return box;
 }
 
-function progressSteps(status) {
-  const done = status === "BOOKED" ? 4 : 2;  // search + itinerary done; customise now, then confirm
-  const ol = el("ol", undefined, "steps");
-  ol.setAttribute("aria-label", "Booking progress");
-  ["Search", "Itinerary", "Customise", "Confirm"].forEach((name, i) => {
-    const li = el("li", name, i < done ? "done" : i === done ? "current" : "");
-    if (i === done) li.setAttribute("aria-current", "step");
-    ol.append(li);
-  });
-  return ol;
-}
-
 let currentCtx = null;
 
 function renderPackage(view) {
@@ -446,13 +438,14 @@ function renderPackage(view) {
   const box = $("package");
   box.replaceChildren();
   const head = el("section", undefined, "card");
-  head.append(progressSteps(view.status));
   head.append(el("h2", `${t.country} · ${t.start_date} → ${t.end_date}`));
   const tr = t.traveler;
   const party = `${tr.adults} adult(s)` + (tr.children ? `, ${tr.children} child(ren) aged ${tr.child_ages.join(", ")}` : "");
   head.append(el("p", `From ${tr.home_airport} · ${party}`, "muted"));
   const editable = view.status === "DRAFT";
-  const status = view.status === "BOOKED" ? `Booked · reservation ${view.reference}` : `Draft · version ${view.version}`;
+  const status = view.status === "BOOKED" ? `Your holiday is confirmed · Reservation ${view.reference}` : "Not booked yet · review and confirm when ready";
+  box.dataset.status = view.status;  // internal state for tests/tools; not shown to customers
+  box.dataset.version = view.version ?? "";
   head.append(el("div", status, "status-chip " + (view.status === "BOOKED" ? "ok" : "info")));
   const message = el("div", undefined, "banner");
   message.hidden = true;
@@ -471,14 +464,14 @@ function renderPackage(view) {
     cities.id = "change-cities-btn";
     actions.append(cities);
   }
-  const exp = el("a", "Download JSON", "button");
+  const exp = el("a", "Download itinerary", "button");
   exp.href = `/api/packages/${encodeURIComponent(view.package_id)}/export`;
   exp.setAttribute("download", `trip-${view.package_id}.json`);
   const again = el("button", "Plan another trip", "secondary");
   again.type = "button";
   again.onclick = () => { history.pushState(null, "", "/"); showView("planner"); };
   actions.append(exp, again);
-  head.append(actions, el("small", `Package ID: ${view.package_id}`, "hint"), message, panel);
+  head.append(actions, message, panel);
   const layout = el("div", undefined, "pkg-layout");
   const side = el("aside", undefined, "pkg-side");
   side.setAttribute("aria-label", "Price summary");
@@ -494,7 +487,7 @@ async function openPackage(id) {
   showView("package");
   const { status, body } = await api(`/api/packages/${encodeURIComponent(id)}`);
   if (status === 200) return renderPackage(body);
-  const msg = status === 404 ? "Package not found. It may have been mistyped." : (body?.error?.message || `Could not load package (${status}).`);
+  const msg = status === 404 ? "We couldn't find this trip. The link may be incomplete." : "We couldn't load this trip right now. Please try again.";
   $("package").replaceChildren(el("section", undefined, "card"));
   $("package").firstChild.append(el("div", msg, "banner error"));
   const back = el("button", "Plan a trip", "secondary");
@@ -514,15 +507,15 @@ function renderBuildOutcome(status, body) {
   }
   if (body?.status === "OVER_BUDGET") {
     box.append(el("h2", "No package fits your budget"),
-      el("div", `${body.reason} Cheapest possible total: ${inr(body.cheapest_total_inr)} (${inr(body.shortfall_inr)} over your budget).`, "banner warn"));
-    if (body.suggestion) box.append(el("p", "Suggestion: " + body.suggestion));
+      el("div", `${customerText(body.reason)} Cheapest possible total: ${inr(body.cheapest_total_inr)} (${inr(body.shortfall_inr)} over your budget).`, "banner warn"));
+    if (body.suggestion) box.append(el("p", "Suggestion: " + customerText(body.suggestion)));
     $("planner").hidden = false; box.hidden = false;
     box.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
   if (body?.status === "NO_PACKAGE") {
-    box.append(el("h2", "No package is possible"), el("div", body.reason, "banner error"));
-    if (body.suggestion) box.append(el("p", "Suggestion: " + body.suggestion));
+    box.append(el("h2", "We couldn't put this trip together"), el("div", customerText(body.reason), "banner error"));
+    if (body.suggestion) box.append(el("p", "Suggestion: " + customerText(body.suggestion)));
     $("planner").hidden = false; box.hidden = false;
     box.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
@@ -534,7 +527,7 @@ function renderBuildOutcome(status, body) {
     const field = (d.loc || []).filter((p) => p !== "body")[0];
     if (field && setFieldError(field, d.msg)) placed = true;
   }
-  showFormError(placed ? "Please fix the highlighted fields." : (err?.message || `Request failed (${status}).`));
+  showFormError(placed ? "Please fix the highlighted fields." : "We couldn't build your trip right now. Please try again.");
 }
 
 async function onSubmit(ev) {
@@ -582,7 +575,7 @@ function groupRecommendations(recs) {
 function renderRecommendations(request, body) {
   const box = $("result");
   box.replaceChildren(el("h2", "Your three best-fit packages"),
-    el("p", "Each is a complete package within your budget, computed from the catalog for this exact request. " +
+    el("p", "Each is a complete package within your budget, built for your exact request. " +
       "Travel time counts flights and city-to-city transfers; rating is hotel stars weighted by nights.", "hint"));
   const key = newKey();  // one key per result set: repeated clicks never create a second draft
   const grid = el("div", undefined, "recs");
