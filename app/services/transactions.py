@@ -26,6 +26,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from app.api.errors import ApiError
 from app.contracts import (
+    CITY_PLAN_OP,
     ALTERNATIVE_COMPONENTS, CHANGE_OPS, REFERENCE_RE, DomainPort, alternatives_shape_errors,
     change_result_shape_errors, trip_shape_errors, violation_shape_errors,
 )
@@ -98,8 +99,7 @@ def _error_body(code: str, message: str, details=None) -> dict:
 
 # ---------------------------------------------------------------- PATCH
 
-# G3 extension (Tanish's 0d7c931 proposal): not a DomainPort.change op; routed to the optional domain method.
-CITY_PLAN_OP = "change_city_plan"
+# G3 extension (contract v1.2.0): not a DomainPort.change op; routed to the optional domain method.
 
 
 def _extension(domain, name: str):

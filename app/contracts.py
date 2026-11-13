@@ -15,7 +15,7 @@ import re
 from datetime import date, timedelta
 from typing import Any, Literal, NotRequired, Protocol, TypedDict, runtime_checkable
 
-CONTRACT_VERSION = "1.1.0"
+CONTRACT_VERSION = "1.2.0"
 
 # Import path of the real adapter factory (owned by the domain lane):
 #   from app.domain.adapter import create_domain
@@ -248,6 +248,26 @@ class RemoveAttractionChange(TypedDict):
 
 ChangeRequest = ReplaceHotelChange | ReplaceFlightChange | AddAttractionChange | RemoveAttractionChange
 
+
+# ---- G3 extension (v1.2.0, additive; agreed from Tanish's 0d7c931 proposal). NOT a DomainPort.change op:
+# CHANGE_OPS and DomainPort are unchanged. The platform routes this PATCH body to the OPTIONAL domain method
+# rebuild_city_plan(trip, cities, nights) -> ChangeResult, and lists choices via the OPTIONAL
+# city_plan_options(trip) -> [CityPlanOption]. A domain without them -> 503 SERVICE_UNAVAILABLE.
+CITY_PLAN_OP = "change_city_plan"
+
+
+class CityPlanChange(TypedDict):
+    op: Literal["change_city_plan"]
+    cities: list[str]  # ordered city names of the destination country
+    nights: list[int]  # nights per city, same length, sums to the trip's nights
+
+
+class CityPlanOption(TypedDict):
+    cities: list[str]
+    nights: list[int]
+    total_inr: int  # cheapest complete package for exactly this plan
+    price_diff_inr: int  # total_inr - current trip total
+    within_budget: bool
 
 class Alternative(TypedDict):
     component: AlternativeComponent
