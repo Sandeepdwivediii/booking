@@ -210,10 +210,11 @@ function explainError(ctx, status, body) {
     case "INVALID_CHANGE":
     case "CONFIRM_REJECTED": {
       const ul = el("ul");
-      for (const v of err.details || []) ul.append(el("li", v.message));
-      return packageMessage(ctx, err.message, "error", ul);
+      for (const v of err.details || []) ul.append(el("li", affectedLabel(ctx, v.item_id) + v.message));
+      return packageMessage(ctx, err.code === "INVALID_CHANGE" ? "The change was refused. Nothing was saved." : err.message, "error", ul);
     }
     case "VERSION_CONFLICT":
+      ctx.panel.hidden = true;  // listed options/prices belong to an older version
       return packageMessage(ctx, "This package was changed in another tab. Reload to see the latest version.", "warn", reload);
     case "ALREADY_BOOKED":
       return packageMessage(ctx, "This package is already booked and can no longer be changed.", "warn", reload);
@@ -222,8 +223,19 @@ function explainError(ctx, status, body) {
   }
 }
 
+function affectedLabel(ctx, itemId) {
+  const item = itemId && ctx.view.trip.items.find((i) => i.item_id === itemId);
+  return item ? `${ROLE_LABEL[item.role] || item.type}: ${item.name} — ` : "";
+}
+
+function signedDiff(diff) {
+  if (diff === 0) return "same price";
+  return `${diff > 0 ? "+" : "−"}${inr(Math.abs(diff))}`;
+}
+
 async function showAlternatives(ctx, component, filters, title, currentPrice) {
   const panel = ctx.panel;
+  packageMessage(ctx, null);  // never keep a warning that belongs to another candidate
   panel.replaceChildren(el("h3", title), el("p", "Loading options…", "hint"));
   panel.hidden = false;
   const q = new URLSearchParams({ component, ...filters });
@@ -234,12 +246,19 @@ async function showAlternatives(ctx, component, filters, title, currentPrice) {
   const ul = el("ul", undefined, "alts");
   for (const a of body.alternatives) {
     const li = el("li");
-    const diff = a.price_diff_inr ?? (a.price_inr - currentPrice);
+    const diff = a.price_diff_inr ?? (a.price_inr - currentPrice);  // server value: whole-trip difference vs saved version
     const meta = [a.catalog_id, a.room_id && `room ${a.room_id}`, a.start && `${a.start}${a.end ? " → " + a.end : ""}`]
       .filter(Boolean).join(" · ");
     const info = el("div");
     info.append(el("strong", a.name), el("small", meta));
-    li.append(info, el("span", `${inr(a.price_inr)} (${diff >= 0 ? "+" : "−"}${inr(Math.abs(diff))})`, "num"),
+    if (a.new_total_inr != null) {
+      const left = ctx.view.trip.budget_inr - a.new_total_inr;
+      info.append(el("small", `New total ${inr(a.new_total_inr)} · ${left >= 0 ? inr(left) + " left" : inr(-left) + " over budget"}`,
+        left >= 0 ? "budget-ok" : "warning"));
+    }
+    const price = el("span", undefined, "num price-col");
+    price.append(el("span", inr(a.price_inr)), el("span", signedDiff(diff), "diff " + (diff > 0 ? "up" : diff < 0 ? "down" : "same")));
+    li.append(info, price,
       actionButton("Choose", () => applyChange(ctx, a.change)));
     ul.append(li);
   }
@@ -260,8 +279,13 @@ async function applyChange(ctx, change) {
   }
   if (res.status === 200) {
     renderPackage({ ...res.body, reference: null });
-    const msg = ["Package updated and re-checked.", ...(res.body.adjustments || [])].join(" ");
-    return packageMessage(currentCtx, msg, "ok");
+    const adj = res.body.adjustments || [];
+    let list;
+    if (adj.length) {
+      list = el("ul");
+      for (const a of adj) list.append(el("li", a));
+    }
+    return packageMessage(currentCtx, adj.length ? "Package updated and re-checked. Also changed to keep it valid:" : "Package updated and re-checked.", "ok", list);
   }
   explainError(ctx, res.status, res.body);
 }

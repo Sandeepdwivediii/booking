@@ -303,3 +303,17 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 - `docker compose up` of the **whole** stack from a clean clone was not run: fixed container names (`postgres`, `booking-adminer`, `booking-app`) and ports collide with the running stack, and a clone's `db` would start from the tracked `docker/data/db/` snapshot.
 - Needs approval: untrack `docker/data/db/**`. Plan: stop `db` → copy `docker/data/db` outside the repo (or `pg_dump`) → add `docker/data/` to `.gitignore` → `git rm -r --cached docker/data/db` → verify the folder still exists and `db` is healthy → commit; other clones back up first (pulling deletes their copy).
 - Compose `db` password is still hardcoded (no rotation without approval); `.env` must hold the same value for the app.
+
+## Phase 8 — G1 + G2 (optional extension): PASS
+
+- No contract change: Tanish's Phase 8 (`8a2b10a`, merged into `sandeep` alone, without his Phase 9 `0d7c931`) uses the existing `TripItem.warnings`, `ChangeResult.adjustments` and `Alternative.price_diff_inr`/`new_total_inr` (contract v1.1.0).
+- UI (`app/static/app.js`, `styles.css`, `itinerary.js`):
+  - signed whole-trip difference badges (`+₹x` / `−₹x` / `same price`) and "new total · left/over budget" for each option;
+  - adjustments shown as a list after a save;
+  - rejected changes name the affected item;
+  - opening options clears stale messages; a version conflict hides stale options;
+  - warnings shown once (not repeated on check-out).
+- `tests/platform/test_phase8_g1_g2.py` (real domain, real PostgreSQL):
+  - **PASS:** G1-B01 (real conflicting outbound flight → 422 naming the item, row byte-identical), G1-B02 (hotel swap → transfers re-picked + check-in note, `validate(modified)` clean), G1-B03, G1-B04 (two tabs → 200/409), G1-B05, G2-B01 (+/0/− all occur; preview total == saved total; UI labels via Node), G2-B02 (forged `price_diff_inr`/totals → 422), G2-B03 (stale option → 409, row unchanged, repriced vs new version), G2-B04 (no over-budget offers; forced one → 422 OVER_BUDGET, row unchanged, still confirmable).
+- Regression: `python -m pytest -q` → 805 passed, 0 failed, 2 skipped; browser smoke fake 22/22, real 15/15; no JS errors.
+- Note for Tanish: the initial build doesn't add the edit-time check-in note for the same hotel (an edit back to the original hotel does). The warning is true in both cases; it's a consistency gap, not a rule violation.

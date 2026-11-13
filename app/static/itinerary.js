@@ -51,6 +51,7 @@
       if (item.type === "hotel" && item.end) {
         const out = entry(item, "check_out");
         out.price_inr = 0; // display marker; the stay is priced on the check-in entry
+        out.warnings = []; // warnings are shown once, on the check-in entry
         const d = datePart(item.end);
         days.set(d, [out, ...(days.get(d) || [])]); // leave the hotel first that day
       }
