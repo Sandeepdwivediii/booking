@@ -1,6 +1,37 @@
 # Handoff — Tanish (Developer A, domain)
 
-## Phase 6 — booked export & confirm validation (latest)
+## Phase 7 — final domain verification (latest)
+
+```text
+Developer: Tanish (A)
+Phase: 7 — complete. No discrepancies found; no production changes (domain frozen since e9c61c5 / 49f3bc6 code).
+Remote: origin/integration = 70012ee (app/domain + contract identical to this branch); origin/sandeep = 7d3f4d4
+Added: tests/domain_fixtures/judge_oracle.py  independent §4 rules + prices from RAW JSON (no app.* imports)
+       tests/domain/test_phase7_final.py      34 tests (sweep, brute force, alternatives, boundaries, oracle self-tests)
+feat/tanish-domain: 459 passed, 3 skipped (API modules BLOCKED: no app.main on branch)
+integration 70012ee + all domain tests, disposable PostgreSQL 127.0.0.1:55435: 783 passed, 0 failed, 2 skipped
+  (both skips are Sandeep's by-design placeholders)
+```
+
+Evidence:
+- SY-17 sweep: 4 homes × 2 countries × 5 start dates × nights {3,4,6,10} × 3 parties (incl. infant age 0,
+  child 17, 4A+3C) → every BUILT trip passes the independent judge; `NO_OUTBOUND_FLIGHT` re-derived from raw flights.
+- M8 on official data: independent exhaustive 3-night brute force (own pickup scans, every room count,
+  every attraction pair, branch-and-bound) = planner cheapest on 5 requests (INR 227,584 / 134,952 /
+  77,104 / 293,714 / 140,952) and both say no package on the 6th; budget = min → BUILT, min−1 → OVER_BUDGET (shortfall 1).
+- Every listed alternative (hotel per hotel item, both flights, attractions on every trip day, limit 50) on
+  5 official trips incl. 2-city Japan plans: `change()` succeeds, diff == listed `price_diff_inr`, judge passes.
+- Rejected edits (duplicate, Nara, closed ATT-TYO-006, missing item, wrong-date flight) leave the trip untouched.
+- Boundaries: first night 04-01, return 04-20, 10 nights, 03-31 / 04-21 returns → `OUTSIDE_DATA_WINDOW`;
+  15-traveler party respects seats/rooms. Judge oracle self-tests prove it detects 6 defect classes.
+
+Remaining risks: the brute force covers single-city 3-night trips on official data (multi-city exactness is
+covered by the Phase 3 random-catalog oracle); the judges' own tool may interpret display-only items
+(e.g. long airport waits, warned) differently; G1–G4/S1–S3 not implemented (await approval).
+
+---
+
+## Phase 6 — booked export & confirm validation
 
 ```text
 Developer: Tanish (A)
