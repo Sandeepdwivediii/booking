@@ -1,0 +1,1822 @@
+[
+  {
+    "attraction_id": "ATT-KYO-001",
+    "name": "Kiyomizu-dera",
+    "name_ja": "清水寺",
+    "city": "Kyoto",
+    "category": "TEMPLE",
+    "lat": 34.9949,
+    "lng": 135.785,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:00",
+    "open_until": "18:00",
+    "aliases": [
+      "Kiyomizu Temple"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": false,
+    "price_per_person": {
+      "amount": 280,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-001.jpg",
+    "child_price": {
+      "amount": 112,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-002",
+    "name": "Fushimi Inari Taisha",
+    "name_ja": "伏見稲荷大社",
+    "city": "Kyoto",
+    "category": "SHRINE",
+    "lat": 34.9671,
+    "lng": 135.7727,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:00",
+    "open_until": "19:00",
+    "aliases": [
+      "Fushimi Inari",
+      "Fushimi Inari Shrine"
+    ],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": false,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-002.jpg"
+  },
+  {
+    "attraction_id": "ATT-KYO-003",
+    "name": "Kinkaku-ji",
+    "name_ja": "金閣寺",
+    "city": "Kyoto",
+    "category": "TEMPLE",
+    "lat": 35.0394,
+    "lng": 135.7292,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "17:00",
+    "aliases": [
+      "Golden Pavilion",
+      "Rokuon-ji"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 280,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-003.jpg",
+    "child_price": {
+      "amount": 168,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-004",
+    "name": "Arashiyama Bamboo Grove",
+    "name_ja": "嵐山竹林",
+    "city": "Kyoto",
+    "category": "NATURE",
+    "lat": 35.017,
+    "lng": 135.6713,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "07:00",
+    "open_until": "18:00",
+    "aliases": [
+      "Bamboo Forest",
+      "Sagano Bamboo Forest"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-004.jpg"
+  },
+  {
+    "attraction_id": "ATT-KYO-005",
+    "name": "Nishiki Market",
+    "name_ja": "錦市場",
+    "city": "Kyoto",
+    "category": "MARKET",
+    "lat": 35.005,
+    "lng": 135.7649,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "17:00",
+    "aliases": [
+      "Nishiki Ichiba"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-005.jpg"
+  },
+  {
+    "attraction_id": "ATT-KYO-006",
+    "name": "Gion District",
+    "name_ja": "祇園",
+    "city": "Kyoto",
+    "category": "DISTRICT",
+    "lat": 35.0037,
+    "lng": 135.7788,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "22:00",
+    "aliases": [
+      "Gion"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-006.jpg"
+  },
+  {
+    "attraction_id": "ATT-KYO-007",
+    "name": "Philosopher's Path",
+    "name_ja": "哲学の道",
+    "city": "Kyoto",
+    "category": "NATURE",
+    "lat": 35.027,
+    "lng": 135.7948,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "07:00",
+    "open_until": "19:00",
+    "aliases": [
+      "Tetsugaku-no-michi"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-007.jpg"
+  },
+  {
+    "attraction_id": "ATT-KYO-008",
+    "name": "Kyoto Railway Museum",
+    "name_ja": "京都鉄道博物館",
+    "city": "Kyoto",
+    "category": "MUSEUM",
+    "lat": 34.9871,
+    "lng": 135.7424,
+    "open_days": [
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN",
+      "MON",
+      "TUE"
+    ],
+    "open_from": "10:00",
+    "open_until": "17:00",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 840,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-008.jpg",
+    "child_price": {
+      "amount": 280,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-009",
+    "name": "Nijo Castle",
+    "name_ja": "二条城",
+    "city": "Kyoto",
+    "category": "CASTLE",
+    "lat": 35.0142,
+    "lng": 135.748,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "08:45",
+    "open_until": "16:00",
+    "aliases": [
+      "Nijo-jo"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-009.jpg",
+    "child_price": {
+      "amount": 224,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-010",
+    "name": "Sanjusangen-do",
+    "name_ja": "三十三間堂",
+    "city": "Kyoto",
+    "category": "TEMPLE",
+    "lat": 34.9879,
+    "lng": 135.7718,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "17:00",
+    "aliases": [],
+    "visit_minutes": 45,
+    "child_friendly": false,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 336,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-010.jpg",
+    "child_price": {
+      "amount": 168,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-011",
+    "name": "Kyoto Aquarium",
+    "name_ja": "京都水族館",
+    "city": "Kyoto",
+    "category": "AQUARIUM",
+    "lat": 34.9875,
+    "lng": 135.7466,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "18:00",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1344,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-011.jpg",
+    "child_price": {
+      "amount": 672,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-KYO-012",
+    "name": "Kyoto Imperial Palace",
+    "name_ja": "京都御所",
+    "city": "Kyoto",
+    "category": "PALACE",
+    "lat": 35.0254,
+    "lng": 135.7621,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "16:00",
+    "aliases": [
+      "Kyoto Gosho"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": false,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-KYO-012.jpg"
+  },
+  {
+    "attraction_id": "ATT-OSA-001",
+    "name": "Dotonbori",
+    "name_ja": "道頓堀",
+    "city": "Osaka",
+    "category": "DISTRICT",
+    "lat": 34.6687,
+    "lng": 135.5013,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "23:00",
+    "aliases": [
+      "Dōtonbori"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-001.jpg"
+  },
+  {
+    "attraction_id": "ATT-OSA-002",
+    "name": "Kuromon Ichiba Market",
+    "name_ja": "黒門市場",
+    "city": "Osaka",
+    "category": "MARKET",
+    "lat": 34.6652,
+    "lng": 135.5068,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "18:00",
+    "aliases": [
+      "Kuromon Market"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-002.jpg"
+  },
+  {
+    "attraction_id": "ATT-OSA-003",
+    "name": "Osaka Castle",
+    "name_ja": "大阪城",
+    "city": "Osaka",
+    "category": "CASTLE",
+    "lat": 34.6873,
+    "lng": 135.5262,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "17:00",
+    "aliases": [
+      "Osaka-jo"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 336,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-003.jpg",
+    "child_price": {
+      "amount": 0,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-OSA-004",
+    "name": "Universal Studios Japan",
+    "name_ja": "ユニバーサル・スタジオ・ジャパン",
+    "city": "Osaka",
+    "category": "THEME_PARK",
+    "lat": 34.6654,
+    "lng": 135.4323,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "21:00",
+    "aliases": [
+      "USJ",
+      "Universal Studios"
+    ],
+    "visit_minutes": 480,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 4816,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-004.jpg",
+    "child_price": {
+      "amount": 3136,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-OSA-005",
+    "name": "Osaka Aquarium Kaiyukan",
+    "name_ja": "海遊館",
+    "city": "Osaka",
+    "category": "AQUARIUM",
+    "lat": 34.6545,
+    "lng": 135.429,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "20:00",
+    "aliases": [
+      "Kaiyukan"
+    ],
+    "visit_minutes": 150,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1512,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-005.jpg",
+    "child_price": {
+      "amount": 784,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-OSA-006",
+    "name": "Umeda Sky Building",
+    "name_ja": "梅田スカイビル",
+    "city": "Osaka",
+    "category": "VIEWPOINT",
+    "lat": 34.7053,
+    "lng": 135.4896,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:30",
+    "open_until": "22:30",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 840,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-006.jpg",
+    "child_price": {
+      "amount": 392,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-OSA-007",
+    "name": "Shinsekai",
+    "name_ja": "新世界",
+    "city": "Osaka",
+    "category": "DISTRICT",
+    "lat": 34.6525,
+    "lng": 135.5063,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-007.jpg"
+  },
+  {
+    "attraction_id": "ATT-OSA-008",
+    "name": "Sumiyoshi Taisha",
+    "name_ja": "住吉大社",
+    "city": "Osaka",
+    "category": "SHRINE",
+    "lat": 34.6124,
+    "lng": 135.493,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:30",
+    "open_until": "17:00",
+    "aliases": [],
+    "visit_minutes": 45,
+    "child_friendly": false,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-008.jpg"
+  },
+  {
+    "attraction_id": "ATT-OSA-009",
+    "name": "Osaka Science Museum",
+    "name_ja": "大阪市立科学館",
+    "city": "Osaka",
+    "category": "MUSEUM",
+    "lat": 34.6914,
+    "lng": 135.4917,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:30",
+    "open_until": "17:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 224,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-OSA-009.jpg",
+    "child_price": {
+      "amount": 0,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-NAR-001",
+    "name": "Nara Park",
+    "name_ja": "奈良公園",
+    "city": "Nara",
+    "category": "PARK",
+    "lat": 34.6851,
+    "lng": 135.843,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "00:00",
+    "open_until": "24:00",
+    "aliases": [
+      "Nara Deer Park"
+    ],
+    "visit_minutes": 150,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-NAR-001.jpg"
+  },
+  {
+    "attraction_id": "ATT-NAR-002",
+    "name": "Todai-ji",
+    "name_ja": "東大寺",
+    "city": "Nara",
+    "category": "TEMPLE",
+    "lat": 34.689,
+    "lng": 135.8398,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "07:30",
+    "open_until": "17:30",
+    "aliases": [
+      "Todaiji Temple"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 448,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-NAR-002.jpg",
+    "child_price": {
+      "amount": 224,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-001",
+    "name": "teamLab Planets TOKYO",
+    "name_ja": "チームラボプラネッツ",
+    "city": "Tokyo",
+    "category": "MUSEUM",
+    "lat": 35.6491,
+    "lng": 139.7898,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "22:00",
+    "aliases": [
+      "teamLab",
+      "teamLab Planets"
+    ],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 2128,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-001.jpg",
+    "child_price": {
+      "amount": 840,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-002",
+    "name": "Tokyo Disneyland",
+    "name_ja": "東京ディズニーランド",
+    "city": "Tokyo",
+    "category": "THEME_PARK",
+    "lat": 35.6329,
+    "lng": 139.8804,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "21:00",
+    "aliases": [
+      "Disneyland"
+    ],
+    "visit_minutes": 480,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 5264,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-002.jpg",
+    "child_price": {
+      "amount": 3136,
+      "currency": "INR"
+    },
+    "closed_dates": [
+      "2027-04-12"
+    ]
+  },
+  {
+    "attraction_id": "ATT-TYO-003",
+    "name": "Tokyo Toy Museum",
+    "name_ja": "東京おもちゃ美術館",
+    "city": "Tokyo",
+    "category": "MUSEUM",
+    "lat": 35.6876,
+    "lng": 139.7208,
+    "open_days": [
+      "FRI",
+      "SAT",
+      "SUN",
+      "MON",
+      "TUE",
+      "WED"
+    ],
+    "open_from": "10:00",
+    "open_until": "16:00",
+    "aliases": [
+      "Toy Museum"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 616,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-003.jpg",
+    "child_price": {
+      "amount": 448,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-004",
+    "name": "Senso-ji",
+    "name_ja": "浅草寺",
+    "city": "Tokyo",
+    "category": "TEMPLE",
+    "lat": 35.7148,
+    "lng": 139.7967,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:00",
+    "open_until": "17:00",
+    "aliases": [
+      "Sensoji Temple",
+      "Asakusa Temple"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-004.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-005",
+    "name": "Tokyo National Museum",
+    "name_ja": "東京国立博物館",
+    "city": "Tokyo",
+    "category": "MUSEUM",
+    "lat": 35.7188,
+    "lng": 139.7765,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:30",
+    "open_until": "17:00",
+    "aliases": [
+      "Tohaku"
+    ],
+    "visit_minutes": 120,
+    "child_friendly": false,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 560,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-005.jpg",
+    "child_price": {
+      "amount": 0,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-006",
+    "name": "Edo Craft Museum",
+    "name_ja": "江戸工芸館",
+    "city": "Tokyo",
+    "category": "MUSEUM",
+    "lat": 35.7228,
+    "lng": 139.796,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "17:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 448,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-006.jpg",
+    "child_price": {
+      "amount": 224,
+      "currency": "INR"
+    },
+    "closed_dates": [
+      "2027-04-10",
+      "2027-04-11",
+      "2027-04-12",
+      "2027-04-13",
+      "2027-04-14",
+      "2027-04-15",
+      "2027-04-16",
+      "2027-04-17",
+      "2027-04-18",
+      "2027-04-19",
+      "2027-04-20"
+    ]
+  },
+  {
+    "attraction_id": "ATT-TYO-007",
+    "name": "Tokyo Skytree",
+    "name_ja": "東京スカイツリー",
+    "city": "Tokyo",
+    "category": "VIEWPOINT",
+    "lat": 35.7101,
+    "lng": 139.8107,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "21:00",
+    "aliases": [
+      "Skytree"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1176,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-007.jpg",
+    "child_price": {
+      "amount": 532,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-008",
+    "name": "Ueno Park",
+    "name_ja": "上野公園",
+    "city": "Tokyo",
+    "category": "PARK",
+    "lat": 35.7146,
+    "lng": 139.7732,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "05:00",
+    "open_until": "23:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-008.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-009",
+    "name": "Ameyoko Market",
+    "name_ja": "アメ横",
+    "city": "Tokyo",
+    "category": "MARKET",
+    "lat": 35.7101,
+    "lng": 139.7745,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "20:00",
+    "aliases": [
+      "Ameya-Yokocho"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-009.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-010",
+    "name": "Meiji Jingu",
+    "name_ja": "明治神宮",
+    "city": "Tokyo",
+    "category": "SHRINE",
+    "lat": 35.6764,
+    "lng": 139.6993,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:00",
+    "open_until": "17:00",
+    "aliases": [
+      "Meiji Shrine"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-010.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-011",
+    "name": "Shibuya Crossing",
+    "name_ja": "渋谷スクランブル交差点",
+    "city": "Tokyo",
+    "category": "DISTRICT",
+    "lat": 35.6595,
+    "lng": 139.7005,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "00:00",
+    "open_until": "24:00",
+    "aliases": [
+      "Shibuya Scramble Crossing"
+    ],
+    "visit_minutes": 30,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-011.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-012",
+    "name": "Tokyo Tower",
+    "name_ja": "東京タワー",
+    "city": "Tokyo",
+    "category": "VIEWPOINT",
+    "lat": 35.6586,
+    "lng": 139.7454,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "23:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 672,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-012.jpg",
+    "child_price": {
+      "amount": 392,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-013",
+    "name": "Tsukiji Outer Market",
+    "name_ja": "築地場外市場",
+    "city": "Tokyo",
+    "category": "MARKET",
+    "lat": 35.6665,
+    "lng": 139.7715,
+    "open_days": [
+      "MON",
+      "TUE",
+      "THU",
+      "FRI",
+      "SAT"
+    ],
+    "open_from": "06:00",
+    "open_until": "14:00",
+    "aliases": [
+      "Tsukiji Market"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-013.jpg"
+  },
+  {
+    "attraction_id": "ATT-TYO-014",
+    "name": "Shinjuku Gyoen",
+    "name_ja": "新宿御苑",
+    "city": "Tokyo",
+    "category": "PARK",
+    "lat": 35.6852,
+    "lng": 139.71,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "17:30",
+    "aliases": [
+      "Shinjuku Gyoen National Garden"
+    ],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 280,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-014.jpg",
+    "child_price": {
+      "amount": 0,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-TYO-015",
+    "name": "Odaiba Seaside Park",
+    "name_ja": "お台場海浜公園",
+    "city": "Tokyo",
+    "category": "PARK",
+    "lat": 35.6298,
+    "lng": 139.7745,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "00:00",
+    "open_until": "24:00",
+    "aliases": [
+      "Odaiba Beach"
+    ],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-TYO-015.jpg"
+  },
+  {
+    "attraction_id": "ATT-DXB-001",
+    "name": "Burj Khalifa At the Top",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "VIEWPOINT",
+    "lat": 25.1972,
+    "lng": 55.2744,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "08:30",
+    "open_until": "23:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 3870,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-001.jpg",
+    "child_price": {
+      "amount": 2954,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-002",
+    "name": "Dubai Aquarium and Underwater Zoo",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "AQUARIUM",
+    "lat": 25.1975,
+    "lng": 55.279,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "23:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 3412,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-002.jpg",
+    "child_price": {
+      "amount": 2725,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-003",
+    "name": "Dubai Frame",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "VIEWPOINT",
+    "lat": 25.2355,
+    "lng": 55.3003,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "21:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1145,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-003.jpg",
+    "child_price": {
+      "amount": 458,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-004",
+    "name": "Museum of the Future",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "MUSEUM",
+    "lat": 25.2192,
+    "lng": 55.282,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:30",
+    "open_until": "21:30",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 3412,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-004.jpg",
+    "closed_dates": [
+      "2027-04-14"
+    ]
+  },
+  {
+    "attraction_id": "ATT-DXB-005",
+    "name": "Al Fahidi Historical District",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "DISTRICT",
+    "lat": 25.2636,
+    "lng": 55.2972,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "08:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": false,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-005.jpg"
+  },
+  {
+    "attraction_id": "ATT-DXB-006",
+    "name": "Dubai Gold Souk",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "MARKET",
+    "lat": 25.27,
+    "lng": 55.2966,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-006.jpg"
+  },
+  {
+    "attraction_id": "ATT-DXB-007",
+    "name": "Jumeirah Public Beach",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "BEACH",
+    "lat": 25.214,
+    "lng": 55.24,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "06:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-007.jpg"
+  },
+  {
+    "attraction_id": "ATT-DXB-008",
+    "name": "Dubai Miracle Garden",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "PARK",
+    "lat": 25.06,
+    "lng": 55.244,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "21:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 2176,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-008.jpg",
+    "child_price": {
+      "amount": 1832,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-009",
+    "name": "Global Village",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "THEME_PARK",
+    "lat": 25.07,
+    "lng": 55.308,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "16:00",
+    "open_until": "23:30",
+    "aliases": [],
+    "visit_minutes": 180,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-009.jpg",
+    "child_price": {
+      "amount": 572,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-010",
+    "name": "Etihad Museum",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "MUSEUM",
+    "lat": 25.239,
+    "lng": 55.254,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "20:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-010.jpg",
+    "child_price": {
+      "amount": 229,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-DXB-011",
+    "name": "Ski Dubai",
+    "name_ja": null,
+    "city": "Dubai",
+    "category": "THEME_PARK",
+    "lat": 25.118,
+    "lng": 55.2,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "23:00",
+    "aliases": [],
+    "visit_minutes": 180,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 5725,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-DXB-011.jpg",
+    "child_price": {
+      "amount": 5038,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-AUH-001",
+    "name": "Sheikh Zayed Grand Mosque",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "MOSQUE",
+    "lat": 24.4128,
+    "lng": 54.475,
+    "open_days": [
+      "SAT",
+      "SUN",
+      "MON",
+      "TUE",
+      "WED",
+      "THU"
+    ],
+    "open_from": "09:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-001.jpg"
+  },
+  {
+    "attraction_id": "ATT-AUH-002",
+    "name": "Louvre Abu Dhabi",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "MUSEUM",
+    "lat": 24.5337,
+    "lng": 54.3982,
+    "open_days": [
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "18:30",
+    "aliases": [],
+    "visit_minutes": 150,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1443,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-002.jpg",
+    "child_price": {
+      "amount": 0,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-AUH-003",
+    "name": "Wahat Al Karama",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "MONUMENT",
+    "lat": 24.412,
+    "lng": 54.485,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 45,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-003.jpg"
+  },
+  {
+    "attraction_id": "ATT-AUH-004",
+    "name": "Qasr Al Watan",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "PALACE",
+    "lat": 24.4618,
+    "lng": 54.306,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "10:00",
+    "open_until": "20:00",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 1488,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-004.jpg",
+    "child_price": {
+      "amount": 687,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-AUH-005",
+    "name": "Corniche Beach",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "BEACH",
+    "lat": 24.479,
+    "lng": 54.34,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "07:00",
+    "open_until": "22:00",
+    "aliases": [],
+    "visit_minutes": 120,
+    "child_friendly": true,
+    "accessible": true,
+    "price_per_person": {
+      "amount": 229,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-005.jpg",
+    "child_price": {
+      "amount": 114,
+      "currency": "INR"
+    }
+  },
+  {
+    "attraction_id": "ATT-AUH-006",
+    "name": "Heritage Village",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "DISTRICT",
+    "lat": 24.478,
+    "lng": 54.333,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "09:00",
+    "open_until": "21:00",
+    "aliases": [],
+    "visit_minutes": 60,
+    "child_friendly": true,
+    "accessible": false,
+    "price_per_person": {
+      "amount": 0,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-006.jpg",
+    "closed_dates": [
+      "2027-04-12"
+    ]
+  },
+  {
+    "attraction_id": "ATT-AUH-007",
+    "name": "Eastern Mangroves Kayak Tour",
+    "name_ja": null,
+    "city": "Abu Dhabi",
+    "category": "NATURE",
+    "lat": 24.454,
+    "lng": 54.412,
+    "open_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "open_from": "08:00",
+    "open_until": "18:00",
+    "aliases": [],
+    "visit_minutes": 90,
+    "child_friendly": true,
+    "accessible": false,
+    "price_per_person": {
+      "amount": 3435,
+      "currency": "INR"
+    },
+    "image": "images/attractions/ATT-AUH-007.jpg",
+    "child_price": {
+      "amount": 2290,
+      "currency": "INR"
+    }
+  }
+]

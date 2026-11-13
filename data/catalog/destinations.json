@@ -1,0 +1,139 @@
+{
+  "departure_cities": [
+    {
+      "airport": "BLR",
+      "city": "Bengaluru"
+    },
+    {
+      "airport": "DEL",
+      "city": "Delhi"
+    },
+    {
+      "airport": "BOM",
+      "city": "Mumbai"
+    },
+    {
+      "airport": "MAA",
+      "city": "Chennai"
+    }
+  ],
+  "countries": [
+    {
+      "code": "JP",
+      "name": "Japan",
+      "timezone": "Asia/Tokyo",
+      "cities": [
+        {
+          "name": "Tokyo",
+          "airports": [
+            "NRT",
+            "HND"
+          ]
+        },
+        {
+          "name": "Kyoto",
+          "airports": [
+            "KIX"
+          ]
+        },
+        {
+          "name": "Osaka",
+          "airports": [
+            "KIX"
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from_city": "Tokyo",
+          "to_city": "Kyoto",
+          "transfer_ids": [
+            "TR-TYO-KYO-01"
+          ]
+        },
+        {
+          "from_city": "Kyoto",
+          "to_city": "Tokyo",
+          "transfer_ids": [
+            "TR-KYO-TYO-01"
+          ]
+        },
+        {
+          "from_city": "Osaka",
+          "to_city": "Kyoto",
+          "transfer_ids": [
+            "TR-OSA-KYO-01"
+          ]
+        },
+        {
+          "from_city": "Kyoto",
+          "to_city": "Osaka",
+          "transfer_ids": [
+            "TR-KYO-OSA-01"
+          ]
+        },
+        {
+          "from_city": "Tokyo",
+          "to_city": "Osaka",
+          "transfer_ids": [
+            "TR-TYO-OSA-01"
+          ]
+        },
+        {
+          "from_city": "Osaka",
+          "to_city": "Tokyo",
+          "transfer_ids": [
+            "TR-OSA-TYO-01"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "timezone": "Asia/Dubai",
+      "cities": [
+        {
+          "name": "Dubai",
+          "airports": [
+            "DXB"
+          ]
+        },
+        {
+          "name": "Abu Dhabi",
+          "airports": [
+            "AUH",
+            "DXB"
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from_city": "Dubai",
+          "to_city": "Abu Dhabi",
+          "transfer_ids": [
+            "TR-DXB-AUH-BUS",
+            "TR-DXB-AUH-TAXI"
+          ]
+        },
+        {
+          "from_city": "Abu Dhabi",
+          "to_city": "Dubai",
+          "transfer_ids": [
+            "TR-AUH-DXB-BUS",
+            "TR-AUH-DXB-TAXI"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "min_nights": 3,
+    "max_nights": 10,
+    "min_nights_per_city": 2,
+    "data_window": {
+      "first_night": "2027-04-01",
+      "last_departure": "2027-04-20"
+    }
+  }
+}

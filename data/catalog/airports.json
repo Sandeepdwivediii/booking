@@ -1,0 +1,110 @@
+[
+  {
+    "code": "BLR",
+    "name": "Kempegowda International Airport",
+    "city": "Bengaluru",
+    "country": "IN",
+    "timezone": "Asia/Kolkata",
+    "lat": 13.1986,
+    "lng": 77.7066
+  },
+  {
+    "code": "DEL",
+    "name": "Indira Gandhi International Airport",
+    "city": "Delhi",
+    "country": "IN",
+    "timezone": "Asia/Kolkata",
+    "lat": 28.5562,
+    "lng": 77.1
+  },
+  {
+    "code": "KIX",
+    "name": "Kansai International Airport",
+    "city": "Osaka",
+    "country": "JP",
+    "timezone": "Asia/Tokyo",
+    "lat": 34.432,
+    "lng": 135.2304,
+    "serves_cities": [
+      "Osaka",
+      "Kyoto"
+    ]
+  },
+  {
+    "code": "ITM",
+    "name": "Osaka Itami Airport (domestic flights only)",
+    "city": "Osaka",
+    "country": "JP",
+    "timezone": "Asia/Tokyo",
+    "lat": 34.7855,
+    "lng": 135.4382,
+    "serves_cities": []
+  },
+  {
+    "code": "NRT",
+    "name": "Narita International Airport",
+    "city": "Tokyo",
+    "country": "JP",
+    "timezone": "Asia/Tokyo",
+    "lat": 35.772,
+    "lng": 140.3929,
+    "serves_cities": [
+      "Tokyo"
+    ]
+  },
+  {
+    "code": "HND",
+    "name": "Haneda Airport",
+    "city": "Tokyo",
+    "country": "JP",
+    "timezone": "Asia/Tokyo",
+    "lat": 35.5494,
+    "lng": 139.7798,
+    "serves_cities": [
+      "Tokyo"
+    ]
+  },
+  {
+    "code": "BOM",
+    "name": "Chhatrapati Shivaji Maharaj International Airport",
+    "city": "Mumbai",
+    "country": "IN",
+    "timezone": "Asia/Kolkata",
+    "lat": 19.0896,
+    "lng": 72.8656
+  },
+  {
+    "code": "MAA",
+    "name": "Chennai International Airport",
+    "city": "Chennai",
+    "country": "IN",
+    "timezone": "Asia/Kolkata",
+    "lat": 12.9941,
+    "lng": 80.1709
+  },
+  {
+    "code": "DXB",
+    "name": "Dubai International Airport",
+    "city": "Dubai",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "lat": 25.2532,
+    "lng": 55.3657,
+    "serves_cities": [
+      "Dubai",
+      "Abu Dhabi"
+    ]
+  },
+  {
+    "code": "AUH",
+    "name": "Zayed International Airport",
+    "city": "Abu Dhabi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "lat": 24.433,
+    "lng": 54.6511,
+    "serves_cities": [
+      "Abu Dhabi"
+    ]
+  }
+]

@@ -1,0 +1,1627 @@
+[
+  {
+    "room_id": "RM-TYO-001-A",
+    "hotel_id": "HTL-TYO-001",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6440,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-001-B",
+    "hotel_id": "HTL-TYO-001",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 8680,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-002-A",
+    "hotel_id": "HTL-TYO-002",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9240,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-002-B",
+    "hotel_id": "HTL-TYO-002",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 12488,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-002-C",
+    "hotel_id": "HTL-TYO-002",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 11984,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-003-A",
+    "hotel_id": "HTL-TYO-003",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7728,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-003-B",
+    "hotel_id": "HTL-TYO-003",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8120,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-003-C",
+    "hotel_id": "HTL-TYO-003",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 10416,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-004-A",
+    "hotel_id": "HTL-TYO-004",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7000,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-004-B",
+    "hotel_id": "HTL-TYO-004",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 9464,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-005-A",
+    "hotel_id": "HTL-TYO-005",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 10080,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-005-B",
+    "hotel_id": "HTL-TYO-005",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 13104,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-005-C",
+    "hotel_id": "HTL-TYO-005",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 20160,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-006-A",
+    "hotel_id": "HTL-TYO-006",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6720,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-006-B",
+    "hotel_id": "HTL-TYO-006",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7056,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-007-A",
+    "hotel_id": "HTL-TYO-007",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9520,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-007-B",
+    "hotel_id": "HTL-TYO-007",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9968,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-007-C",
+    "hotel_id": "HTL-TYO-007",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 12880,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-008-A",
+    "hotel_id": "HTL-TYO-008",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4312,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-008-B",
+    "hotel_id": "HTL-TYO-008",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6160,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-009-A",
+    "hotel_id": "HTL-TYO-009",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 19040,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-009-B",
+    "hotel_id": "HTL-TYO-009",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 25704,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-009-C",
+    "hotel_id": "HTL-TYO-009",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 38080,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-010-A",
+    "hotel_id": "HTL-TYO-010",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 11760,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-010-B",
+    "hotel_id": "HTL-TYO-010",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 12320,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-010-C",
+    "hotel_id": "HTL-TYO-010",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 15904,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-TYO-011-A",
+    "hotel_id": "HTL-TYO-011",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5096,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-011-B",
+    "hotel_id": "HTL-TYO-011",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7280,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-011-C",
+    "hotel_id": "HTL-TYO-011",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9464,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-012-A",
+    "hotel_id": "HTL-TYO-012",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 23520,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-012-B",
+    "hotel_id": "HTL-TYO-012",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 31752,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-012-C",
+    "hotel_id": "HTL-TYO-012",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 47040,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-013-A",
+    "hotel_id": "HTL-TYO-013",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3528,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-TYO-013-B",
+    "hotel_id": "HTL-TYO-013",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5040,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-001-A",
+    "hotel_id": "HTL-OSA-001",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6720,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-001-B",
+    "hotel_id": "HTL-OSA-001",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 9072,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-002-A",
+    "hotel_id": "HTL-OSA-002",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4088,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-002-B",
+    "hotel_id": "HTL-OSA-002",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5880,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-003-A",
+    "hotel_id": "HTL-OSA-003",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 15680,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-003-B",
+    "hotel_id": "HTL-OSA-003",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 21168,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-003-C",
+    "hotel_id": "HTL-OSA-003",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 31360,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-004-A",
+    "hotel_id": "HTL-OSA-004",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4480,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-004-B",
+    "hotel_id": "HTL-OSA-004",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6440,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-004-C",
+    "hotel_id": "HTL-OSA-004",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8400,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-005-A",
+    "hotel_id": "HTL-OSA-005",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3920,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-005-B",
+    "hotel_id": "HTL-OSA-005",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5600,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-006-A",
+    "hotel_id": "HTL-OSA-006",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6160,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-006-B",
+    "hotel_id": "HTL-OSA-006",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 8344,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-006-C",
+    "hotel_id": "HTL-OSA-006",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8008,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-007-A",
+    "hotel_id": "HTL-OSA-007",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8960,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-007-B",
+    "hotel_id": "HTL-OSA-007",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9408,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-007-C",
+    "hotel_id": "HTL-OSA-007",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 12096,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-008-A",
+    "hotel_id": "HTL-OSA-008",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8680,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-008-B",
+    "hotel_id": "HTL-OSA-008",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 11704,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-009-A",
+    "hotel_id": "HTL-OSA-009",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 10640,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-009-B",
+    "hotel_id": "HTL-OSA-009",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 14336,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-OSA-009-C",
+    "hotel_id": "HTL-OSA-009",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 21280,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-OSA-010-A",
+    "hotel_id": "HTL-OSA-010",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 2576,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-001-A",
+    "hotel_id": "HTL-KYO-001",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4760,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-001-B",
+    "hotel_id": "HTL-KYO-001",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4984,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-002-A",
+    "hotel_id": "HTL-KYO-002",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7840,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-002-B",
+    "hotel_id": "HTL-KYO-002",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 10584,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-002-C",
+    "hotel_id": "HTL-KYO-002",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 10192,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-003-A",
+    "hotel_id": "HTL-KYO-003",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5264,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-003-B",
+    "hotel_id": "HTL-KYO-003",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7560,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-003-C",
+    "hotel_id": "HTL-KYO-003",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 10192,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-004-A",
+    "hotel_id": "HTL-KYO-004",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5992,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-004-B",
+    "hotel_id": "HTL-KYO-004",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 8120,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-005-A",
+    "hotel_id": "HTL-KYO-005",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 6720,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-005-B",
+    "hotel_id": "HTL-KYO-005",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7056,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-005-C",
+    "hotel_id": "HTL-KYO-005",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 9072,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-006-A",
+    "hotel_id": "HTL-KYO-006",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 16800,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-006-B",
+    "hotel_id": "HTL-KYO-006",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 22680,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-007-A",
+    "hotel_id": "HTL-KYO-007",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 25200,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-007-B",
+    "hotel_id": "HTL-KYO-007",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 50400,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-008-A",
+    "hotel_id": "HTL-KYO-008",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3696,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-008-B",
+    "hotel_id": "HTL-KYO-008",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5320,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-009-A",
+    "hotel_id": "HTL-KYO-009",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 12320,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-009-B",
+    "hotel_id": "HTL-KYO-009",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 16632,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-009-C",
+    "hotel_id": "HTL-KYO-009",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 24640,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-010-A",
+    "hotel_id": "HTL-KYO-010",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3920,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-KYO-010-B",
+    "hotel_id": "HTL-KYO-010",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5600,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-011-A",
+    "hotel_id": "HTL-KYO-011",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7000,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-011-B",
+    "hotel_id": "HTL-KYO-011",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9072,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-011-C",
+    "hotel_id": "HTL-KYO-011",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 9464,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-012-A",
+    "hotel_id": "HTL-KYO-012",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 10360,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-012-B",
+    "hotel_id": "HTL-KYO-012",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 10864,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-KYO-012-C",
+    "hotel_id": "HTL-KYO-012",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-001-A",
+    "hotel_id": "HTL-DXB-001",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 7557,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-001-B",
+    "hotel_id": "HTL-DXB-001",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8015,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-002-A",
+    "hotel_id": "HTL-DXB-002",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 4122,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-002-B",
+    "hotel_id": "HTL-DXB-002",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5954,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-003-A",
+    "hotel_id": "HTL-DXB-003",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 15801,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-003-B",
+    "hotel_id": "HTL-DXB-003",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 21297,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-003-C",
+    "hotel_id": "HTL-DXB-003",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 31602,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-004-A",
+    "hotel_id": "HTL-DXB-004",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 30915,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-004-B",
+    "hotel_id": "HTL-DXB-004",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 41678,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-004-C",
+    "hotel_id": "HTL-DXB-004",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 61830,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-005-A",
+    "hotel_id": "HTL-DXB-005",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 14198,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-005-B",
+    "hotel_id": "HTL-DXB-005",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 14885,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-005-C",
+    "hotel_id": "HTL-DXB-005",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 19236,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-DXB-006-A",
+    "hotel_id": "HTL-DXB-006",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 25190,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-006-B",
+    "hotel_id": "HTL-DXB-006",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 33892,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-006-C",
+    "hotel_id": "HTL-DXB-006",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 50380,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-007-A",
+    "hotel_id": "HTL-DXB-007",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8702,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-007-B",
+    "hotel_id": "HTL-DXB-007",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 11679,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-007-C",
+    "hotel_id": "HTL-DXB-007",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 11221,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-008-A",
+    "hotel_id": "HTL-DXB-008",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3893,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-DXB-008-B",
+    "hotel_id": "HTL-DXB-008",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5496,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-001-A",
+    "hotel_id": "HTL-AUH-001",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 11908,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-001-B",
+    "hotel_id": "HTL-AUH-001",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 16030,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-AUH-001-C",
+    "hotel_id": "HTL-AUH-001",
+    "room_type": "TRIPLE",
+    "name": "Triple Room",
+    "max_adults": 3,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 15572,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-002-A",
+    "hotel_id": "HTL-AUH-002",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 3664,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-002-B",
+    "hotel_id": "HTL-AUH-002",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5267,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-AUH-003-A",
+    "hotel_id": "HTL-AUH-003",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 13282,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-003-B",
+    "hotel_id": "HTL-AUH-003",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 17862,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-003-C",
+    "hotel_id": "HTL-AUH-003",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 26564,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-004-A",
+    "hotel_id": "HTL-AUH-004",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 28625,
+      "currency": "INR"
+    },
+    "refundable": false
+  },
+  {
+    "room_id": "RM-AUH-004-B",
+    "hotel_id": "HTL-AUH-004",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 38701,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-004-C",
+    "hotel_id": "HTL-AUH-004",
+    "room_type": "FAMILY_SUITE",
+    "name": "Family Suite",
+    "max_adults": 4,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 57250,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-005-A",
+    "hotel_id": "HTL-AUH-005",
+    "room_type": "SINGLE",
+    "name": "Single Room",
+    "max_adults": 1,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 5725,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-005-B",
+    "hotel_id": "HTL-AUH-005",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8244,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-005-C",
+    "hotel_id": "HTL-AUH-005",
+    "room_type": "DOUBLE",
+    "name": "Double Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 8702,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-006-A",
+    "hotel_id": "HTL-AUH-006",
+    "room_type": "TWIN",
+    "name": "Twin Room",
+    "max_adults": 2,
+    "max_children": 0,
+    "price_per_night": {
+      "amount": 9160,
+      "currency": "INR"
+    },
+    "refundable": true
+  },
+  {
+    "room_id": "RM-AUH-006-B",
+    "hotel_id": "HTL-AUH-006",
+    "room_type": "FAMILY",
+    "name": "Family Room",
+    "max_adults": 2,
+    "max_children": 2,
+    "price_per_night": {
+      "amount": 12366,
+      "currency": "INR"
+    },
+    "refundable": true
+  }
+]
