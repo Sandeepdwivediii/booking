@@ -94,6 +94,7 @@ h1, h2, h3 { line-height: 1.2; color: var(--ink); letter-spacing: -.01em; }
 .lookup input:focus { background: rgba(253,251,247,.16); }
 .top .lookup button { background: var(--sand); color: var(--navy); border-color: var(--sand); }
 .top .lookup button:hover { background: #fff; box-shadow: none; }
+[data-theme="dark"] .top .lookup button { color: var(--navy); } /* beats the later dark button.secondary rule */
 .top-actions { display: flex; align-items: center; gap: 10px; }
 .icon-btn { width: 40px; height: 40px; padding: 0; border-radius: 50%; background: rgba(253,251,247,.10); border: 1px solid rgba(253,251,247,.28);
             color: var(--sand); font-size: 1.05rem; }
