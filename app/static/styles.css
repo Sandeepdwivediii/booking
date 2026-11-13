@@ -48,3 +48,16 @@ table.breakdown tr.over td { color:var(--err); font-weight:600; }
 .entry small { color:var(--muted); }
 .entry small.warning { color:var(--warn); }
 @media (max-width:560px) { .entry { grid-template-columns:1fr auto; } .entry .when { grid-column:1 / -1; } }
+.top { gap:12px; flex-wrap:wrap; }
+a.home { color:inherit; text-decoration:none; }
+.lookup { display:flex; gap:6px; }
+.lookup input { width:200px; }
+button.small { padding:4px 10px; font-size:.8rem; }
+button.primary { background:var(--ok); }
+.side { display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
+.alt-panel { border:1px solid #cbd2d9; border-radius:8px; padding:12px; margin-top:12px; }
+.alt-panel h3 { margin:0 0 8px; font-size:1rem; }
+ul.alts { list-style:none; padding:0; margin:0 0 10px; }
+ul.alts li { display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center; padding:6px 0; border-bottom:1px solid #eef1f4; }
+ul.alts li div { display:flex; flex-direction:column; }
+.banner ul { margin:6px 0 0; padding-left:18px; }

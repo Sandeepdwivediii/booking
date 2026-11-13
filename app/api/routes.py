@@ -5,18 +5,21 @@ from __future__ import annotations
 import logging
 import uuid
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Body, Header, Query, Request
 from fastapi.responses import JSONResponse
 
 from app.api.errors import ApiError
 from app.contracts import booked_trip_shape_errors, build_result_shape_errors
-from app.schemas import BuildRequestIn
+from app.schemas import BuildRequestIn, ChangeIn
 from app.services.export import ExportError, draft_export
 from app.services.packages import (
     get_package, get_reservation_for, insert_draft, package_view, parse_package_id, transaction,
 )
 from app.services.request_validation import validate_against_options
 from app.services.runtime import Runtime
+from app.services.transactions import (
+    confirm_package, edit_package, get_alternatives, get_reservation, parse_idempotency_key, parse_if_match,
+)
 
 log = logging.getLogger(__name__)
 router = APIRouter(prefix="/api")
@@ -106,3 +109,57 @@ def export_package_route(package_id: str, request: Request):
         raise ApiError(500, "INTERNAL_ERROR", "Package could not be exported.") from None
     return JSONResponse(content=body, headers={
         "Content-Disposition": f'attachment; filename="trip-{pid}.json"', "Cache-Control": "no-store"})
+
+
+# ---------------------------------------------------------------- edit / confirm / lookup (Phase 3 machinery)
+
+def _json(outcome: tuple[int, dict]) -> JSONResponse:
+    status, body = outcome
+    headers = {"Cache-Control": "no-store"}
+    if "version" in body:
+        headers["ETag"] = f'"{body["version"]}"'
+    return JSONResponse(status_code=status, content=body, headers=headers)
+
+
+@router.get("/packages/{package_id}/alternatives")
+def alternatives_route(package_id: str, request: Request,
+                       component: str = Query(..., max_length=32),
+                       item_id: str | None = Query(None, max_length=64),
+                       date: str | None = Query(None, max_length=10),
+                       limit: int = Query(20, ge=1, le=50)):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    domain = rt.require_domain()
+    rt.require_db()
+    filters = {k: v for k, v in {"item_id": item_id, "date": date, "limit": limit}.items() if v is not None}
+    return {"alternatives": get_alternatives(rt.sessionmaker, domain, pid, component, filters)}
+
+
+@router.patch("/packages/{package_id}")
+def patch_package_route(package_id: str, request: Request, change: ChangeIn = Body(...),
+                        if_match: str | None = Header(None, alias="If-Match"),
+                        idempotency_key: str | None = Header(None, alias="Idempotency-Key")):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    version, key = parse_if_match(if_match), parse_idempotency_key(idempotency_key)
+    domain = rt.require_domain()
+    rt.require_db()
+    return _json(edit_package(rt.sessionmaker, domain, pid, version, key, change.model_dump(exclude_none=True)))
+
+
+@router.post("/packages/{package_id}/confirm")
+def confirm_route(package_id: str, request: Request,
+                  idempotency_key: str | None = Header(None, alias="Idempotency-Key")):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    key = parse_idempotency_key(idempotency_key)
+    domain = rt.require_domain()
+    rt.require_db()
+    return _json(confirm_package(rt.sessionmaker, domain, pid, key))
+
+
+@router.get("/reservations/{reference}")
+def reservation_route(reference: str, request: Request):
+    rt = _rt(request)
+    rt.require_db()
+    return JSONResponse(content=get_reservation(rt.sessionmaker, reference), headers={"Cache-Control": "no-store"})

@@ -7,7 +7,14 @@
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <header class="top"><h1>Build My Holiday</h1><span id="health" class="pill">checking…</span></header>
+  <header class="top">
+    <h1><a href="/" class="home">Build My Holiday</a></h1>
+    <form id="lookup-form" class="lookup" novalidate>
+      <input id="lookup-ref" name="reference" inputmode="numeric" maxlength="10" placeholder="10-digit reservation no." aria-label="Reservation number">
+      <button type="submit" class="secondary">Find booking</button>
+    </form>
+    <span id="health" class="pill">checking…</span>
+  </header>
   <main>
     <section class="card" id="planner">
       <h2>Plan your trip</h2>

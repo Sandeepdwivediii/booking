@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import re
 from datetime import date
-from typing import Annotated
+from typing import Annotated, Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -43,3 +43,43 @@ class BuildRequestIn(BaseModel):
         except ValueError:
             raise ValueError(msg) from None
         return v
+
+
+# ---------------------------------------------------------------- change requests (PATCH body)
+
+_Id = Annotated[str, Field(min_length=1, max_length=64)]
+_Date = Annotated[str, Field(pattern=r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")]
+
+
+class _ChangeBase(BaseModel):
+    model_config = ConfigDict(strict=True, extra="forbid")
+
+
+class ReplaceHotelIn(_ChangeBase):
+    op: Literal["replace_hotel"]
+    item_id: _Id
+    hotel_id: _Id
+    room_id: _Id
+
+
+class ReplaceFlightIn(_ChangeBase):
+    op: Literal["replace_flight"]
+    item_id: _Id
+    flight_id: _Id
+
+
+class AddAttractionIn(_ChangeBase):
+    op: Literal["add_attraction"]
+    attraction_id: _Id
+    date: _Date
+    start_time: Annotated[str, Field(pattern=r"^([01][0-9]|2[0-3]):[0-5][0-9]$")] | None = None
+
+
+class RemoveAttractionIn(_ChangeBase):
+    op: Literal["remove_attraction"]
+    item_id: _Id
+
+
+ChangeIn = Annotated[
+    Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn], Field(discriminator="op")
+]

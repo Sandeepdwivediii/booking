@@ -89,6 +89,45 @@ Runtime smoke (real app, real `bookingDB`): `/` 200; `/api/health` 503 `catalog:
 - All domain data are TEST-ONLY fakes (mocked); no real planner results yet. Skipped: real-adapter contract test (pending integration).
 - Smoke: real app + fake domain on `bookingDB_test`: build 201 → GET 200 `ETag "1"` → export 200 attachment (10 items, no shape errors) → `/?package=<id>` 200. `node --check` passes for both JS files. No browser automation (manual UI check pending).
 
+## Phase 3 — Transaction machinery, edit/confirm UI, attraction oracle: PASS
+
+### Implemented
+
+- `app/services/transactions.py`. One short transaction per mutation; inside it, in this order: `SELECT … FOR UPDATE` (with `lock_timeout` 5s, which gives 503 instead of hanging) → idempotency replay (same key + same request hash → stored response; different hash → 409 `IDEMPOTENCY_CONFLICT`) → `ALREADY_BOOKED` → exact `If-Match` (409 `VERSION_CONFLICT`, `current_version` in details) → domain call on the locked latest trip → write package + idempotency record (and the reservation for confirm) → COMMIT.
+  - **Rejected edits:** return 422 `INVALID_CHANGE`; the package row is left byte-identical (incl. `updated_at`), and the outcome is stored so a retry gets the same response.
+  - **Not stored:** version conflicts and errors, so a retry can still succeed.
+  - **Confirm:** books the latest draft after `validate(…, "confirm")` (422 `CONFIRM_REJECTED`). The 10-digit TEXT reference comes from `secrets`; it's inserted in a SAVEPOINT and retried on a collision (up to 10 tries, then 503 with nothing written). The snapshot is `booked_export` (checked against the contract). An already-BOOKED package returns its existing reservation for any key.
+  - **Fault-injection hook:** `checkpoint(name)`, used by the atomicity tests.
+- **Routes** (thin wrappers, needed so the UI controls can be exercised):
+  - `GET /api/packages/{id}/alternatives`
+  - `PATCH /api/packages/{id}` (`If-Match`, `Idempotency-Key`; strict discriminated `ChangeIn` body)
+  - `POST /api/packages/{id}/confirm`
+  - `GET /api/reservations/{reference}` (malformed reference → 404)
+  - Formal ED-*/BK-* acceptance stays in Phases 5/6 with the real domain.
+- **UI:** Change hotel / Change flight (alternatives list with price difference), Remove attraction, + Add attraction per arrival/full/change day, Confirm and book (one Idempotency-Key per package version kept in `sessionStorage`), and a header reservation lookup. URLs are `/?reservation=<ref>`, and the booked view is read-only. Errors show as banners: INVALID_CHANGE/CONFIRM_REJECTED list the violations; VERSION_CONFLICT/ALREADY_BOOKED offer "Reload package". The UI only renders what the backend returns.
+- **Oracle:** `tests/platform/fixtures/attraction_oracle.py` is an independent check on raw `attractions.json`-shaped records. It imports nothing from `app.*` (enforced by an AST test). It checks city vs that night's hotel, weekday, `closed_dates`, opening hours incl. `24:00`, end = start + visit, overlap (adjacent allowed), uniqueness, return day, arrival before city arrival, and counts per mode. `load_catalog_attractions()` is ready to check real BUILT trips in Phase 4.
+
+### Tests (`python -m pytest -q tests/platform` → 286 passed, 0 failed, 1 skipped)
+
+| Group | Result |
+|---|---|
+| AT-01 … AT-17 (`test_oracle_attractions.py`, 25 tests) | **all PASS** (oracle on raw fixtures; real-catalog normalization incl. 56 records, missing `closed_dates`, Nara) |
+| Transactions/concurrency (`test_phase3_transactions.py`, 46 tests, real PostgreSQL) | PASS |
+| Phases 0–2 regression | PASS |
+
+Concurrency and atomicity verified on real PostgreSQL. The edit/confirm logic is tested with the TEST-ONLY deterministic fake; these are groundwork for the formal IDs in Phases 5/6:
+- **Two tabs, same version:** exactly one 200 and one 409; the loser never calls `domain.change` (ED-12/19).
+- **Same key sent concurrently:** applied once (ED-14).
+- **PATCH vs CONFIRM, three rounds:** the booked snapshot always equals the last committed draft (ED-13).
+- **20 concurrent confirms:** 1 reservation, the same reference for all, and `validate` called once (BK-01/09).
+- **Two packages confirmed concurrently:** distinct references (BK-04).
+- **Injected crashes:** after the package UPDATE (ED-16), after the reservation INSERT (BK-07) and after the status UPDATE (BK-08), everything rolls back and the package stays confirmable.
+- **Reference collision:** retried, with leading zeros kept (BK-05/06).
+- **Lock timeout:** returns 503 instead of hanging.
+- **Mutation check:** with `FOR UPDATE` removed, 4 of the 5 concurrency tests fail, so the lock is what they test.
+
+Browser smoke (`tests/platform/smoke/browser_smoke.py`, headless Chrome via DevTools, real app + fake domain on `bookingDB_test`): **20/20 PASS, no JS errors**. It covers options/health, the 422 field error, build → package view, remove/add attraction, the refused over-budget hotel, the stale-tab VERSION_CONFLICT + reload, refresh persistence, confirm → reference, the read-only booked view, refresh after booking, and lookup (unknown / malformed / valid).
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).
@@ -97,6 +136,6 @@ Runtime smoke (real app, real `bookingDB`): `/` 200; `/api/health` 503 `catalog:
 
 - `docker/data/db/**` shows as locally modified (live Postgres writes to tracked files). Never stage them; avoid `git checkout -- .`, `reset --hard`, `stash`, or branch switches that touch those paths.
 
-## Next: Phase 3 (awaiting Sandeep approval)
+## Next: Phase 4 (awaiting Sandeep approval)
 
-Generic PATCH/confirm transaction machinery with an injected deterministic DomainPort (row lock, `If-Match`, idempotency key + request hash replay before version check, unique constraints); trip options/flight/hotel/attraction controls and reservation lookup shell; independent raw-fixture attraction oracle `tests/platform/test_oracle_attractions.py` (AT-01..AT-17).
+Integration checkpoint: review and merge Tanish's adapter into `integration`; real `POST /api/packages/build` → persisted DRAFT → GET → export passing independent validation (contract checkers + attraction oracle on real BUILT trips); SY-06/07/08/09/10/12/13/15, BK-15; local/UTC timeline check; real-adapter contract test un-skipped.

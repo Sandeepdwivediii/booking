@@ -146,7 +146,7 @@ function renderBudget(trip) {
   return box;
 }
 
-function entryLine(e) {
+function entryLine(e, ctx) {
   const li = el("li", undefined, "entry " + e.type);
   let when = "";
   if (e.kind === "check_in") when = "Check-in";
@@ -163,11 +163,155 @@ function entryLine(e) {
   what.append(el("small", meta.filter(Boolean).join(" · ")));
   for (const w of e.warnings) what.append(el("small", "⚠ " + w, "warning"));
   li.append(what);
-  li.append(el("span", e.kind === "check_out" ? "" : inr(e.price_inr), "num"));
+  const side = el("div", undefined, "side");
+  side.append(el("span", e.kind === "check_out" ? "" : inr(e.price_inr), "num"));
+  if (ctx?.editable && e.kind !== "check_out") {
+    const action = ENTRY_ACTIONS[e.role];
+    if (action) side.append(actionButton(action.label, () => action.run(ctx, e)));
+  }
+  li.append(side);
   return li;
 }
 
-function renderItinerary(trip) {
+// ---------------------------------------------------------------- edits (M6): the backend is the only source of truth
+
+const ENTRY_ACTIONS = {
+  hotel_stay: { label: "Change hotel", run: (ctx, e) => showAlternatives(ctx, "hotel", { item_id: e.item_id }, `Other hotels in ${e.city}`, e.price_inr) },
+  outbound_flight: { label: "Change flight", run: (ctx, e) => showAlternatives(ctx, "outbound_flight", {}, "Other outbound flights", e.price_inr) },
+  return_flight: { label: "Change flight", run: (ctx, e) => showAlternatives(ctx, "return_flight", {}, "Other return flights", e.price_inr) },
+  attraction_visit: { label: "Remove", run: (ctx, e) => applyChange(ctx, { op: "remove_attraction", item_id: e.item_id }) },
+};
+
+function actionButton(label, onClick) {
+  const b = el("button", label, "secondary small");
+  b.type = "button";
+  b.onclick = async () => { b.disabled = true; try { await onClick(); } finally { b.disabled = false; } };
+  return b;
+}
+
+function newKey() {
+  return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function packageMessage(ctx, text, cls, extra) {
+  ctx.message.replaceChildren();
+  if (!text) { ctx.message.hidden = true; return; }
+  ctx.message.className = "banner " + cls;
+  ctx.message.append(el("div", text));
+  if (extra) ctx.message.append(extra);
+  ctx.message.hidden = false;
+}
+
+function explainError(ctx, status, body) {
+  const err = body?.error;
+  const reload = actionButton("Reload package", () => openPackage(ctx.view.package_id));
+  switch (err?.code) {
+    case "INVALID_CHANGE":
+    case "CONFIRM_REJECTED": {
+      const ul = el("ul");
+      for (const v of err.details || []) ul.append(el("li", v.message));
+      return packageMessage(ctx, err.message, "error", ul);
+    }
+    case "VERSION_CONFLICT":
+      return packageMessage(ctx, "This package was changed in another tab. Reload to see the latest version.", "warn", reload);
+    case "ALREADY_BOOKED":
+      return packageMessage(ctx, "This package is already booked and can no longer be changed.", "warn", reload);
+    default:
+      return packageMessage(ctx, err?.message || `Request failed (${status}).`, "error");
+  }
+}
+
+async function showAlternatives(ctx, component, filters, title, currentPrice) {
+  const panel = ctx.panel;
+  panel.replaceChildren(el("h3", title), el("p", "Loading options…", "hint"));
+  panel.hidden = false;
+  const q = new URLSearchParams({ component, ...filters });
+  const { status, body } = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}/alternatives?${q}`);
+  panel.replaceChildren(el("h3", title));
+  if (status !== 200) { panel.hidden = true; return explainError(ctx, status, body); }
+  if (!body.alternatives.length) panel.append(el("p", "No other valid options for this choice.", "hint"));
+  const ul = el("ul", undefined, "alts");
+  for (const a of body.alternatives) {
+    const li = el("li");
+    const diff = a.price_diff_inr ?? (a.price_inr - currentPrice);
+    const meta = [a.catalog_id, a.room_id && `room ${a.room_id}`, a.start && `${a.start}${a.end ? " → " + a.end : ""}`]
+      .filter(Boolean).join(" · ");
+    const info = el("div");
+    info.append(el("strong", a.name), el("small", meta));
+    li.append(info, el("span", `${inr(a.price_inr)} (${diff >= 0 ? "+" : "−"}${inr(Math.abs(diff))})`, "num"),
+      actionButton("Choose", () => applyChange(ctx, a.change)));
+    ul.append(li);
+  }
+  panel.append(ul, actionButton("Close", async () => { panel.hidden = true; }));
+}
+
+async function applyChange(ctx, change) {
+  packageMessage(ctx, "Checking the whole package…", "info");
+  let res;
+  try {
+    res = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", "If-Match": `"${ctx.view.version}"`, "Idempotency-Key": newKey() },
+      body: JSON.stringify(change),
+    });
+  } catch {
+    return packageMessage(ctx, "Could not reach the server. Nothing was changed.", "error");
+  }
+  if (res.status === 200) {
+    renderPackage({ ...res.body, reference: null });
+    const msg = ["Package updated and re-checked.", ...(res.body.adjustments || [])].join(" ");
+    return packageMessage(currentCtx, msg, "ok");
+  }
+  explainError(ctx, res.status, res.body);
+}
+
+async function confirmBooking(ctx) {
+  // One key per package version: double clicks or a retry after a lost response reuse it.
+  const storeKey = `confirm:${ctx.view.package_id}:${ctx.view.version}`;
+  const key = sessionStorage.getItem(storeKey) || newKey();
+  sessionStorage.setItem(storeKey, key);
+  packageMessage(ctx, "Confirming…", "info");
+  let res;
+  try {
+    res = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}/confirm`, {
+      method: "POST", headers: { "Idempotency-Key": key },
+    });
+  } catch {
+    return packageMessage(ctx, "Could not reach the server. Press Confirm again; you will not be booked twice.", "error");
+  }
+  if (res.status === 200 || res.status === 201) {
+    history.pushState(null, "", `/?reservation=${encodeURIComponent(res.body.reference)}`);
+    return renderReservation(res.body);
+  }
+  explainError(ctx, res.status, res.body);
+}
+
+// ---------------------------------------------------------------- reservations (M7)
+
+function renderReservation(res) {
+  renderPackage({ package_id: res.package_id, version: null, status: "BOOKED", reference: res.reference, trip: res.trip });
+  packageMessage(currentCtx, `Booked! Your reservation number is ${res.reference}.`, "ok");
+}
+
+function reservationNotFound(msg) {
+  const card = el("section", undefined, "card");
+  card.append(el("div", msg, "banner error"));
+  const back = el("button", "Plan a trip", "secondary");
+  back.onclick = () => { history.pushState(null, "", "/"); showView("planner"); };
+  card.append(back);
+  $("package").replaceChildren(card);
+}
+
+async function openReservation(ref) {
+  $("package").replaceChildren(el("section", "Looking up your reservation…", "card"));
+  showView("package");
+  if (!/^[0-9]{10}$/.test(ref)) return reservationNotFound("A reservation number has exactly 10 digits.");
+  const { status, body } = await api(`/api/reservations/${encodeURIComponent(ref)}`);
+  if (status === 200) return renderReservation(body);
+  reservationNotFound(status === 404 ? "Reservation not found." : (body?.error?.message || `Lookup failed (${status}).`));
+}
+
+function renderItinerary(trip, ctx) {
   const box = el("section", undefined, "card");
   box.append(el("h2", "Day-by-day plan"), el("p", "All times are local to where the event happens.", "hint"));
   for (const day of Itinerary.buildDays(trip)) {
@@ -176,12 +320,17 @@ function renderItinerary(trip) {
       : `Day ${day.day_number} · ${day.date} · ${KIND_LABEL[day.kind]}`;
     d.append(el("h3", label));
     const ul = el("ul");
-    day.entries.forEach((e) => ul.append(entryLine(e)));
+    day.entries.forEach((e) => ul.append(entryLine(e, ctx)));
     d.append(ul);
+    if (ctx?.editable && ["arrival", "full", "change"].includes(day.kind)) {
+      d.append(actionButton("+ Add attraction", () => showAlternatives(ctx, "attraction", { date: day.date }, `Attractions on ${day.date}`, 0)));
+    }
     box.append(d);
   }
   return box;
 }
+
+let currentCtx = null;
 
 function renderPackage(view) {
   const t = view.trip;
@@ -192,9 +341,22 @@ function renderPackage(view) {
   const tr = t.traveler;
   const party = `${tr.adults} adult(s)` + (tr.children ? `, ${tr.children} child(ren) aged ${tr.child_ages.join(", ")}` : "");
   head.append(el("p", `From ${tr.home_airport} · ${party}`));
-  const status = view.status === "BOOKED" ? `Booked · reference ${view.reference}` : `Draft · version ${view.version}`;
+  const editable = view.status === "DRAFT";
+  const status = view.status === "BOOKED" ? `Booked · reservation ${view.reference}` : `Draft · version ${view.version}`;
   head.append(el("div", status, "banner " + (view.status === "BOOKED" ? "ok" : "info")));
+  const message = el("div", undefined, "banner");
+  message.hidden = true;
+  const panel = el("div", undefined, "alt-panel");
+  panel.hidden = true;
+  const ctx = { view, editable, message, panel };
+  currentCtx = ctx;
   const actions = el("div", undefined, "actions");
+  if (editable) {
+    const c = actionButton("Confirm and book", () => confirmBooking(ctx));
+    c.className = "primary";
+    c.id = "confirm-btn";
+    actions.append(c);
+  }
   const exp = el("a", "Download JSON", "button");
   exp.href = `/api/packages/${encodeURIComponent(view.package_id)}/export`;
   exp.setAttribute("download", `trip-${view.package_id}.json`);
@@ -202,8 +364,8 @@ function renderPackage(view) {
   again.type = "button";
   again.onclick = () => { history.pushState(null, "", "/"); showView("planner"); };
   actions.append(exp, again);
-  head.append(actions, el("small", `Package ID: ${view.package_id}`, "hint"));
-  box.append(head, renderBudget(t), renderItinerary(t));
+  head.append(actions, el("small", `Package ID: ${view.package_id}`, "hint"), message, panel);
+  box.append(head, renderBudget(t), renderItinerary(t, ctx));
   showView("package");
 }
 
@@ -276,9 +438,17 @@ async function onSubmit(ev) {
 // ---------------------------------------------------------------- routing (refresh keeps the package)
 
 function route() {
-  const id = new URLSearchParams(location.search).get("package");
-  if (id) openPackage(id); else showView("planner");
+  const params = new URLSearchParams(location.search);
+  const ref = params.get("reservation"), id = params.get("package");
+  if (ref) openReservation(ref); else if (id) openPackage(id); else showView("planner");
 }
+
+$("lookup-form").addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  const ref = $("lookup-ref").value.trim();
+  history.pushState(null, "", `/?reservation=${encodeURIComponent(ref)}`);
+  openReservation(ref);
+});
 
 $("add-child").onclick = () => addChild();
 $("build-form").addEventListener("submit", onSubmit);
