@@ -326,3 +326,18 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 - Reuses the PATCH transaction unchanged: row lock, If-Match, request-hash idempotency, shape check, atomic write. No schema change.
 - UI: "Change cities" on drafts -> plan list with new total, budget left, signed diff; over-budget plans disabled; current plan hidden; stale version -> conflict message.
 - Tests `tests/platform/test_phase9_g3.py` (real domain + PostgreSQL): G3-B01..B07 PASS (16 tests). Full suite 836 passed / 2 skipped; browser smoke fake 22/22, real 15/15; scratch CDP flow (choose plan -> v2 -> reload) PASS, no JS errors.
+
+## Phase 10 — G4 Cheapest / Fastest / Best-rated (optional extension)
+
+- Phase 9 close-out: contract v1.2.0 applied (`5e87b64`); `integration` -> `57ba3d3` (Phase 9, no Phase 10), 836 passed in a worktree before push.
+- Merged Tanish's Phase 10 domain `d7e9da7` (`173e7ec`). His `Domain.recommend(request, trip_id)` used as proposed (optional, detected; absent -> 503).
+- Persistence shape (his proposal left it open): `POST /api/packages/recommend` = BuildResult + `recommendations` (preview, persists nothing);
+  `POST /api/packages/recommend/select {request, choice}` + required `Idempotency-Key` -> server recomputes and saves only the chosen
+  package as a normal draft (201; repeat -> 200 same package). Package id = uuid5(key | request hash): repeats/races hit the same
+  primary key, so no duplicates and no schema change (idempotency table CHECK allows only PATCH/CONFIRM). `/build` unchanged and strict.
+- Every recommendation is shape-checked, budget-checked and re-validated by `domain.validate` before display or save.
+- UI: "Compare cheapest · fastest · best-rated" next to Build; one card per distinct package with every label it won, total, cities,
+  travel time (flights + intercity), nights-weighted hotel stars, budget left; "Choose this package" -> package page.
+- Tests `tests/platform/test_phase10_g4.py` (real domain + PostgreSQL, raw-catalog metric oracle): G4-B01..B08 PASS (16 tests).
+  Full suite 881 passed / 2 skipped; browser smoke fake 22/22, real 15/15; scratch CDP flow (dark desktop + light mobile) PASS.
+- Pending joint approval: write the G4 interface into `app/contracts.py` / `docs/INTEGRATION_CONTRACT.md` as v1.3.0 (additive).

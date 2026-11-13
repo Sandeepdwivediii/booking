@@ -10,7 +10,8 @@ from fastapi.responses import JSONResponse
 
 from app.api.errors import ApiError
 from app.contracts import booked_trip_shape_errors, build_result_shape_errors
-from app.schemas import BuildRequestIn, ChangeIn
+from app.schemas import BuildRequestIn, ChangeIn, RecommendSelectIn
+from app.services import recommendations
 from app.services.export import ExportError, draft_export
 from app.services.packages import (
     get_package, get_reservation_for, insert_draft, package_view, parse_package_id, transaction,
@@ -71,6 +72,35 @@ def build_package(body: BuildRequestIn, request: Request):
         insert_draft(session, trip_id, build_request, trip)
     return JSONResponse(status_code=201, content={"package_id": trip_id, "version": 1, "status": "DRAFT", "trip": trip},
                         headers={"ETag": '"1"', "Location": f"/api/packages/{trip_id}"})
+
+
+def _checked_request(rt: Runtime, body: BuildRequestIn, domain) -> dict:
+    errors = validate_against_options(body, domain.options())
+    if errors:
+        raise ApiError(422, "VALIDATION_ERROR", "Invalid request.", errors)
+    rt.require_db()
+    return body.model_dump()
+
+
+@router.post("/packages/recommend")
+def recommend_route(body: BuildRequestIn, request: Request):
+    """G4 preview: Cheapest / Fastest / Best-rated complete packages. Persists nothing."""
+    rt = _rt(request)
+    domain = rt.require_domain()
+    return recommendations.preview(domain, _checked_request(rt, body, domain))
+
+
+@router.post("/packages/recommend/select")
+def recommend_select_route(body: RecommendSelectIn, request: Request,
+                           idempotency_key: str | None = Header(None, alias="Idempotency-Key")):
+    """G4 selection: recompute and persist only the chosen package as a normal draft."""
+    rt = _rt(request)
+    key = parse_idempotency_key(idempotency_key)
+    domain = rt.require_domain()
+    status, out = recommendations.select(rt.sessionmaker, domain, _checked_request(rt, body.request, domain),
+                                         body.choice, key)
+    headers = {"ETag": f'"{out["version"]}"', "Location": f"/api/packages/{out['package_id']}"} if "package_id" in out else {}
+    return JSONResponse(status_code=status, content=out, headers=headers)
 
 
 @router.get("/packages/{package_id}")

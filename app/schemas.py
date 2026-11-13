@@ -90,3 +90,9 @@ ChangeIn = Annotated[
     Union[ReplaceHotelIn, ReplaceFlightIn, AddAttractionIn, RemoveAttractionIn, ChangeCityPlanIn],
     Field(discriminator="op"),
 ]
+
+
+class RecommendSelectIn(BaseModel):  # G4: the client names a label only; trip/prices are recomputed server-side
+    model_config = ConfigDict(strict=True, extra="forbid")
+    request: BuildRequestIn
+    choice: Literal["cheapest", "fastest", "best_rated"]

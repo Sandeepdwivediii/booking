@@ -501,6 +501,84 @@ async function onSubmit(ev) {
   }
 }
 
+// ---------------------------------------------------------------- G4 recommendations
+
+const REC_LABEL = { cheapest: "Cheapest", fastest: "Fastest", best_rated: "Best-rated" };
+const hm = (m) => `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, "0")}m`;
+
+// One card per distinct package; a package that wins several categories shows every label it truly won.
+function groupRecommendations(recs) {
+  const groups = [];
+  for (const r of recs) {
+    const sig = JSON.stringify(r.trip.items.map((i) => [i.role, i.catalog_id, i.room_id, i.start]));
+    const g = groups.find((x) => x.sig === sig);
+    if (g) g.labels.push(r.label); else groups.push({ sig, labels: [r.label], rec: r });
+  }
+  return groups;
+}
+
+function renderRecommendations(request, body) {
+  const box = $("result");
+  box.replaceChildren(el("h2", "Your three best-fit packages"),
+    el("p", "Each is a complete package within your budget, computed from the catalog for this exact request. " +
+      "Travel time counts flights and city-to-city transfers; rating is hotel stars weighted by nights.", "hint"));
+  const key = newKey();  // one key per result set: repeated clicks never create a second draft
+  const grid = el("div", undefined, "recs");
+  for (const g of groupRecommendations(body.recommendations)) {
+    const r = g.rec;
+    const card = el("article", undefined, "rec");
+    const labels = el("div", undefined, "labels");
+    for (const l of g.labels) labels.append(el("span", REC_LABEL[l], "label"));
+    const cities = r.trip.items.filter((i) => i.role === "hotel_stay").map((i) => i.city).join(" → ");
+    const dl = el("dl");
+    const left = request.budget_inr - r.total_inr;
+    for (const [k, v] of [["Cities", cities], ["Travel time", hm(r.travel_minutes)],
+      ["Hotel stars", `${r.average_stars}★ average`], ["Budget left", inr(left)]]) dl.append(el("dt", k), el("dd", v));
+    const choose = actionButton("Choose this package", () => selectRecommendation(request, g.labels[0], key));
+    choose.className = "primary";
+    card.append(labels, el("div", inr(r.total_inr), "total num"), dl, choose);
+    grid.append(card);
+  }
+  box.append(grid);
+  $("planner").hidden = false; box.hidden = false;
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function selectRecommendation(request, choice, key) {
+  let res;
+  try {
+    res = await api("/api/packages/recommend/select", {
+      method: "POST", headers: { "Content-Type": "application/json", "Idempotency-Key": key },
+      body: JSON.stringify({ request, choice }),
+    });
+  } catch {
+    return showFormError("Could not reach the server. Nothing was saved.");
+  }
+  if (res.body?.package_id) return renderBuildOutcome(201, res.body);
+  renderBuildOutcome(res.status, res.body);
+}
+
+async function onCompare() {
+  clearErrors();
+  $("result").hidden = true;
+  const btn = $("compare"), label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Comparing…";
+  const request = readForm();
+  try {
+    const { status, body } = await api("/api/packages/recommend", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(request),
+    });
+    if (status === 200 && body.status === "BUILT" && body.recommendations?.length) renderRecommendations(request, body);
+    else renderBuildOutcome(status, body);  // honest OVER_BUDGET / NO_PACKAGE / field errors; nothing saved
+  } catch {
+    showFormError("Could not reach the server. Please try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+}
+
 // ---------------------------------------------------------------- routing (refresh keeps the package)
 
 function route() {
@@ -518,6 +596,7 @@ $("lookup-form").addEventListener("submit", (ev) => {
 
 $("add-child").onclick = () => addChild();
 $("build-form").addEventListener("submit", onSubmit);
+$("compare").addEventListener("click", onCompare);
 window.addEventListener("popstate", route);
 checkHealth();
 loadOptions();
