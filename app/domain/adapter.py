@@ -10,7 +10,7 @@ from pathlib import Path
 
 from app.domain.catalog import Catalog, load_catalog
 from app.domain.edits import apply_change, list_alternatives
-from app.domain.planner import build_trip
+from app.domain.planner import build_trip, city_plan_options, rebuild_city_plan
 from app.domain.validator import validate_trip
 
 
@@ -38,6 +38,13 @@ class Domain:
 
     def change(self, trip: dict, change: dict) -> dict:
         return apply_change(self._catalog, trip, change)
+
+    # ---- G3 extension (NOT part of frozen DomainPort v1.1.0; proposal in docs/HANDOFF_TANISH.md)
+    def city_plan_options(self, trip: dict) -> list[dict]:
+        return city_plan_options(self._catalog, trip)
+
+    def rebuild_city_plan(self, trip: dict, cities: list, nights: list) -> dict:
+        return rebuild_city_plan(self._catalog, trip, cities, nights)
 
 
 def create_domain(catalog_dir: str | Path) -> Domain:
