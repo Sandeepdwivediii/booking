@@ -26,12 +26,59 @@
 - `.env` variable names: `POSTGRES_PASSWORD`, `DB_PORT` (values not read).
 - Graphify: not installed/configured (no `graphify-out/`); repo is small, targeted reads used instead.
 
+## Phase 1 — Platform foundation: PASS
+
+### Implemented
+
+- `app/config.py`: settings from env/.env (`DATABASE_URL` or `POSTGRES_*`/`DB_PORT`; `TEST_DATABASE_URL`, default `bookingDB_test`; `CATALOG_DIR`, default `data/catalog`). `.env.example` added (placeholders only).
+- `app/db.py`, `app/models.py`: SQLAlchemy 2 engine/session; exactly 3 tables, created additively (`create_all`, never drops):
+  - `app_packages` (id = trip_id UUID, status DRAFT/BOOKED check, version ≥ 1, request/trip JSONB, total/budget, timestamps)
+  - `app_reservations` (reference TEXT PK with `^[0-9]{10}$` check, `package_id` UNIQUE FK, snapshot JSONB)
+  - `app_idempotency_records` (UNIQUE package_id+operation+key, request_hash, stored response; operation PATCH/CONFIRM)
+- `app/schemas.py`: strict Pydantic `BuildRequestIn` (no coercion, extra fields forbidden, sanity caps from contract); `app/services/request_validation.py`: catalog checks from `domain.options()` (airport, country, nights range, data window).
+- `app/services/domain_provider.py`: loads `app.domain.adapter.create_domain(CATALOG_DIR)`; **no production fake fallback**. `app/services/runtime.py`: lazy DB/domain readiness with retry (recovers without restart).
+- `app/api/errors.py`: envelope `{"error": {code, message, details}}`; validation details exclude raw input; DB errors → 503; unexpected → 500 without traceback. Body > 64 KB → 422.
+- `app/api/routes.py`: `GET /api/health` (200 ready / 503 with per-check reason), `GET /api/catalog/options`, `POST /api/packages/build` (validate → domain → contract shape check → persist **BUILT only** as DRAFT v1 → 201; OVER_BUDGET/NO_PACKAGE → 200, nothing persisted). The Phase 4 work of wiring this to the real adapter is now just a merge, because the route already calls `create_domain`.
+- `app/main.py`: app factory, lifespan never crashes on missing DB/catalog, static mount. `app/static/`: form with the 7 fields, options loaded from the API, per-field server errors, loading/result states; rendering uses `textContent` only.
+- Run: `docker compose -f docker/docker-compose.yml up -d db` then `uvicorn app.main:app --reload` → http://127.0.0.1:8000.
+
+### Tests (`python -m pytest -q tests/platform` → 189 passed, 0 failed, 1 skipped)
+
+All API tests use TEST-ONLY `tests/platform/fixtures/fake_domain.py` (mocked domain) on the disposable `bookingDB_test` (guarded: name must contain "test" and differ from the app DB).
+
+| ID | Result | ID | Result |
+|---|---|---|---|
+| IN-01 | PASS | IN-09 | PASS |
+| IN-02 | PASS | IN-10 | PASS (mocked domain) |
+| IN-03 | PASS (input accepted; mocked domain) | IN-11 | PASS |
+| IN-04 | PASS | IN-12 | PASS |
+| IN-05 | PASS | IN-13 | PASS (mocked OVER_BUDGET; real behaviour depends on planner) |
+| IN-06 | PASS | IN-14 | PASS |
+| IN-07 | PASS | IN-15 | PASS |
+| IN-08 | PASS | IN-16 | PASS |
+| SY-19 | PASS (DB down, catalog missing/corrupt, recovery) | | |
+
+Plus schema/constraint tests, envelope/500 tests, static-form test, loader tests. Skipped: real-adapter contract test (pending integration).
+
+Runtime smoke (real app, real `bookingDB`): `/` 200; `/api/health` 503 `catalog: domain engine not integrated yet`; options/build 503 `CATALOG_UNAVAILABLE`; invalid body 422. `bookingDB` now has the 3 empty app tables, created by startup.
+
+### Decisions
+
+- Client-injected fields (`price`, `country`, `end_date`, …) → 422, rather than being silently ignored.
+- Invalid input is rejected before the domain is called; the domain is never called while the DB is down.
+- Health body is `{status, checks}` (not the error envelope); 503 when not ready.
+
+### Known limitations
+
+- UI can't load options or build until Tanish's adapter is merged (honest 503). Itinerary view is Phase 2.
+- `starlette` TestClient emits a deprecation warning about `httpx` (harmless).
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).
 - `docker/docker-compose.yml` hardcodes `POSTGRES_PASSWORD` instead of `${POSTGRES_PASSWORD}`; no `.env.example` (Phase 1 config work, needs approval for compose change).
 - Untracked local-only files: `SANDEEP.md`, `TANISH.md`, `TEAM_RULES.md`, zip, `prompt.md`, `temp_dataset/` (TEAM_RULES suggests committing `TEAM_RULES.md` + `@TEAM_RULES.md` in `CLAUDE.md`; not done).
 
-## Next: Phase 1 (awaiting Sandeep approval)
+## Next: Phase 2 (awaiting Sandeep approval)
 
-FastAPI app + config + DB session, three SQLAlchemy tables, isolated `TEST_DATABASE_URL`, strict 7-field Pydantic validation (IN-01..IN-16), `GET /api/catalog/options`, `/api/health` readiness (SY-19), error envelope, static form; `FakeDomain` via dependency override in tests only.
+DB CRUD + transaction wrapper, `GET /api/packages/{id}` and `/export` on a persisted test trip, day-wise itinerary + price breakdown + budget UI, judge-export serializer (PLANNED/BOOKED shape).

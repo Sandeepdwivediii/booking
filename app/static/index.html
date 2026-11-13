@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build My Holiday</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="top"><h1>Build My Holiday</h1><span id="health" class="pill">checking…</span></header>
+  <main>
+    <section class="card">
+      <h2>Plan your trip</h2>
+      <div id="form-error" class="banner error" hidden></div>
+      <form id="build-form" novalidate>
+        <div class="grid">
+          <label>Departure city
+            <select name="departure_city" id="departure_city" required><option value="">Loading…</option></select>
+            <small class="field-error" data-for="departure_city"></small>
+          </label>
+          <label>Destination country
+            <select name="destination_country" id="destination_country" required><option value="">Loading…</option></select>
+            <small class="field-error" data-for="destination_country"></small>
+          </label>
+          <label>Holiday start date (arrival day)
+            <input type="date" name="start_date" id="start_date" required>
+            <small class="hint" id="date-hint"></small>
+            <small class="field-error" data-for="start_date"></small>
+          </label>
+          <label>Nights
+            <input type="number" name="nights" id="nights" min="3" max="10" step="1" value="6" required>
+            <small class="field-error" data-for="nights"></small>
+          </label>
+          <label>Adults
+            <input type="number" name="adults" id="adults" min="1" max="20" step="1" value="2" required>
+            <small class="field-error" data-for="adults"></small>
+          </label>
+          <label>Budget (INR, everything)
+            <input type="number" name="budget_inr" id="budget_inr" min="0" step="1" value="350000" required>
+            <small class="field-error" data-for="budget_inr"></small>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Children (age 0–17)</legend>
+          <div id="children"></div>
+          <button type="button" id="add-child" class="secondary">+ Add child</button>
+          <small class="field-error" data-for="children_ages"></small>
+        </fieldset>
+        <button type="submit" id="submit">Build my holiday</button>
+      </form>
+    </section>
+    <section id="result" class="card" hidden aria-live="polite"></section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
