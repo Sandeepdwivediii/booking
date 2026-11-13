@@ -125,14 +125,32 @@ function showView(name) {
   $("package").hidden = name !== "package";
 }
 
-function renderBudget(trip) {
+const TYPE_ICON = { flight: "✈", hotel: "🏨", transfer: "🚌", attraction: "📍" };
+const shownTotals = new Map();  // package_id -> last displayed total (animates price changes)
+
+function renderBudget(trip, packageId) {
   const b = Itinerary.priceBreakdown(trip);
-  const box = el("section", undefined, "card");
+  const box = el("section", undefined, "card price-card");
   box.append(el("h2", "Total and budget"));
+  const total = el("div", undefined, "price-total");
+  total.dataset.value = String(shownTotals.get(packageId) ?? b.total);
+  shownTotals.set(packageId, b.total);
+  UI.countUp(total, b.total, inr);
+  const meter = el("div", undefined, "meter" + (b.state === "over" ? " over" : ""));
+  meter.setAttribute("role", "img");
+  meter.setAttribute("aria-label", `${Math.round((b.total / Math.max(b.budget, 1)) * 100)}% of budget used`);
+  const fill = el("span");
+  fill.style.width = `${Math.min(100, (b.total / Math.max(b.budget, 1)) * 100).toFixed(1)}%`;
+  meter.append(fill);
+  const legend = el("div", undefined, "meter-label");
+  legend.append(el("span", "Total package price"), el("span", `Budget ${inr(b.budget)}`));
+  box.append(total, meter, legend);
   const table = el("table", undefined, "breakdown");
   for (const r of b.rows) {
     const tr = el("tr");
-    tr.append(el("td", r.label), el("td", inr(r.amount), "num"));
+    const label = el("td", r.label);
+    label.dataset.icon = TYPE_ICON[r.type] || "";
+    tr.append(label, el("td", inr(r.amount), "num"));
     table.append(tr);
   }
   for (const [label, value, cls] of [["Total", inr(b.total), "total"], ["Budget", inr(b.budget), ""],
@@ -242,10 +260,15 @@ async function showAlternatives(ctx, component, filters, title, currentPrice) {
   const { status, body } = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}/alternatives?${q}`);
   panel.replaceChildren(el("h3", title));
   if (status !== 200) { panel.hidden = true; return explainError(ctx, status, body); }
-  if (!body.alternatives.length) panel.append(el("p", "No other valid options for this choice.", "hint"));
+  if (!body.alternatives.length) {
+    const empty = el("p", "No other valid options for this choice.", "hint empty");
+    empty.dataset.icon = "🧭";
+    panel.append(empty);
+  }
   const ul = el("ul", undefined, "alts");
-  for (const a of body.alternatives) {
+  for (const [index, a] of body.alternatives.entries()) {
     const li = el("li");
+    li.style.setProperty("--i", String(Math.min(index, 10)));
     const diff = a.price_diff_inr ?? (a.price_inr - currentPrice);  // server value: whole-trip difference vs saved version
     const meta = [a.catalog_id, a.room_id && `room ${a.room_id}`, a.start && `${a.start}${a.end ? " → " + a.end : ""}`]
       .filter(Boolean).join(" · ");
@@ -263,6 +286,7 @@ async function showAlternatives(ctx, component, filters, title, currentPrice) {
     ul.append(li);
   }
   panel.append(ul, actionButton("Close", async () => { panel.hidden = true; }));
+  panel.scrollIntoView({ behavior: UI.reduced() ? "auto" : "smooth", block: "nearest" });
 }
 
 const planLabel = (p) => p.cities.map((c, i) => `${c} (${p.nights[i]} night${p.nights[i] === 1 ? "" : "s"})`).join(" → ");
@@ -319,8 +343,10 @@ async function applyChange(ctx, change) {
       list = el("ul");
       for (const a of adj) list.append(el("li", a));
     }
+    UI.toast(adj.length ? `Package updated · ${adj.length} related change(s)` : "Package updated and re-checked.", "ok");
     return packageMessage(currentCtx, adj.length ? "Package updated and re-checked. Also changed to keep it valid:" : "Package updated and re-checked.", "ok", list);
   }
+  if (res.body?.error?.code === "INVALID_CHANGE") UI.toast("Change refused — your package is unchanged.", "error");
   explainError(ctx, res.status, res.body);
 }
 
@@ -340,7 +366,8 @@ async function confirmBooking(ctx) {
   }
   if (res.status === 200 || res.status === 201) {
     history.pushState(null, "", `/?reservation=${encodeURIComponent(res.body.reference)}`);
-    return renderReservation(res.body);
+    renderReservation(res.body);
+    return UI.bookedModal(res.body.reference, inr(res.body.trip.total_inr));
   }
   explainError(ctx, res.status, res.body);
 }
@@ -362,7 +389,7 @@ function reservationNotFound(msg) {
 }
 
 async function openReservation(ref) {
-  $("package").replaceChildren(el("section", "Looking up your reservation…", "card"));
+  $("package").replaceChildren(UI.skeleton(5));
   showView("package");
   if (!/^[0-9]{10}$/.test(ref)) return reservationNotFound("A reservation number has exactly 10 digits.");
   const { status, body } = await api(`/api/reservations/${encodeURIComponent(ref)}`);
@@ -372,21 +399,44 @@ async function openReservation(ref) {
 
 function renderItinerary(trip, ctx) {
   const box = el("section", undefined, "card");
-  box.append(el("h2", "Day-by-day plan"), el("p", "All times are local to where the event happens.", "hint"));
+  box.append(el("h2", "Day-by-day plan"), el("p", "All times are local to where the event happens. Select a day to fold it.", "hint"));
+  const timeline = el("div", undefined, "timeline");
   for (const day of Itinerary.buildDays(trip)) {
-    const d = el("div", undefined, "day");
+    const d = el("details", undefined, `day kind-${day.kind}`);
+    d.open = true;  // expanded by default; each day folds like an accordion
     const label = day.kind === "departure" ? `${day.date} · ${KIND_LABEL.departure}`
       : `Day ${day.day_number} · ${day.date} · ${KIND_LABEL[day.kind]}`;
-    d.append(el("h3", label));
+    const summary = el("summary");
+    summary.dataset.day = day.kind === "departure" ? "✈" : String(day.day_number);
+    const visits = day.entries.filter((e) => e.type === "attraction").length;
+    summary.append(el("h3", label), el("span", `${day.entries.length} item(s)${visits ? ` · ${visits} visit(s)` : ""}`, "day-count"));
+    d.append(summary);
+    const body = el("div", undefined, "day-body");
     const ul = el("ul");
     day.entries.forEach((e) => ul.append(entryLine(e, ctx)));
-    d.append(ul);
+    body.append(ul);
     if (ctx?.editable && ["arrival", "full", "change"].includes(day.kind)) {
-      d.append(actionButton("+ Add attraction", () => showAlternatives(ctx, "attraction", { date: day.date }, `Attractions on ${day.date}`, 0)));
+      const add = actionButton("+ Add attraction", () => showAlternatives(ctx, "attraction", { date: day.date }, `Attractions on ${day.date}`, 0));
+      add.classList.add("add-attraction");
+      body.append(add);
     }
-    box.append(d);
+    d.append(body);
+    timeline.append(d);
   }
+  box.append(timeline);
   return box;
+}
+
+function progressSteps(status) {
+  const done = status === "BOOKED" ? 4 : 2;  // search + itinerary done; customise now, then confirm
+  const ol = el("ol", undefined, "steps");
+  ol.setAttribute("aria-label", "Booking progress");
+  ["Search", "Itinerary", "Customise", "Confirm"].forEach((name, i) => {
+    const li = el("li", name, i < done ? "done" : i === done ? "current" : "");
+    if (i === done) li.setAttribute("aria-current", "step");
+    ol.append(li);
+  });
+  return ol;
 }
 
 let currentCtx = null;
@@ -396,13 +446,14 @@ function renderPackage(view) {
   const box = $("package");
   box.replaceChildren();
   const head = el("section", undefined, "card");
+  head.append(progressSteps(view.status));
   head.append(el("h2", `${t.country} · ${t.start_date} → ${t.end_date}`));
   const tr = t.traveler;
   const party = `${tr.adults} adult(s)` + (tr.children ? `, ${tr.children} child(ren) aged ${tr.child_ages.join(", ")}` : "");
-  head.append(el("p", `From ${tr.home_airport} · ${party}`));
+  head.append(el("p", `From ${tr.home_airport} · ${party}`, "muted"));
   const editable = view.status === "DRAFT";
   const status = view.status === "BOOKED" ? `Booked · reservation ${view.reference}` : `Draft · version ${view.version}`;
-  head.append(el("div", status, "banner " + (view.status === "BOOKED" ? "ok" : "info")));
+  head.append(el("div", status, "status-chip " + (view.status === "BOOKED" ? "ok" : "info")));
   const message = el("div", undefined, "banner");
   message.hidden = true;
   const panel = el("div", undefined, "alt-panel");
@@ -428,13 +479,18 @@ function renderPackage(view) {
   again.onclick = () => { history.pushState(null, "", "/"); showView("planner"); };
   actions.append(exp, again);
   head.append(actions, el("small", `Package ID: ${view.package_id}`, "hint"), message, panel);
-  box.append(head, renderBudget(t), renderItinerary(t, ctx));
+  const layout = el("div", undefined, "pkg-layout");
+  const side = el("aside", undefined, "pkg-side");
+  side.setAttribute("aria-label", "Price summary");
+  side.append(renderBudget(t, view.package_id));
+  layout.append(renderItinerary(t, ctx), side);
+  box.append(head, layout);
   showView("package");
   window.scrollTo({ top: 0 });
 }
 
 async function openPackage(id) {
-  $("package").replaceChildren(el("section", "Loading your package…", "card"));
+  $("package").replaceChildren(UI.skeleton(6));
   showView("package");
   const { status, body } = await api(`/api/packages/${encodeURIComponent(id)}`);
   if (status === 200) return renderPackage(body);
@@ -488,14 +544,20 @@ async function onSubmit(ev) {
   const btn = $("submit");
   btn.disabled = true;
   btn.textContent = "Building…";
+  UI.busy(btn, true);
+  $("result").replaceChildren(UI.skeleton(4));  // checked-package search can take a moment
+  $("result").hidden = false;
   try {
     const { status, body } = await api("/api/packages/build", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(readForm()),
     });
     renderBuildOutcome(status, body);
+    if (status === 201) UI.toast("Your holiday package is ready.", "ok");
   } catch {
+    $("result").hidden = true;
     showFormError("Could not reach the server. Please try again.");
   } finally {
+    UI.busy(btn, false);
     btn.disabled = false;
     btn.textContent = "Build my holiday";
   }
@@ -564,6 +626,9 @@ async function onCompare() {
   const btn = $("compare"), label = btn.textContent;
   btn.disabled = true;
   btn.textContent = "Comparing…";
+  UI.busy(btn, true);
+  $("result").replaceChildren(UI.skeleton(4));
+  $("result").hidden = false;
   const request = readForm();
   try {
     const { status, body } = await api("/api/packages/recommend", {
@@ -572,8 +637,10 @@ async function onCompare() {
     if (status === 200 && body.status === "BUILT" && body.recommendations?.length) renderRecommendations(request, body);
     else renderBuildOutcome(status, body);  // honest OVER_BUDGET / NO_PACKAGE / field errors; nothing saved
   } catch {
+    $("result").hidden = true;
     showFormError("Could not reach the server. Please try again.");
   } finally {
+    UI.busy(btn, false);
     btn.disabled = false;
     btn.textContent = label;
   }
