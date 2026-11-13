@@ -8,8 +8,13 @@ from __future__ import annotations
 
 import copy
 from datetime import date, timedelta
+from pathlib import Path
 
 from app.contracts import InvalidRequestError, build_request_errors
+
+# Absolute paths so tests never depend on the current working directory.
+REPO_ROOT = Path(__file__).resolve().parents[3]
+CATALOG_DIR = REPO_ROOT / "data" / "catalog"
 
 MENON_REQUEST = {
     "departure_city": "BLR",

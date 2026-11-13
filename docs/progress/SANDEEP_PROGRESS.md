@@ -1,30 +1,35 @@
 # Sandeep (Developer B) — Progress
 
-## Phase 0 — Contract freeze (in review)
+## Phase 0 — Contract freeze
 
-- Branch: `sandeep`. Base reviewed commit: `fd4f331` (contract v1.0.0).
-- Tanish review of `fd4f331`: **CHANGES REQUIRED** (4 required changes + 6 clarifications). DomainPort methods, ownership, build states and edit/confirm flow approved.
-- v1.1.0 revision: committed on `sandeep` (parent `fd4f331`, the commit that adds this file) and pushed to `origin/sandeep` for Tanish's final review. **Not frozen** until Tanish approves that exact commit. Not merged into `main`, `integration` or `feat/tanish-domain`.
-- Tests at commit time: `python -m pytest -q tests/platform` → 95 passed, 0 failed, 1 skipped. The skip is `test_real_domain_factory_matches_contract`: pending integration, it runs once `app.domain.adapter.create_domain` exists.
-- Untouched in this commit: `docker/data/db/**`, `docker/docker-compose.yml`, `.env`, `.gitignore`, and all Tanish-owned paths (`app/domain/**`, `tests/domain/**`).
-- Changes in v1.1.0:
-  - `app/contracts.py`: attraction day rules + `attraction_count_errors`; `booked_trip_shape_errors`; `change_result_shape_errors(result, original_trip)`; BUILT `end_date`/`cheapest_total_inr` checks; OVER_BUDGET `reason_code` null + non-empty `reason`; `build_request_errors`; `alternatives_shape_errors`; flight/attraction quantity = travelers; Python 3.11+ note.
-  - `docs/INTEGRATION_CONTRACT.md`: updated to v1.1.0 with changelog (§6).
-  - Tests: `tests/platform/test_contract.py`, `tests/platform/test_contract_review.py`, fixtures `tests/platform/fixtures/contract_fixtures.py` (TEST-ONLY fake domain).
-  - Infra: `app/__init__.py`, `pytest.ini`, `pytest==9.2.0` in `requirements.txt`.
-- Test command: `python -m pytest -q tests/platform`.
+- Contract v1.0.0 proposed in `fd4f331`; Tanish review: CHANGES REQUIRED (14 findings).
+- Contract v1.1.0 committed in `3a6d164b0fba0ab7562851b36dcd0f708be16f2a` on `sandeep`; **APPROVED by Tanish** (all 14 findings resolved; he independently ran the contract tests: 95 passed, 1 skipped).
+- `3a6d164` changes vs base `ea23f46`: `app/__init__.py`, `app/contracts.py`, `docs/INTEGRATION_CONTRACT.md`, `docs/progress/SANDEEP_PROGRESS.md`, `pytest.ini`, `requirements.txt` (+`pytest==9.2.0`), `tests/platform/fixtures/contract_fixtures.py`, `tests/platform/test_contract.py`, `tests/platform/test_contract_review.py`. No `docker/**`, `.env`, `.gitignore` or Tanish-owned paths.
+- v1.1.0 contents: attraction day rules (`attraction_count_errors`), `booked_trip_shape_errors`, `change_result_shape_errors(result, original_trip)`, BUILT `end_date`/`cheapest_total_inr` checks, OVER_BUDGET `reason_code` null + non-empty `reason`, `build_request_errors`, `alternatives_shape_errors`, item city/quantity semantics, Python 3.11+.
+
+### Post-approval test reliability fix (tests only; DomainPort and contract semantics unchanged)
+
+- Real-adapter test skips (reason `pending integration`) until both `app.domain.adapter` and `create_domain` exist; an adapter that exists but fails to import now FAILS instead of skipping. Also skips if the official catalog is absent.
+- All test paths are absolute (`REPO_ROOT`, `CATALOG_DIR` in `tests/platform/fixtures/contract_fixtures.py`); tests pass when run from any working directory.
+- Verified: `python -m pytest -q tests/platform` → 95 passed, 0 failed, 1 skipped (real adapter, pending integration), from repo root and from an unrelated cwd. Skip/fail/pass behaviour simulated in a throwaway copy (no adapter → skip; adapter without `create_domain` → skip; broken import → fail; stub adapter → pass).
+
+### Branch sync (pending Sandeep approval)
+
+- Shared base per TEAM_RULES: `integration` (reviewed merge checkpoints). `main`, `integration`, `feat/tanish-domain` were all at `ea23f46` (same tree as `a740c41`); dry-run merge with `sandeep` is conflict-free.
+- Plan: commit test fix on `sandeep` → merge `origin/integration` into `sandeep` → push → fast-forward `origin/integration` to `sandeep` → Tanish fast-forwards `feat/tanish-domain`. `main` untouched until the final merge.
+- `docker/data/db/**` is identical on every branch, so none of these steps rewrite PostgreSQL files.
 
 ## Remaining Phase 0 blockers
 
-- Tanish's final approval of the v1.1.0 commit (contract freeze gate).
-- Shared base for both working branches not yet agreed (`integration` vs `main`).
+- Sandeep approval of the sync commands; then gate 1: both working branches on the same `integration` SHA.
+- Official catalog `data/catalog/*.json` is untracked, so a fresh clone has no catalog (real-adapter test would skip, Tanish's loader tests need it). Needs a decision to commit it.
 
 ## Open issues (not Phase 0 contract scope)
 
-- ~1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Cleanup needs Sandeep's explicit approval; procedure reported in session, nothing untracked yet.
+- ~1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Cleanup needs Sandeep's explicit approval; nothing untracked yet.
 - `docker/docker-compose.yml` hardcodes `POSTGRES_PASSWORD`; no `.env.example` yet (Phase 1).
-- Catalog (`data/catalog/*.json`), `TEAM_RULES.md`, `docs/DATA_DICTIONARY.md` not yet committed; `temp_dataset/`, zip and `prompt.md` should be ignored.
+- `TEAM_RULES.md`, `docs/DATA_DICTIONARY.md` not committed; `temp_dataset/`, zip and `prompt.md` should be ignored.
 
 ## Next
 
-Phase 1 (FastAPI + PostgreSQL + form) only after the v1.1.0 contract is approved and committed.
+Phase 1 (FastAPI + PostgreSQL + form) only after branch sync and Sandeep's explicit go-ahead.

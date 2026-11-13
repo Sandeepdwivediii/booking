@@ -14,7 +14,8 @@ import pytest
 
 from app import contracts as c
 from tests.platform.fixtures.contract_fixtures import (
-    MENON_REQUEST, TRIP_ID, FakeDomain, built_result, no_package_result, over_budget_result, sample_trip,
+    CATALOG_DIR, MENON_REQUEST, REPO_ROOT, TRIP_ID, FakeDomain, built_result, no_package_result,
+    over_budget_result, sample_trip,
 )
 
 
@@ -24,7 +25,7 @@ def test_contracts_module_is_stdlib_only():
     code = ("import sys, app.contracts; "
             "bad=[m for m in ('fastapi','sqlalchemy','pydantic','psycopg','starlette') if m in sys.modules]; "
             "print(','.join(bad))")
-    out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True)
+    out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True, cwd=REPO_ROOT)
     assert out.stdout.strip() == ""
 
 
@@ -184,11 +185,24 @@ def test_change_result_checker_rejects_bad():
 
 # ---------------------------------------------------------------- compatibility with real domain (later)
 
-@pytest.mark.skipif(importlib.util.find_spec("app.domain") is None, reason="app.domain not merged yet")
+def _real_create_domain():
+    """Return app.domain.adapter.create_domain, or skip while it does not exist yet.
+    An adapter that exists but fails to import is a real failure, not a skip."""
+    if importlib.util.find_spec("app.domain") is None or importlib.util.find_spec("app.domain.adapter") is None:
+        pytest.skip("pending integration: app.domain.adapter not merged yet")
+    from app.domain import adapter
+    factory = getattr(adapter, "create_domain", None)
+    if factory is None:
+        pytest.skip("pending integration: app.domain.adapter.create_domain not defined yet")
+    return factory
+
+
 def test_real_domain_factory_matches_contract():
-    from app.domain.adapter import create_domain
+    create_domain = _real_create_domain()
+    if not (CATALOG_DIR / "destinations.json").is_file():
+        pytest.skip(f"official catalog not present at {CATALOG_DIR}")
     assert list(inspect.signature(create_domain).parameters)[:1] == ["catalog_dir"]
-    domain = create_domain("data/catalog")
+    domain = create_domain(str(CATALOG_DIR))
     assert isinstance(domain, c.DomainPort)
     for name, params in EXPECTED_SIGNATURES.items():
         assert list(inspect.signature(getattr(type(domain), name)).parameters) == params

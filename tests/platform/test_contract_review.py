@@ -4,13 +4,12 @@ from __future__ import annotations
 
 import copy
 import sys
-from pathlib import Path
 
 import pytest
 
 from app import contracts as c
 from tests.platform.fixtures.contract_fixtures import (
-    MENON_REQUEST, REFERENCE, SAMPLE_TOTAL, TRIP_ID, FakeDomain, booked_trip, built_result,
+    MENON_REQUEST, REFERENCE, REPO_ROOT, SAMPLE_TOTAL, TRIP_ID, FakeDomain, booked_trip, built_result,
     no_package_result, over_budget_result, sample_trip,
 )
 
@@ -257,11 +256,11 @@ def test_window_boundary_is_buildable():  # IN-06
 
 def test_python_311_plus():
     assert sys.version_info >= (3, 11)
-    assert "3.11" in Path("app/contracts.py").read_text(encoding="utf-8")
+    assert "3.11" in (REPO_ROOT / "app" / "contracts.py").read_text(encoding="utf-8")
 
 
 def test_contract_doc_references_existing_test_files():
-    doc = Path("docs/INTEGRATION_CONTRACT.md").read_text(encoding="utf-8")
+    doc = (REPO_ROOT / "docs" / "INTEGRATION_CONTRACT.md").read_text(encoding="utf-8")
     for p in ("tests/platform/test_contract.py", "tests/platform/test_contract_review.py",
               "tests/platform/fixtures/contract_fixtures.py"):
-        assert p in doc and Path(p).is_file(), p
+        assert p in doc and (REPO_ROOT / p).is_file(), p
