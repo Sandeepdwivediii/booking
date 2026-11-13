@@ -1,5 +1,31 @@
 # Handoff — Tanish (Developer A, domain)
 
+## Phase 10 — optional G4 recommendations (latest)
+
+```text
+Phase: 10 (extension) — domain complete on feat/tanish-domain; NOT exposed through the frozen contract yet.
+Implemented (planner.py): recommend_packages(catalog, request, trip_id) = build_trip() result unchanged +
+  "recommendations": [{label: cheapest|fastest|best_rated, trip, total_inr, travel_minutes, star_nights,
+  average_stars}]; trip_metrics(catalog, trip). OVER_BUDGET / NO_PACKAGE -> build result + recommendations [].
+  _Search gained optional restrictions (self.only: out/ret flight ids, intercity ids, stars per city); empty
+  restrictions = previous behavior (Phase 0-9 regressions pass).
+Exactness: fastest = ascending (flights + intercity minutes) over every (plan, out, ret, intercity) tuple;
+  best_rated = descending star-nights over every per-city star assignment; for each candidate the existing exact
+  search returns the cheapest complete package under that restriction; stop at the first rank with a
+  within-budget package (ties -> lower total). No top-K. Self-validated; never fabricated.
+Evidence: exhaustive oracle (all valid packages) == G4 winners on 96 cases during development (32 catalogs x
+  3 budgets); 17 seeds x 3 budgets in the suite (G4-A12). Official: 0.01-0.14 s per recommendation set.
+Tests: tests/domain/test_phase10_g4.py — G4-A01..A12 PASS (29 tests). Branch: 513 passed, 3 skipped (API BLOCKED).
+```
+
+**Contract proposal for Sandeep (additive, NOT applied):** optional `Domain.recommend(request, trip_id)` →
+`BuildResult + {"recommendations": [...]}` (existing keys identical to `build()`), platform calls it when
+`hasattr(domain, "recommend")`; new route `POST /api/packages/recommend` returns cards without persisting; the
+traveler's choice is persisted via the existing build flow (e.g. `POST /api/packages/build` with
+`"choice": "fastest"`, or a dedicated persist route) — persistence shape to be agreed jointly.
+
+---
+
 ## Phase 9 — optional G3 change city plan (latest)
 
 ```text

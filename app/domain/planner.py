@@ -172,13 +172,15 @@ class _Search:
         self._arrivals: dict = {}
         self._returns: dict = {}
         self._intercity: dict = {}
+        self.only: dict = {}  # G4 restrictions: out/ret flight ids, intercity ids per change day, stars per city
 
     # ------------------------------------------------------------ component options
     def hotel_options(self, seg: Segment) -> dict:
-        """area -> (cost, hotel, room, k): cheapest feasible hotel per area for this stay."""
+        """area -> (cost, hotel, room, k): cheapest feasible hotel per area for this stay
+        (restricted to one star level when self.only["stars"][city] is set, G4)."""
         key = (seg.city, seg.check_in, seg.check_out)
         if key not in self._hotels:
-            best: dict = {}
+            best: dict = {}  # (area, stars) -> cheapest option
             ci, co = seg.check_in.isoformat(), seg.check_out.isoformat()
             for hotel in self.cat.hotels_by_city.get(seg.city, ()):
                 for room in self.cat.rooms_by_hotel.get(hotel["hotel_id"], ()):
@@ -186,31 +188,53 @@ class _Search:
                     if k is None or not room_stay_available(self.cat, room["room_id"], ci, co, k):
                         continue
                     opt = (hotel_price(room, k, seg.nights), hotel["hotel_id"], room["room_id"], hotel, room, k)
-                    area = hotel["area"]
-                    if area not in best or opt[:3] < best[area][:3]:
-                        best[area] = opt
-            self._hotels[key] = {a: (o[0], o[3], o[4], o[5]) for a, o in sorted(best.items())}
-        return self._hotels[key]
+                    group = (hotel["area"], hotel["stars"])
+                    if group not in best or opt[:3] < best[group][:3]:
+                        best[group] = opt
+            self._hotels[key] = best
+        star = self.only.get("stars", {}).get(seg.city)
+        per_area: dict = {}
+        for (area, stars), o in sorted(self._hotels[key].items()):
+            if star is None or stars == star:
+                if area not in per_area or o[:3] < per_area[area][:3]:
+                    per_area[area] = o
+        return {a: (o[0], o[3], o[4], o[5]) for a, o in sorted(per_area.items())}
+
+    def _unrestricted(self, fn, *args):
+        saved, self.only = self.only, {}
+        try:
+            return fn(*args)
+        finally:
+            self.only = saved
+
+    def star_levels(self, seg: Segment) -> list[int]:
+        """Star levels with at least one feasible hotel/room for this stay (G4)."""
+        saved, self.only = self.only, {}
+        self.hotel_options(seg)
+        self.only = saved
+        return sorted({stars for _, stars in self._hotels[(seg.city, seg.check_in, seg.check_out)]})
 
     def outbound_flights(self, city: str) -> list:
         out = []
         for ap in self.cat.airports_serving_city.get(city, ()):
             out += [f for f in self.cat.flights_by_arrival.get((self.home, ap, self.start.isoformat()), ())
-                    if f["seats_left"] >= self.party.travelers]
+                    if f["seats_left"] >= self.party.travelers
+                    and f["flight_id"] in self.only.get("out", (f["flight_id"],))]
         return out
 
     def return_flights(self, city: str) -> list:
         out = []
         for ap in self.cat.airports_serving_city.get(city, ()):
             out += [f for f in self.cat.flights_by_departure.get((ap, self.home, self.end.isoformat()), ())
-                    if f["seats_left"] >= self.party.travelers]
+                    if f["seats_left"] >= self.party.travelers
+                    and f["flight_id"] in self.only.get("ret", (f["flight_id"],))]
         return out
 
     def arrival_options(self, city: str) -> list:
         """(cost, flight, transfer, pickup, at_hotel) for every legal flight + airport transfer."""
         if city not in self._arrivals:
             opts = []
-            for f in self.outbound_flights(city):
+            for f in self._unrestricted(self.outbound_flights, city):
                 landed = parse_local(f["arrival_local"])
                 for t in self.cat.airport_transfers.get((f["to"], city), ()):
                     pickup = next_departure(landed + MIN_LANDING_TO_PICKUP, t["service_from"],
@@ -222,13 +246,14 @@ class _Search:
                     opts.append((cost, f, t, pickup, transfer_arrival(t, pickup)))
             opts.sort(key=lambda o: (o[0], o[1]["flight_id"], o[2]["transfer_id"]))
             self._arrivals[city] = opts
-        return self._arrivals[city]
+        allowed = self.only.get("out")
+        return [o for o in self._arrivals[city] if allowed is None or o[1]["flight_id"] in allowed]
 
     def return_options(self, city: str) -> list:
         """(cost, flight, transfer, pickup) with airport reached >= 180 min before departure."""
         if city not in self._returns:
             opts = []
-            for f in self.return_flights(city):
+            for f in self._unrestricted(self.return_flights, city):
                 deadline = parse_local(f["departure_local"]) - MIN_AIRPORT_BEFORE_DEPARTURE
                 for t in self.cat.airport_transfers.get((f["from"], city), ()):
                     latest = deadline - timedelta(minutes=t["duration_minutes"])
@@ -241,7 +266,8 @@ class _Search:
                     opts.append((cost, f, t, pickup))
             opts.sort(key=lambda o: (o[0], o[1]["flight_id"], o[2]["transfer_id"]))
             self._returns[city] = opts
-        return self._returns[city]
+        allowed = self.only.get("ret")
+        return [o for o in self._returns[city] if allowed is None or o[1]["flight_id"] in allowed]
 
     def intercity_options(self, frm: str, to: str, day: date) -> list:
         """(cost, transfer, departure) per linked transfer with a legal departure that day."""
@@ -322,6 +348,9 @@ class _Search:
             return None, 2
         inter_opts = [self.intercity_options(segs[i - 1].city, segs[i].city, segs[i].check_in)
                       for i in range(1, len(segs))]
+        if "inter" in self.only:  # G4: one fixed intercity transfer per change day
+            inter_opts = [[o for o in opts if o[1]["transfer_id"] == tid]
+                          for opts, tid in zip(inter_opts, self.only["inter"])]
         if not all(inter_opts):
             return None, 3
         arrivals, returns = self.arrival_options(first.city), self.return_options(last.city)
@@ -596,3 +625,94 @@ def rebuild_city_plan(catalog, trip: dict, cities, nights) -> dict:
     return {"ok": True, "trip": new, "violations": [],
             "adjustments": [f"City plan changed from {old_plan} to {new_plan}; flights, hotels, transfers and "
                             f"attractions were rebuilt (total {diff:+,} INR)."]}
+
+
+# ============================================================================ G4: three recommendations (extension)
+
+def _segments(start: date, cities, split) -> list[Segment]:
+    segs, day = [], start
+    for city, n in zip(cities, split):
+        segs.append(Segment(city, day, day + timedelta(days=n)))
+        day += timedelta(days=n)
+    return segs
+
+
+def trip_metrics(catalog, trip: dict) -> dict:
+    """G4 objectives of a judge-format trip: travel minutes = both flights + every intercity transfer
+    (airport transfers, waits and hotel time excluded); average hotel stars weighted by nights (guest
+    rating ignored)."""
+    flights = sum(catalog.flights[i["catalog_id"]]["duration_minutes"] for i in trip["items"] if i["type"] == "flight")
+    inter = sum(catalog.transfers[i["catalog_id"]]["duration_minutes"] for i in trip["items"]
+                if i["role"] == "intercity_transfer")
+    nights = star_nights = 0
+    for h in (i for i in trip["items"] if i["role"] == "hotel_stay"):
+        n = (date.fromisoformat(h["end"]) - date.fromisoformat(h["start"])).days
+        nights += n
+        star_nights += catalog.hotels[h["catalog_id"]]["stars"] * n
+    return {"travel_minutes": flights + inter, "star_nights": star_nights,
+            "average_stars": round(star_nights / nights, 2) if nights else 0}
+
+
+def _best_constrained(search: _Search, candidates, budget: int):
+    """Candidates are (objective_rank, cities, split, restriction) in ascending rank order (lower is better).
+    Returns (rank, total, plan) of the cheapest within-budget package at the best feasible rank, or None.
+    Exact: a rank is abandoned only once a better rank has a feasible within-budget package."""
+    best = None
+    for rank, cities, split, only in candidates:
+        if best is not None and rank > best[0]:
+            break
+        search.only = only
+        total, detail = search.evaluate(cities, split)
+        search.only = {}
+        if total is not None and total <= budget and (best is None or total < best[1]):
+            best = (rank, total, detail)
+    return best
+
+
+def recommend_packages(catalog, request: dict, trip_id: str) -> dict:
+    """G4: the BuildResult of build_trip() plus `recommendations` = cheapest / fastest / best_rated, each a
+    complete, validated, within-budget package (the same package may win several labels). For OVER_BUDGET and
+    NO_PACKAGE the build result is returned unchanged with no recommendations."""
+    base = build_trip(catalog, request, trip_id)
+    if base["status"] != "BUILT":
+        return {**base, "recommendations": []}
+    party, start, nights, country = _parse_request(catalog, request)
+    search = _Search(catalog, party, request["departure_city"], start, nights, country)
+    budget = request["budget_inr"]
+    plans = city_plans(country, nights, catalog.rules["min_nights_per_city"])
+
+    fastest = []
+    for order, (cities, split) in enumerate(plans):
+        segs = _segments(start, cities, split)
+        inter = [search.intercity_options(segs[i - 1].city, segs[i].city, segs[i].check_in) for i in range(1, len(segs))]
+        for fo, fr in itertools.product(search.outbound_flights(cities[0]), search.return_flights(cities[-1])):
+            for combo in itertools.product(*inter):
+                minutes = fo["duration_minutes"] + fr["duration_minutes"] + sum(t["duration_minutes"] for _, t, _ in combo)
+                fastest.append(((minutes, order), cities, split, {
+                    "out": {fo["flight_id"]}, "ret": {fr["flight_id"]},
+                    "inter": tuple(t["transfer_id"] for _, t, _ in combo)}))
+    fastest.sort(key=lambda c: (c[0], c[3]["out"].copy().pop(), c[3]["ret"].copy().pop(), c[3]["inter"]))
+    fastest = [((rank[0],), cities, split, only) for rank, cities, split, only in fastest]
+
+    rated = []
+    for order, (cities, split) in enumerate(plans):
+        segs = _segments(start, cities, split)
+        levels = [search.star_levels(s) for s in segs]
+        for stars in itertools.product(*levels):
+            score = sum(s * n for s, n in zip(stars, split))
+            rated.append(((-score,), order, cities, split, {"stars": dict(zip(cities, stars))}))
+    rated.sort(key=lambda c: (c[0], c[1]))
+    rated = [(rank, cities, split, only) for rank, _, cities, split, only in rated]
+
+    out = [("cheapest", base["trip"])]
+    for label, candidates in (("fastest", fastest), ("best_rated", rated)):
+        found = _best_constrained(search, candidates, budget)
+        if found is None:  # cannot happen when BUILT (the cheapest package is a candidate); never fabricate
+            raise RuntimeError(f"no within-budget {label} package although the cheapest one fits")
+        trip = assemble_trip(catalog, request, trip_id, found[2])
+        if trip["total_inr"] != found[1] or validate_trip(catalog, trip, "initial"):
+            raise RuntimeError(f"{label} recommendation failed self-validation")
+        out.append((label, trip))
+    recs = [{"label": label, "trip": trip, "total_inr": trip["total_inr"], **trip_metrics(catalog, trip)}
+            for label, trip in out]
+    return {**base, "recommendations": recs}
