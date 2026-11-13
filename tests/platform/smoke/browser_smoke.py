@@ -3,6 +3,7 @@ disposable test DB, driven through headless Chrome via the DevTools protocol.
 
 Usage: python tests/platform/smoke/browser_smoke.py <repo_root> <chrome.exe> <screenshot_dir> [real]
   real -> production loader (Tanish's domain on the original catalog) instead of the fake.
+  SMOKE_BASE_URL=http://127.0.0.1:8000 -> drive an already running server (e.g. the Docker app); implies real.
 """
 import dataclasses
 import json
@@ -14,7 +15,9 @@ import time
 import urllib.request
 
 REPO, CHROME, SHOTS = sys.argv[1], sys.argv[2], sys.argv[3]
-REAL = len(sys.argv) > 4 and sys.argv[4] == "real"
+import os  # noqa: E402
+EXTERNAL = os.environ.get("SMOKE_BASE_URL")
+REAL = bool(EXTERNAL) or (len(sys.argv) > 4 and sys.argv[4] == "real")
 sys.path.insert(0, REPO)
 
 import uvicorn  # noqa: E402
@@ -26,14 +29,15 @@ from tests.platform.fixtures.fake_domain import ApiFakeDomain  # noqa: E402
 
 APP_PORT, CDP_PORT = 8767, 9333
 fake = ApiFakeDomain()
-if REAL:  # BK-06 in the UI: force a leading-zero reservation number
+if REAL and not EXTERNAL:  # BK-06 in the UI: force a leading-zero reservation number
     import random
     from app.services import transactions as tx
     tx.random_reference = lambda: "00" + f"{random.randrange(10**8):08d}"
 app = create_app(dataclasses.replace(get_settings(), database_url=get_test_database_url()),
                  domain_loader=None if REAL else (lambda _d: (fake, None)))
 server = uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=APP_PORT, log_level="warning"))
-threading.Thread(target=server.run, daemon=True).start()
+if not EXTERNAL:
+    threading.Thread(target=server.run, daemon=True).start()
 
 profile = tempfile.mkdtemp()
 chrome = subprocess.Popen([CHROME, "--headless=new", f"--remote-debugging-port={CDP_PORT}", f"--user-data-dir={profile}",
@@ -92,7 +96,7 @@ try:
         open(f"{SHOTS}/{name}.png", "wb").write(base64.b64decode(data))
 
     cdp("Runtime.enable"); cdp("Page.enable")
-    base = f"http://127.0.0.1:{APP_PORT}"
+    base = EXTERNAL or f"http://127.0.0.1:{APP_PORT}"
     cdp("Page.navigate", url=base + "/")
     wait("document.querySelectorAll('#departure_city option').length > 1", "options loaded from API")
     wait("document.getElementById('health').textContent === 'ready'", "health pill ready")
@@ -121,7 +125,8 @@ try:
         wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")
         ref = js("new URLSearchParams(location.search).get('reservation')")
         shot("real_booked")
-        results.append(("PASS" if ref.startswith("00") and len(ref) == 10 else "FAIL", f"BK-06 UI keeps leading zeros: {ref}"))
+        if not EXTERNAL:
+            results.append(("PASS" if ref.startswith("00") and len(ref) == 10 else "FAIL", f"BK-06 UI keeps leading zeros: {ref}"))
         cdp("Page.reload")
         wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "real: refresh after booking shows reservation")
         js("history.back(); true")  # SY-16: Back to the draft URL must show the persisted booked state
@@ -129,6 +134,13 @@ try:
              "SY-16 real: Back shows booked state")
         results.append(("PASS" if not js("[...document.querySelectorAll('#package button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book','+ Add attraction'].includes(b.textContent))") else "FAIL",
                         "SY-16 real: no edit/confirm controls after Back"))
+        cdp("Page.navigate", url=base + "/")
+        wait("document.querySelectorAll('#departure_city option').length > 1", "back to planner")
+        js(f"document.getElementById('lookup-ref').value = '{ref}'; document.querySelector('#lookup-form button').click(); true")
+        wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "lookup by reference opens booked summary")
+        exp = js("fetch([...document.querySelectorAll('#package a')].find(a => a.textContent === 'Download JSON').href).then(r => r.json())")
+        ok = exp and exp.get("status") == "BOOKED" and all(i["status"] == "BOOKED" and i["booking"] == {"reference": ref} for i in exp["items"])
+        results.append(("PASS" if ok else "FAIL", f"Download JSON is the booked judge export ({len(exp.get('items', [])) if exp else 0} items)"))
         raise SystemExit
     click("Remove")
     wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')", "remove attraction -> v2")

@@ -1,0 +1,17 @@
+# Only requirements.txt, app/ and data/catalog/ are needed in the image.
+.git
+.venv
+.env
+.env.*
+docker/
+data/db/
+temp_dataset/
+*.zip
+tests/
+docs/
+graphify-out/
+**/__pycache__
+.pytest_cache
+.vscode
+.claude
+prompt.md

@@ -1,5 +1,22 @@
 # Handoff — Tanish (Developer A, domain)
 
+## Phase 8 — optional G1 + G2 (latest)
+
+```text
+Phase: 8 (extension) — complete on feat/tanish-domain. No contract change needed or proposed: G1/G2 use
+  existing TripItem.warnings and ChangeResult.adjustments (contract v1.1.0 untouched).
+Already present from Phase 5: dependent airport-transfer repair + adjustments, conflict rejection with item_id,
+  alternatives price_diff from the whole resulting trip.
+Added (edits.py): _checkin_notes — after replace_hotel or an outbound flight change, an affected hotel reached on a
+  later date than its check-in date gets a display warning + adjustment note (never a rejection; cleared when
+  resolved; unaffected hotels untouched).
+Tests: tests/domain/test_phase8_g1_g2.py — G1-A01..A06, G2-A01..A03 PASS (10 tests, judge oracle on results).
+Branch: 469 passed, 3 skipped (API modules BLOCKED: no app.main). Platform E2E not re-run for this additive
+  string-only change; Sandeep's PATCH already returns adjustments.
+```
+
+---
+
 ## Phase 7 — final domain verification (latest)
 
 ```text
