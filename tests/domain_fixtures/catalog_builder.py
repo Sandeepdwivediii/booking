@@ -112,6 +112,19 @@ def synthetic_catalog() -> dict:
     return copy.deepcopy(_BASE)
 
 
+def set_availability(data: dict, room_id: str, first_night: str, rooms_left: list) -> dict:
+    """Replace every availability row of room_id with consecutive nights from first_night.
+    A None entry omits that night's row entirely (missing row)."""
+    from datetime import date, timedelta
+    data["availability"] = [a for a in data["availability"] if a["room_id"] != room_id]
+    start = date.fromisoformat(first_night)
+    for i, left in enumerate(rooms_left):
+        if left is not None:
+            data["availability"].append(
+                {"room_id": room_id, "date": (start + timedelta(days=i)).isoformat(), "rooms_left": left})
+    return data
+
+
 def write_catalog(directory: Path, data: dict, *, omit: tuple[str, ...] = ()) -> Path:
     """Write each file as <name>.json into directory (skipping `omit`). Returns directory."""
     directory.mkdir(parents=True, exist_ok=True)
