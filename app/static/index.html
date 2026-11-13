@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Build My Holiday</title>
+  <script src="/static/theme.js"></script>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="top-inner">
+      <a href="/" class="brand home" aria-label="Build My Holiday home">
+        <span class="brand-mark" aria-hidden="true">✈</span><span>Build My Holiday</span>
+      </a>
+      <form id="lookup-form" class="lookup" novalidate role="search" aria-label="Find a booking">
+        <input id="lookup-ref" name="reference" inputmode="numeric" maxlength="10" placeholder="Reservation no." aria-label="Reservation number">
+        <button type="submit" class="secondary">Find booking</button>
+      </form>
+      <div class="top-actions">
+        <span id="health" class="pill" hidden>checking…</span>
+        <button type="button" id="theme-toggle" class="icon-btn" aria-label="Switch to dark mode" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀</span><span class="icon-moon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="planner">
+      <section class="hero">
+        <div class="hero-inner">
+          <h1>Find your perfect <span class="accent">holiday</span></h1>
+          <p class="hero-sub">Flights, hotels, transfers and sightseeing in Japan and the UAE, built into one checked package.</p>
+
+          <div class="search-card card">
+            <div id="form-error" class="banner error" hidden></div>
+            <form id="build-form" novalidate>
+              <div class="search-grid">
+                <label class="field">
+                  <span class="field-label">Flying from</span>
+                  <select name="departure_city" id="departure_city" required><option value="">Loading…</option></select>
+                  <small class="field-error" data-for="departure_city"></small>
+                </label>
+                <label class="field">
+                  <span class="field-label">Destination</span>
+                  <select name="destination_country" id="destination_country" required><option value="">Loading…</option></select>
+                  <small class="field-error" data-for="destination_country"></small>
+                </label>
+                <label class="field">
+                  <span class="field-label">Arrival date</span>
+                  <input type="date" name="start_date" id="start_date" required>
+                  <small class="field-error" data-for="start_date"></small>
+                </label>
+                <label class="field">
+                  <span class="field-label">Nights</span>
+                  <input type="number" name="nights" id="nights" min="3" max="10" step="1" value="6" required>
+                  <small class="field-error" data-for="nights"></small>
+                </label>
+                <label class="field">
+                  <span class="field-label">Adults</span>
+                  <input type="number" name="adults" id="adults" min="1" max="20" step="1" value="2" required>
+                  <small class="field-error" data-for="adults"></small>
+                </label>
+                <label class="field">
+                  <span class="field-label">Total budget (₹)</span>
+                  <input type="number" name="budget_inr" id="budget_inr" min="0" step="1" value="350000" required>
+                  <small class="field-error" data-for="budget_inr"></small>
+                </label>
+              </div>
+              <fieldset class="children">
+                <legend>Children <span class="muted">(age 0–17)</span></legend>
+                <div id="children"></div>
+                <button type="button" id="add-child" class="secondary">+ Add child</button>
+                <small class="field-error" data-for="children_ages"></small>
+              </fieldset>
+              <div class="search-foot">
+                <small class="hint" id="date-hint"></small>
+                <span class="foot-actions">
+                  <button type="button" id="compare" class="secondary">Compare cheapest · fastest · best-rated</button>
+                  <button type="submit" id="submit" class="cta">Build my holiday</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="result" class="card result-card" hidden aria-live="polite"></section>
+
+      <section class="section" aria-labelledby="dest-title">
+        <div class="section-head">
+          <h2 id="dest-title">Popular destinations</h2>
+          <p class="muted">Cities our planner can build holidays in. Pick one to set your destination.</p>
+        </div>
+        <div id="destinations" class="dest-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section" aria-labelledby="ideas-title">
+        <div class="section-head">
+          <h2 id="ideas-title">Holiday ideas</h2>
+          <p class="muted">Ready-made requests. Prices are checked live when you build your trip.</p>
+        </div>
+        <div id="ideas" class="idea-grid"></div>
+      </section>
+
+      <section class="section how">
+        <div class="how-step"><span class="how-num">1</span><div><strong>Tell us your trip</strong><p class="muted">Where from, where to, dates, travellers and budget.</p></div></div>
+        <div class="how-step"><span class="how-num">2</span><div><strong>Get a checked package</strong><p class="muted">Every flight, room, transfer and visit is checked against the rules.</p></div></div>
+        <div class="how-step"><span class="how-num">3</span><div><strong>Change and confirm</strong><p class="muted">Swap hotels or flights, add sights, then book with a 10-digit number.</p></div></div>
+      </section>
+    </div>
+
+    <div id="package" hidden aria-live="polite"></div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-inner">
+      <span>Build My Holiday — hackathon demo. No payments are taken; confirmation saves the reservation in this app.</span>
+      <details>
+        <summary>Photo credits</summary>
+        <ul id="photo-credits" class="credits"></ul>
+      </details>
+    </div>
+  </footer>
+
+  <script src="/static/itinerary.js"></script>
+  <script src="/static/ui.js"></script>
+  <script src="/static/app.js"></script>
+  <script src="/static/home.js"></script>
+</body>
+</html>

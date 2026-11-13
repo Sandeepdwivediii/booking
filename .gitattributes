@@ -1,0 +1,5 @@
+# Official hackathon dataset: keep bytes identical to the supplied files (no EOL conversion).
+data/catalog/*.json -text
+data/trip_format_example.json -text
+docs/DATA_DICTIONARY.md -text
+docs/problem-1-holiday-package.md -text

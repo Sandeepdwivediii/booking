@@ -1,0 +1,7975 @@
+[
+  {
+    "flight_id": "FL-1001",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 432",
+    "from": "DEL",
+    "to": "HND",
+    "departure_local": "2027-03-31T20:00:00",
+    "arrival_local": "2027-04-01T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1004",
+    "airline": "AirVeda",
+    "flight_number": "AV 846",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-03-31T21:00:00",
+    "arrival_local": "2027-04-01T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-702",
+    "airline": "AirVeda",
+    "flight_number": "AV 771",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-03-31T21:40:00",
+    "arrival_local": "2027-04-01T09:20:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 27720,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1002",
+    "airline": "AirVeda",
+    "flight_number": "AV 244",
+    "from": "BOM",
+    "to": "KIX",
+    "departure_local": "2027-03-31T22:00:00",
+    "arrival_local": "2027-04-01T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 26000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-701",
+    "airline": "AirVeda",
+    "flight_number": "AV 278",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-03-31T22:45:00",
+    "arrival_local": "2027-04-01T09:25:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 36120,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1010",
+    "airline": "AirVeda",
+    "flight_number": "AV 253",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-01T03:00:00",
+    "arrival_local": "2027-04-01T05:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1012",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 712",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-01T03:00:00",
+    "arrival_local": "2027-04-01T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1006",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 573",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-01T04:00:00",
+    "arrival_local": "2027-04-01T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1014",
+    "airline": "AirVeda",
+    "flight_number": "AV 136",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-01T05:00:00",
+    "arrival_local": "2027-04-01T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1016",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 728",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-01T09:00:00",
+    "arrival_local": "2027-04-01T11:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1011",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 327",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-01T10:00:00",
+    "arrival_local": "2027-04-01T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1005",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 221",
+    "from": "KIX",
+    "to": "MAA",
+    "departure_local": "2027-04-01T11:00:00",
+    "arrival_local": "2027-04-01T16:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1009",
+    "airline": "AirVeda",
+    "flight_number": "AV 899",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-01T11:00:00",
+    "arrival_local": "2027-04-01T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1015",
+    "airline": "AirVeda",
+    "flight_number": "AV 540",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-01T11:00:00",
+    "arrival_local": "2027-04-01T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-704",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 762",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-01T11:30:00",
+    "arrival_local": "2027-04-01T17:30:00",
+    "stops": 0,
+    "duration_minutes": 570,
+    "price_per_seat": {
+      "amount": 27720,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1003",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 729",
+    "from": "HND",
+    "to": "BOM",
+    "departure_local": "2027-04-01T13:00:00",
+    "arrival_local": "2027-04-01T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1008",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 557",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-01T13:00:00",
+    "arrival_local": "2027-04-01T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-703",
+    "airline": "AirVeda",
+    "flight_number": "AV 721",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-01T13:30:00",
+    "arrival_local": "2027-04-01T20:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 27720,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1018",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 490",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-01T20:00:00",
+    "arrival_local": "2027-04-02T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1007",
+    "airline": "AirVeda",
+    "flight_number": "AV 755",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-01T21:00:00",
+    "arrival_local": "2027-04-02T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1013",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 403",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-01T21:00:00",
+    "arrival_local": "2027-04-02T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1017",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 156",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-01T21:00:00",
+    "arrival_local": "2027-04-02T02:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1020",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 638",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-01T22:00:00",
+    "arrival_local": "2027-04-02T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-705",
+    "airline": "AirVeda",
+    "flight_number": "AV 694",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-01T23:00:00",
+    "arrival_local": "2027-04-02T09:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-706",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 849",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-01T23:20:00",
+    "arrival_local": "2027-04-02T11:00:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1029",
+    "airline": "AirVeda",
+    "flight_number": "AV 593",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-02T05:00:00",
+    "arrival_local": "2027-04-02T07:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1033",
+    "airline": "AirVeda",
+    "flight_number": "AV 595",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-02T08:00:00",
+    "arrival_local": "2027-04-02T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1023",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 699",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-02T09:00:00",
+    "arrival_local": "2027-04-02T11:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1035",
+    "airline": "AirVeda",
+    "flight_number": "AV 335",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-02T09:00:00",
+    "arrival_local": "2027-04-02T11:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1024",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 277",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-02T10:00:00",
+    "arrival_local": "2027-04-02T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1032",
+    "airline": "AirVeda",
+    "flight_number": "AV 608",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-02T10:00:00",
+    "arrival_local": "2027-04-02T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1022",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 167",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-02T11:00:00",
+    "arrival_local": "2027-04-02T16:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1030",
+    "airline": "AirVeda",
+    "flight_number": "AV 793",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-02T11:00:00",
+    "arrival_local": "2027-04-02T16:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1034",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 448",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-02T11:00:00",
+    "arrival_local": "2027-04-02T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-708",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 265",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-02T11:00:00",
+    "arrival_local": "2027-04-02T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1021",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 639",
+    "from": "KIX",
+    "to": "BOM",
+    "departure_local": "2027-04-02T13:00:00",
+    "arrival_local": "2027-04-02T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1025",
+    "airline": "AirVeda",
+    "flight_number": "AV 660",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-02T13:00:00",
+    "arrival_local": "2027-04-02T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1037",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 281",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-02T13:00:00",
+    "arrival_local": "2027-04-02T16:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-707",
+    "airline": "AirVeda",
+    "flight_number": "AV 299",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-02T13:30:00",
+    "arrival_local": "2027-04-02T19:10:00",
+    "stops": 0,
+    "duration_minutes": 550,
+    "price_per_seat": {
+      "amount": 37800,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1027",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 510",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-02T14:00:00",
+    "arrival_local": "2027-04-02T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1031",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 242",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-02T14:00:00",
+    "arrival_local": "2027-04-02T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1028",
+    "airline": "AirVeda",
+    "flight_number": "AV 719",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-02T15:00:00",
+    "arrival_local": "2027-04-02T20:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1036",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 524",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-02T15:00:00",
+    "arrival_local": "2027-04-02T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1019",
+    "airline": "AirVeda",
+    "flight_number": "AV 285",
+    "from": "HND",
+    "to": "DEL",
+    "departure_local": "2027-04-02T16:00:00",
+    "arrival_local": "2027-04-02T21:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1042",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 851",
+    "from": "MAA",
+    "to": "KIX",
+    "departure_local": "2027-04-02T21:00:00",
+    "arrival_local": "2027-04-03T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-710",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 313",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-02T21:00:00",
+    "arrival_local": "2027-04-03T08:40:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1026",
+    "airline": "AirVeda",
+    "flight_number": "AV 564",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-02T22:00:00",
+    "arrival_local": "2027-04-03T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1038",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 532",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-02T22:00:00",
+    "arrival_local": "2027-04-03T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1039",
+    "airline": "AirVeda",
+    "flight_number": "AV 340",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-02T22:00:00",
+    "arrival_local": "2027-04-03T09:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-709",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 347",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-02T23:30:00",
+    "arrival_local": "2027-04-03T10:40:00",
+    "stops": 0,
+    "duration_minutes": 460,
+    "price_per_seat": {
+      "amount": 31080,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-104",
+    "airline": "AirVeda",
+    "flight_number": "AV 512",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-02T23:45:00",
+    "arrival_local": "2027-04-03T11:20:00",
+    "stops": 0,
+    "duration_minutes": 485,
+    "price_per_seat": {
+      "amount": 33180,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1043",
+    "airline": "AirVeda",
+    "flight_number": "AV 135",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-03T03:00:00",
+    "arrival_local": "2027-04-03T05:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1045",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 845",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-03T05:00:00",
+    "arrival_local": "2027-04-03T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1051",
+    "airline": "AirVeda",
+    "flight_number": "AV 513",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-03T05:00:00",
+    "arrival_local": "2027-04-03T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-711",
+    "airline": "AirVeda",
+    "flight_number": "AV 127",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-03T06:30:00",
+    "arrival_local": "2027-04-03T20:30:00",
+    "stops": 1,
+    "duration_minutes": 630,
+    "price_per_seat": {
+      "amount": 25200,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1041",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 654",
+    "from": "NRT",
+    "to": "BOM",
+    "departure_local": "2027-04-03T11:00:00",
+    "arrival_local": "2027-04-03T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1052",
+    "airline": "AirVeda",
+    "flight_number": "AV 662",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-03T11:00:00",
+    "arrival_local": "2027-04-03T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1040",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 101",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-03T13:00:00",
+    "arrival_local": "2027-04-03T18:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1047",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 196",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-03T14:00:00",
+    "arrival_local": "2027-04-03T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1049",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 840",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-03T14:00:00",
+    "arrival_local": "2027-04-03T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1053",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 585",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-03T14:00:00",
+    "arrival_local": "2027-04-03T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1044",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 134",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-03T15:00:00",
+    "arrival_local": "2027-04-03T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1054",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 633",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-03T15:00:00",
+    "arrival_local": "2027-04-03T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1046",
+    "airline": "AirVeda",
+    "flight_number": "AV 608",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-03T16:00:00",
+    "arrival_local": "2027-04-03T21:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-713",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 604",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-03T17:30:00",
+    "arrival_local": "2027-04-04T00:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 39480,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-712",
+    "airline": "AirVeda",
+    "flight_number": "AV 465",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-03T18:00:00",
+    "arrival_local": "2027-04-04T00:20:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1048",
+    "airline": "AirVeda",
+    "flight_number": "AV 227",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-03T21:00:00",
+    "arrival_local": "2027-04-04T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1050",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 356",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-03T21:00:00",
+    "arrival_local": "2027-04-04T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1057",
+    "airline": "AirVeda",
+    "flight_number": "AV 193",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-04-03T21:00:00",
+    "arrival_local": "2027-04-04T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-715",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 642",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-03T21:20:00",
+    "arrival_local": "2027-04-04T08:40:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 40320,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-714",
+    "airline": "AirVeda",
+    "flight_number": "AV 394",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-03T21:30:00",
+    "arrival_local": "2027-04-04T08:20:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 36120,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1056",
+    "airline": "AirVeda",
+    "flight_number": "AV 502",
+    "from": "BOM",
+    "to": "KIX",
+    "departure_local": "2027-04-03T22:00:00",
+    "arrival_local": "2027-04-04T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1065",
+    "airline": "AirVeda",
+    "flight_number": "AV 380",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-04T05:00:00",
+    "arrival_local": "2027-04-04T07:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1061",
+    "airline": "AirVeda",
+    "flight_number": "AV 876",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-04T08:00:00",
+    "arrival_local": "2027-04-04T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1069",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 637",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-04T08:00:00",
+    "arrival_local": "2027-04-04T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1073",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 711",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-04T08:00:00",
+    "arrival_local": "2027-04-04T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1063",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 802",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-04T09:00:00",
+    "arrival_local": "2027-04-04T11:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1060",
+    "airline": "AirVeda",
+    "flight_number": "AV 405",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-04T10:00:00",
+    "arrival_local": "2027-04-04T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1068",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 573",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-04T10:00:00",
+    "arrival_local": "2027-04-04T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1072",
+    "airline": "AirVeda",
+    "flight_number": "AV 634",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-04T10:00:00",
+    "arrival_local": "2027-04-04T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1062",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 639",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-04T11:00:00",
+    "arrival_local": "2027-04-04T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-717",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 520",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-04T11:30:00",
+    "arrival_local": "2027-04-04T18:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 34440,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1055",
+    "airline": "AirVeda",
+    "flight_number": "AV 689",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-04T13:00:00",
+    "arrival_local": "2027-04-04T18:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1058",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 762",
+    "from": "KIX",
+    "to": "MAA",
+    "departure_local": "2027-04-04T13:00:00",
+    "arrival_local": "2027-04-04T18:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1059",
+    "airline": "AirVeda",
+    "flight_number": "AV 897",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-04T14:00:00",
+    "arrival_local": "2027-04-04T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1067",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 439",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-04T14:00:00",
+    "arrival_local": "2027-04-04T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1071",
+    "airline": "AirVeda",
+    "flight_number": "AV 526",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-04T14:00:00",
+    "arrival_local": "2027-04-04T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-716",
+    "airline": "AirVeda",
+    "flight_number": "AV 325",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-04T15:00:00",
+    "arrival_local": "2027-04-04T21:20:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1066",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 656",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-04T16:00:00",
+    "arrival_local": "2027-04-04T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1070",
+    "airline": "AirVeda",
+    "flight_number": "AV 478",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-04T16:00:00",
+    "arrival_local": "2027-04-04T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1074",
+    "airline": "AirVeda",
+    "flight_number": "AV 134",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-04T16:00:00",
+    "arrival_local": "2027-04-04T21:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1076",
+    "airline": "AirVeda",
+    "flight_number": "AV 401",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-04T20:00:00",
+    "arrival_local": "2027-04-05T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 33000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1064",
+    "airline": "AirVeda",
+    "flight_number": "AV 125",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-04T21:00:00",
+    "arrival_local": "2027-04-05T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-718",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 606",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-04T21:00:00",
+    "arrival_local": "2027-04-05T08:40:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1075",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 643",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-04T22:00:00",
+    "arrival_local": "2027-04-05T09:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 26000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1078",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 864",
+    "from": "MAA",
+    "to": "HND",
+    "departure_local": "2027-04-04T22:00:00",
+    "arrival_local": "2027-04-05T08:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-776",
+    "airline": "AirVeda",
+    "flight_number": "AV 699",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-04T22:30:00",
+    "arrival_local": "2027-04-05T09:50:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-719",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 400",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-04T22:40:00",
+    "arrival_local": "2027-04-05T10:30:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 38640,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1080",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 602",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-05T03:00:00",
+    "arrival_local": "2027-04-05T05:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1086",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 322",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-05T03:00:00",
+    "arrival_local": "2027-04-05T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1090",
+    "airline": "AirVeda",
+    "flight_number": "AV 899",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-05T03:00:00",
+    "arrival_local": "2027-04-05T05:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1082",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 530",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-05T05:00:00",
+    "arrival_local": "2027-04-05T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1085",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 181",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-05T10:00:00",
+    "arrival_local": "2027-04-05T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1087",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 260",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-05T10:00:00",
+    "arrival_local": "2027-04-05T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1091",
+    "airline": "AirVeda",
+    "flight_number": "AV 393",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-05T10:00:00",
+    "arrival_local": "2027-04-05T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1077",
+    "airline": "AirVeda",
+    "flight_number": "AV 573",
+    "from": "KIX",
+    "to": "BOM",
+    "departure_local": "2027-04-05T11:00:00",
+    "arrival_local": "2027-04-05T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1083",
+    "airline": "AirVeda",
+    "flight_number": "AV 625",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-05T11:00:00",
+    "arrival_local": "2027-04-05T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1088",
+    "airline": "AirVeda",
+    "flight_number": "AV 110",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-05T13:00:00",
+    "arrival_local": "2027-04-05T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-720",
+    "airline": "AirVeda",
+    "flight_number": "AV 830",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-05T13:00:00",
+    "arrival_local": "2027-04-05T19:50:00",
+    "stops": 0,
+    "duration_minutes": 620,
+    "price_per_seat": {
+      "amount": 34440,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1084",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 514",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-05T14:00:00",
+    "arrival_local": "2027-04-05T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1079",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 103",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-05T16:00:00",
+    "arrival_local": "2027-04-05T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-721",
+    "airline": "AirVeda",
+    "flight_number": "AV 532",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-05T17:30:00",
+    "arrival_local": "2027-04-05T23:40:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1092",
+    "airline": "AirVeda",
+    "flight_number": "AV 235",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-05T20:00:00",
+    "arrival_local": "2027-04-06T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1094",
+    "airline": "AirVeda",
+    "flight_number": "AV 131",
+    "from": "BOM",
+    "to": "HND",
+    "departure_local": "2027-04-05T20:00:00",
+    "arrival_local": "2027-04-06T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1081",
+    "airline": "AirVeda",
+    "flight_number": "AV 317",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-05T21:00:00",
+    "arrival_local": "2027-04-06T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-722",
+    "airline": "AirVeda",
+    "flight_number": "AV 553",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-05T21:15:00",
+    "arrival_local": "2027-04-06T08:25:00",
+    "stops": 0,
+    "duration_minutes": 460,
+    "price_per_seat": {
+      "amount": 32760,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1089",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 763",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-05T22:00:00",
+    "arrival_local": "2027-04-06T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-723",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 742",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-05T23:00:00",
+    "arrival_local": "2027-04-06T10:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1107",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 271",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-06T05:00:00",
+    "arrival_local": "2027-04-06T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1111",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 622",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-06T05:00:00",
+    "arrival_local": "2027-04-06T08:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1099",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 527",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-06T08:00:00",
+    "arrival_local": "2027-04-06T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-724",
+    "airline": "AirVeda",
+    "flight_number": "AV 497",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-06T08:30:00",
+    "arrival_local": "2027-04-06T22:30:00",
+    "stops": 1,
+    "duration_minutes": 630,
+    "price_per_seat": {
+      "amount": 31080,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1101",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 203",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-06T09:00:00",
+    "arrival_local": "2027-04-06T11:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1105",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 263",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-06T09:00:00",
+    "arrival_local": "2027-04-06T10:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1098",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 468",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-06T10:00:00",
+    "arrival_local": "2027-04-06T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1102",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 133",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-06T10:00:00",
+    "arrival_local": "2027-04-06T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1095",
+    "airline": "AirVeda",
+    "flight_number": "AV 828",
+    "from": "NRT",
+    "to": "BOM",
+    "departure_local": "2027-04-06T11:00:00",
+    "arrival_local": "2027-04-06T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1096",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 564",
+    "from": "HND",
+    "to": "MAA",
+    "departure_local": "2027-04-06T11:00:00",
+    "arrival_local": "2027-04-06T16:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1104",
+    "airline": "AirVeda",
+    "flight_number": "AV 694",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-06T11:00:00",
+    "arrival_local": "2027-04-06T16:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1108",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 651",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-06T11:00:00",
+    "arrival_local": "2027-04-06T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-725",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 242",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-06T11:00:00",
+    "arrival_local": "2027-04-06T17:20:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 37800,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-726",
+    "airline": "AirVeda",
+    "flight_number": "AV 528",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-06T12:30:00",
+    "arrival_local": "2027-04-06T18:50:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1093",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 405",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-06T13:00:00",
+    "arrival_local": "2027-04-06T18:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1103",
+    "airline": "AirVeda",
+    "flight_number": "AV 864",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-06T13:00:00",
+    "arrival_local": "2027-04-06T15:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1097",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 170",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-06T14:00:00",
+    "arrival_local": "2027-04-06T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1109",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 575",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-06T14:00:00",
+    "arrival_local": "2027-04-06T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1106",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 694",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-06T15:00:00",
+    "arrival_local": "2027-04-06T19:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1110",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 622",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-06T15:00:00",
+    "arrival_local": "2027-04-06T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1116",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 169",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-04-06T21:00:00",
+    "arrival_local": "2027-04-07T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1100",
+    "airline": "AirVeda",
+    "flight_number": "AV 381",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-06T22:00:00",
+    "arrival_local": "2027-04-07T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1112",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 279",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-06T22:00:00",
+    "arrival_local": "2027-04-07T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1113",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 109",
+    "from": "DEL",
+    "to": "HND",
+    "departure_local": "2027-04-06T22:00:00",
+    "arrival_local": "2027-04-07T09:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-727",
+    "airline": "AirVeda",
+    "flight_number": "AV 336",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-06T23:00:00",
+    "arrival_local": "2027-04-07T09:30:00",
+    "stops": 0,
+    "duration_minutes": 420,
+    "price_per_seat": {
+      "amount": 38640,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-728",
+    "airline": "AirVeda",
+    "flight_number": "AV 239",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-06T23:00:00",
+    "arrival_local": "2027-04-07T10:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 32760,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1121",
+    "airline": "AirVeda",
+    "flight_number": "AV 189",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-07T03:00:00",
+    "arrival_local": "2027-04-07T05:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1127",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 359",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-07T03:00:00",
+    "arrival_local": "2027-04-07T05:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1117",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 339",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-07T04:00:00",
+    "arrival_local": "2027-04-07T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1123",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 223",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-07T04:00:00",
+    "arrival_local": "2027-04-07T05:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1114",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 431",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-07T11:00:00",
+    "arrival_local": "2027-04-07T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-730",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 540",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-07T11:30:00",
+    "arrival_local": "2027-04-07T18:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 37800,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1119",
+    "airline": "AirVeda",
+    "flight_number": "AV 764",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-07T13:00:00",
+    "arrival_local": "2027-04-07T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1125",
+    "airline": "AirVeda",
+    "flight_number": "AV 237",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-07T13:00:00",
+    "arrival_local": "2027-04-07T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1128",
+    "airline": "AirVeda",
+    "flight_number": "AV 420",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-07T15:00:00",
+    "arrival_local": "2027-04-07T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-729",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 367",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-07T15:00:00",
+    "arrival_local": "2027-04-07T21:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 32760,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1115",
+    "airline": "AirVeda",
+    "flight_number": "AV 820",
+    "from": "HND",
+    "to": "BOM",
+    "departure_local": "2027-04-07T16:00:00",
+    "arrival_local": "2027-04-07T21:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1130",
+    "airline": "AirVeda",
+    "flight_number": "AV 157",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-07T20:00:00",
+    "arrival_local": "2027-04-08T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1131",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 590",
+    "from": "MAA",
+    "to": "HND",
+    "departure_local": "2027-04-07T20:00:00",
+    "arrival_local": "2027-04-08T06:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1118",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 518",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-07T21:00:00",
+    "arrival_local": "2027-04-08T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1122",
+    "airline": "AirVeda",
+    "flight_number": "AV 711",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-07T21:00:00",
+    "arrival_local": "2027-04-08T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1124",
+    "airline": "AirVeda",
+    "flight_number": "AV 449",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-07T21:00:00",
+    "arrival_local": "2027-04-08T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-731",
+    "airline": "AirVeda",
+    "flight_number": "AV 867",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-07T21:45:00",
+    "arrival_local": "2027-04-08T08:45:00",
+    "stops": 0,
+    "duration_minutes": 450,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1120",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 434",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-07T22:00:00",
+    "arrival_local": "2027-04-08T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1126",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 790",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-07T22:00:00",
+    "arrival_local": "2027-04-08T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-732",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 641",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-07T22:20:00",
+    "arrival_local": "2027-04-08T09:40:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 38640,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-990",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 856",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-08T02:30:00",
+    "arrival_local": "2027-04-08T04:45:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 8900,
+      "currency": "INR"
+    },
+    "seats_left": 2,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1145",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 567",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-08T04:00:00",
+    "arrival_local": "2027-04-08T06:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1135",
+    "airline": "AirVeda",
+    "flight_number": "AV 806",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-08T08:00:00",
+    "arrival_local": "2027-04-08T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1147",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 673",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-08T08:00:00",
+    "arrival_local": "2027-04-08T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1134",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 504",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-08T10:00:00",
+    "arrival_local": "2027-04-08T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1138",
+    "airline": "AirVeda",
+    "flight_number": "AV 343",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-08T10:00:00",
+    "arrival_local": "2027-04-08T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1136",
+    "airline": "AirVeda",
+    "flight_number": "AV 474",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-08T11:00:00",
+    "arrival_local": "2027-04-08T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1140",
+    "airline": "AirVeda",
+    "flight_number": "AV 302",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-08T11:00:00",
+    "arrival_local": "2027-04-08T16:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-734",
+    "airline": "AirVeda",
+    "flight_number": "AV 530",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-08T12:00:00",
+    "arrival_local": "2027-04-08T18:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1139",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 556",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-08T13:00:00",
+    "arrival_local": "2027-04-08T15:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1143",
+    "airline": "AirVeda",
+    "flight_number": "AV 894",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-08T13:00:00",
+    "arrival_local": "2027-04-08T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1133",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 133",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-08T14:00:00",
+    "arrival_local": "2027-04-08T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1137",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 695",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-08T14:00:00",
+    "arrival_local": "2027-04-08T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1141",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 836",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-08T14:00:00",
+    "arrival_local": "2027-04-08T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1146",
+    "airline": "AirVeda",
+    "flight_number": "AV 343",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-08T15:00:00",
+    "arrival_local": "2027-04-08T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-733",
+    "airline": "AirVeda",
+    "flight_number": "AV 535",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-08T15:00:00",
+    "arrival_local": "2027-04-08T20:40:00",
+    "stops": 0,
+    "duration_minutes": 550,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1129",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 381",
+    "from": "HND",
+    "to": "DEL",
+    "departure_local": "2027-04-08T16:00:00",
+    "arrival_local": "2027-04-08T21:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 37000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1132",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 339",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-08T16:00:00",
+    "arrival_local": "2027-04-08T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1144",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 764",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-08T16:00:00",
+    "arrival_local": "2027-04-08T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1150",
+    "airline": "AirVeda",
+    "flight_number": "AV 259",
+    "from": "BOM",
+    "to": "HND",
+    "departure_local": "2027-04-08T20:00:00",
+    "arrival_local": "2027-04-09T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1142",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 166",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-08T21:00:00",
+    "arrival_local": "2027-04-09T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1149",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 798",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-08T21:00:00",
+    "arrival_local": "2027-04-09T08:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 26000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1152",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 441",
+    "from": "MAA",
+    "to": "KIX",
+    "departure_local": "2027-04-08T21:00:00",
+    "arrival_local": "2027-04-09T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-735",
+    "airline": "AirVeda",
+    "flight_number": "AV 724",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-08T21:30:00",
+    "arrival_local": "2027-04-09T08:40:00",
+    "stops": 0,
+    "duration_minutes": 460,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1148",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 640",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-08T22:00:00",
+    "arrival_local": "2027-04-09T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-501",
+    "airline": "AirVeda",
+    "flight_number": "AV 702",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-08T22:00:00",
+    "arrival_local": "2027-04-09T09:15:00",
+    "stops": 0,
+    "duration_minutes": 465,
+    "price_per_seat": {
+      "amount": 27500,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-736",
+    "airline": "AirVeda",
+    "flight_number": "AV 540",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-08T22:20:00",
+    "arrival_local": "2027-04-09T09:20:00",
+    "stops": 0,
+    "duration_minutes": 450,
+    "price_per_seat": {
+      "amount": 40320,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1158",
+    "airline": "AirVeda",
+    "flight_number": "AV 214",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-09T04:00:00",
+    "arrival_local": "2027-04-09T06:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1164",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 649",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-09T04:00:00",
+    "arrival_local": "2027-04-09T06:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1162",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 634",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-09T05:00:00",
+    "arrival_local": "2027-04-09T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1156",
+    "airline": "AirVeda",
+    "flight_number": "AV 127",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-09T08:00:00",
+    "arrival_local": "2027-04-09T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-737",
+    "airline": "AirVeda",
+    "flight_number": "AV 730",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-09T08:00:00",
+    "arrival_local": "2027-04-09T22:10:00",
+    "stops": 1,
+    "duration_minutes": 640,
+    "price_per_seat": {
+      "amount": 31920,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1154",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 202",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-09T09:00:00",
+    "arrival_local": "2027-04-09T11:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1160",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 654",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-09T09:00:00",
+    "arrival_local": "2027-04-09T10:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-777",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 140",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-09T12:30:00",
+    "arrival_local": "2027-04-09T18:00:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 24000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1151",
+    "airline": "AirVeda",
+    "flight_number": "AV 601",
+    "from": "NRT",
+    "to": "BOM",
+    "departure_local": "2027-04-09T13:00:00",
+    "arrival_local": "2027-04-09T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 33000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1155",
+    "airline": "AirVeda",
+    "flight_number": "AV 143",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-09T15:00:00",
+    "arrival_local": "2027-04-09T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1165",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 263",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-09T15:00:00",
+    "arrival_local": "2027-04-09T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-738",
+    "airline": "AirVeda",
+    "flight_number": "AV 398",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-09T15:00:00",
+    "arrival_local": "2027-04-09T21:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 39480,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1153",
+    "airline": "AirVeda",
+    "flight_number": "AV 406",
+    "from": "HND",
+    "to": "MAA",
+    "departure_local": "2027-04-09T16:00:00",
+    "arrival_local": "2027-04-09T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-739",
+    "airline": "AirVeda",
+    "flight_number": "AV 889",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-09T17:00:00",
+    "arrival_local": "2027-04-09T23:10:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1159",
+    "airline": "AirVeda",
+    "flight_number": "AV 623",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-09T21:00:00",
+    "arrival_local": "2027-04-10T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1161",
+    "airline": "AirVeda",
+    "flight_number": "AV 777",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-09T21:00:00",
+    "arrival_local": "2027-04-10T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-403",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 805",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-09T21:00:00",
+    "arrival_local": "2027-04-10T08:30:00",
+    "stops": 0,
+    "duration_minutes": 480,
+    "price_per_seat": {
+      "amount": 21420,
+      "currency": "INR"
+    },
+    "seats_left": 2,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-740",
+    "airline": "AirVeda",
+    "flight_number": "AV 832",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-09T21:40:00",
+    "arrival_local": "2027-04-10T09:20:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 34440,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1157",
+    "airline": "AirVeda",
+    "flight_number": "AV 581",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-09T22:00:00",
+    "arrival_local": "2027-04-10T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1163",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 515",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-09T22:00:00",
+    "arrival_local": "2027-04-10T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1166",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 656",
+    "from": "DEL",
+    "to": "HND",
+    "departure_local": "2027-04-09T22:00:00",
+    "arrival_local": "2027-04-10T09:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1168",
+    "airline": "AirVeda",
+    "flight_number": "AV 142",
+    "from": "BOM",
+    "to": "KIX",
+    "departure_local": "2027-04-09T22:00:00",
+    "arrival_local": "2027-04-10T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-401",
+    "airline": "AirVeda",
+    "flight_number": "AV 520",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-09T23:50:00",
+    "arrival_local": "2027-04-10T10:30:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 25200,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1171",
+    "airline": "AirVeda",
+    "flight_number": "AV 135",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-10T03:00:00",
+    "arrival_local": "2027-04-10T05:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1179",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 834",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-10T03:00:00",
+    "arrival_local": "2027-04-10T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1183",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 573",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-10T03:00:00",
+    "arrival_local": "2027-04-10T05:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1173",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 341",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-10T05:00:00",
+    "arrival_local": "2027-04-10T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1177",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 700",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-10T05:00:00",
+    "arrival_local": "2027-04-10T07:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1181",
+    "airline": "AirVeda",
+    "flight_number": "AV 410",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-10T05:00:00",
+    "arrival_local": "2027-04-10T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-405",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 811",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-10T06:30:00",
+    "arrival_local": "2027-04-10T21:30:00",
+    "stops": 1,
+    "duration_minutes": 690,
+    "price_per_seat": {
+      "amount": 23940,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1180",
+    "airline": "AirVeda",
+    "flight_number": "AV 619",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-10T10:00:00",
+    "arrival_local": "2027-04-10T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1178",
+    "airline": "AirVeda",
+    "flight_number": "AV 544",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-10T11:00:00",
+    "arrival_local": "2027-04-10T16:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1167",
+    "airline": "AirVeda",
+    "flight_number": "AV 133",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-10T13:00:00",
+    "arrival_local": "2027-04-10T18:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1169",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 856",
+    "from": "HND",
+    "to": "BOM",
+    "departure_local": "2027-04-10T13:00:00",
+    "arrival_local": "2027-04-10T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1185",
+    "airline": "AirVeda",
+    "flight_number": "AV 571",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-10T13:00:00",
+    "arrival_local": "2027-04-10T16:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1175",
+    "airline": "AirVeda",
+    "flight_number": "AV 174",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-10T14:00:00",
+    "arrival_local": "2027-04-10T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1172",
+    "airline": "AirVeda",
+    "flight_number": "AV 238",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-10T15:00:00",
+    "arrival_local": "2027-04-10T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1176",
+    "airline": "AirVeda",
+    "flight_number": "AV 658",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-10T15:00:00",
+    "arrival_local": "2027-04-10T20:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1184",
+    "airline": "AirVeda",
+    "flight_number": "AV 552",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-10T15:00:00",
+    "arrival_local": "2027-04-10T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-741",
+    "airline": "AirVeda",
+    "flight_number": "AV 835",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-10T15:30:00",
+    "arrival_local": "2027-04-10T21:40:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1170",
+    "airline": "AirVeda",
+    "flight_number": "AV 130",
+    "from": "KIX",
+    "to": "MAA",
+    "departure_local": "2027-04-10T16:00:00",
+    "arrival_local": "2027-04-10T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1174",
+    "airline": "AirVeda",
+    "flight_number": "AV 159",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-10T16:00:00",
+    "arrival_local": "2027-04-10T21:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1182",
+    "airline": "AirVeda",
+    "flight_number": "AV 357",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-10T16:00:00",
+    "arrival_local": "2027-04-10T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-742",
+    "airline": "AirVeda",
+    "flight_number": "AV 168",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-10T17:00:00",
+    "arrival_local": "2027-04-10T22:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 31920,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1187",
+    "airline": "AirVeda",
+    "flight_number": "AV 864",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-10T20:00:00",
+    "arrival_local": "2027-04-11T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-743",
+    "airline": "AirVeda",
+    "flight_number": "AV 213",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-10T21:40:00",
+    "arrival_local": "2027-04-11T08:30:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 39480,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1186",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 447",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-10T22:00:00",
+    "arrival_local": "2027-04-11T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1190",
+    "airline": "AirVeda",
+    "flight_number": "AV 533",
+    "from": "MAA",
+    "to": "HND",
+    "departure_local": "2027-04-10T22:00:00",
+    "arrival_local": "2027-04-11T08:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-402",
+    "airline": "AirVeda",
+    "flight_number": "AV 520",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-10T23:50:00",
+    "arrival_local": "2027-04-11T10:30:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 24360,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1195",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 761",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-11T03:00:00",
+    "arrival_local": "2027-04-11T05:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1191",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 540",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-11T04:00:00",
+    "arrival_local": "2027-04-11T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1193",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 605",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-11T05:00:00",
+    "arrival_local": "2027-04-11T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1199",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 636",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-11T08:00:00",
+    "arrival_local": "2027-04-11T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1197",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 106",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-11T09:00:00",
+    "arrival_local": "2027-04-11T10:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1192",
+    "airline": "AirVeda",
+    "flight_number": "AV 817",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-11T10:00:00",
+    "arrival_local": "2027-04-11T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1196",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 735",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-11T10:00:00",
+    "arrival_local": "2027-04-11T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1202",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 263",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-11T10:00:00",
+    "arrival_local": "2027-04-11T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-109",
+    "airline": "AirVeda",
+    "flight_number": "AV 517",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-11T11:00:00",
+    "arrival_local": "2027-04-11T17:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 31920,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1188",
+    "airline": "AirVeda",
+    "flight_number": "AV 686",
+    "from": "HND",
+    "to": "DEL",
+    "departure_local": "2027-04-11T11:00:00",
+    "arrival_local": "2027-04-11T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 33000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1189",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 129",
+    "from": "KIX",
+    "to": "BOM",
+    "departure_local": "2027-04-11T11:00:00",
+    "arrival_local": "2027-04-11T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-744",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 858",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-11T13:30:00",
+    "arrival_local": "2027-04-11T20:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 31920,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1201",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 842",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-11T14:00:00",
+    "arrival_local": "2027-04-11T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1198",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 600",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-11T15:00:00",
+    "arrival_local": "2027-04-11T19:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-745",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 130",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-11T17:30:00",
+    "arrival_local": "2027-04-12T00:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1204",
+    "airline": "AirVeda",
+    "flight_number": "AV 735",
+    "from": "BOM",
+    "to": "HND",
+    "departure_local": "2027-04-11T20:00:00",
+    "arrival_local": "2027-04-12T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1205",
+    "airline": "AirVeda",
+    "flight_number": "AV 804",
+    "from": "MAA",
+    "to": "KIX",
+    "departure_local": "2027-04-11T21:00:00",
+    "arrival_local": "2027-04-12T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-747",
+    "airline": "AirVeda",
+    "flight_number": "AV 328",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-11T21:40:00",
+    "arrival_local": "2027-04-12T09:20:00",
+    "stops": 0,
+    "duration_minutes": 490,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-746",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 715",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-11T21:45:00",
+    "arrival_local": "2027-04-12T08:55:00",
+    "stops": 0,
+    "duration_minutes": 460,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1194",
+    "airline": "AirVeda",
+    "flight_number": "AV 601",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-11T22:00:00",
+    "arrival_local": "2027-04-12T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1200",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 648",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-11T22:00:00",
+    "arrival_local": "2027-04-12T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1215",
+    "airline": "AirVeda",
+    "flight_number": "AV 118",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-12T03:00:00",
+    "arrival_local": "2027-04-12T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1219",
+    "airline": "AirVeda",
+    "flight_number": "AV 592",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-12T04:00:00",
+    "arrival_local": "2027-04-12T06:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1209",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 145",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-12T05:00:00",
+    "arrival_local": "2027-04-12T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1213",
+    "airline": "AirVeda",
+    "flight_number": "AV 249",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-12T05:00:00",
+    "arrival_local": "2027-04-12T07:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1217",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 528",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-12T05:00:00",
+    "arrival_local": "2027-04-12T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1221",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 875",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-12T08:00:00",
+    "arrival_local": "2027-04-12T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-748",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 514",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-12T08:30:00",
+    "arrival_local": "2027-04-12T22:20:00",
+    "stops": 1,
+    "duration_minutes": 620,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1212",
+    "airline": "AirVeda",
+    "flight_number": "AV 438",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-12T10:00:00",
+    "arrival_local": "2027-04-12T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1216",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 134",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-12T10:00:00",
+    "arrival_local": "2027-04-12T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1220",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 834",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-12T10:00:00",
+    "arrival_local": "2027-04-12T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1210",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 447",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-12T11:00:00",
+    "arrival_local": "2027-04-12T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-750",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 129",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-12T12:00:00",
+    "arrival_local": "2027-04-12T18:20:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-511",
+    "airline": "AirVeda",
+    "flight_number": "AV 703",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-12T13:00:00",
+    "arrival_local": "2027-04-12T19:00:00",
+    "stops": 0,
+    "duration_minutes": 570,
+    "price_per_seat": {
+      "amount": 28900,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1207",
+    "airline": "AirVeda",
+    "flight_number": "AV 537",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-12T14:00:00",
+    "arrival_local": "2027-04-12T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1211",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 526",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-12T14:00:00",
+    "arrival_local": "2027-04-12T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1203",
+    "airline": "AirVeda",
+    "flight_number": "AV 867",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-12T16:00:00",
+    "arrival_local": "2027-04-12T21:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1206",
+    "airline": "AirVeda",
+    "flight_number": "AV 776",
+    "from": "HND",
+    "to": "MAA",
+    "departure_local": "2027-04-12T16:00:00",
+    "arrival_local": "2027-04-12T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1214",
+    "airline": "AirVeda",
+    "flight_number": "AV 399",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-12T16:00:00",
+    "arrival_local": "2027-04-12T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1218",
+    "airline": "AirVeda",
+    "flight_number": "AV 202",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-12T16:00:00",
+    "arrival_local": "2027-04-12T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1222",
+    "airline": "AirVeda",
+    "flight_number": "AV 576",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-12T16:00:00",
+    "arrival_local": "2027-04-12T21:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-749",
+    "airline": "AirVeda",
+    "flight_number": "AV 647",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-12T18:00:00",
+    "arrival_local": "2027-04-13T00:50:00",
+    "stops": 0,
+    "duration_minutes": 620,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1223",
+    "airline": "AirVeda",
+    "flight_number": "AV 453",
+    "from": "DEL",
+    "to": "HND",
+    "departure_local": "2027-04-12T20:00:00",
+    "arrival_local": "2027-04-13T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1226",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 520",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-04-12T20:00:00",
+    "arrival_local": "2027-04-13T06:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1208",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 220",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-12T21:00:00",
+    "arrival_local": "2027-04-13T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1224",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 327",
+    "from": "BOM",
+    "to": "KIX",
+    "departure_local": "2027-04-12T22:00:00",
+    "arrival_local": "2027-04-13T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-601",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 831",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-12T22:40:00",
+    "arrival_local": "2027-04-13T09:30:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 23520,
+      "currency": "INR"
+    },
+    "seats_left": 2,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-602",
+    "airline": "AirVeda",
+    "flight_number": "AV 512",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-12T23:45:00",
+    "arrival_local": "2027-04-13T11:20:00",
+    "stops": 0,
+    "duration_minutes": 485,
+    "price_per_seat": {
+      "amount": 28980,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-204",
+    "airline": "AirVeda",
+    "flight_number": "AV 520",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-12T23:50:00",
+    "arrival_local": "2027-04-13T10:30:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 25620,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1228",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 106",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-13T03:00:00",
+    "arrival_local": "2027-04-13T05:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1234",
+    "airline": "AirVeda",
+    "flight_number": "AV 351",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-13T03:00:00",
+    "arrival_local": "2027-04-13T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1238",
+    "airline": "AirVeda",
+    "flight_number": "AV 152",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-13T03:00:00",
+    "arrival_local": "2027-04-13T05:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1232",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 567",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-13T04:00:00",
+    "arrival_local": "2027-04-13T06:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1230",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 714",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-13T08:00:00",
+    "arrival_local": "2027-04-13T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1229",
+    "airline": "AirVeda",
+    "flight_number": "AV 632",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-13T10:00:00",
+    "arrival_local": "2027-04-13T15:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1233",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 808",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-13T10:00:00",
+    "arrival_local": "2027-04-13T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1239",
+    "airline": "AirVeda",
+    "flight_number": "AV 108",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-13T10:00:00",
+    "arrival_local": "2027-04-13T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1231",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 742",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-13T11:00:00",
+    "arrival_local": "2027-04-13T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1225",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 525",
+    "from": "HND",
+    "to": "BOM",
+    "departure_local": "2027-04-13T13:00:00",
+    "arrival_local": "2027-04-13T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1227",
+    "airline": "AirVeda",
+    "flight_number": "AV 222",
+    "from": "KIX",
+    "to": "MAA",
+    "departure_local": "2027-04-13T13:00:00",
+    "arrival_local": "2027-04-13T18:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1236",
+    "airline": "AirVeda",
+    "flight_number": "AV 440",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-13T13:00:00",
+    "arrival_local": "2027-04-13T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-752",
+    "airline": "AirVeda",
+    "flight_number": "AV 329",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-13T14:30:00",
+    "arrival_local": "2027-04-13T20:50:00",
+    "stops": 0,
+    "duration_minutes": 590,
+    "price_per_seat": {
+      "amount": 39480,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-751",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 722",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-13T15:00:00",
+    "arrival_local": "2027-04-13T21:10:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 31080,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1240",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 651",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-13T20:00:00",
+    "arrival_local": "2027-04-14T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1235",
+    "airline": "AirVeda",
+    "flight_number": "AV 105",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-13T21:00:00",
+    "arrival_local": "2027-04-14T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-753",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 709",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-13T21:40:00",
+    "arrival_local": "2027-04-14T09:10:00",
+    "stops": 0,
+    "duration_minutes": 480,
+    "price_per_seat": {
+      "amount": 40320,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1237",
+    "airline": "AirVeda",
+    "flight_number": "AV 312",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-13T22:00:00",
+    "arrival_local": "2027-04-14T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1242",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 820",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-13T22:00:00",
+    "arrival_local": "2027-04-14T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-205",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 805",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-13T22:30:00",
+    "arrival_local": "2027-04-14T09:10:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 25116,
+      "currency": "INR"
+    },
+    "seats_left": 1,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-201",
+    "airline": "AirVeda",
+    "flight_number": "AV 520",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-13T23:50:00",
+    "arrival_local": "2027-04-14T10:30:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 26880,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1247",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 603",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-14T05:00:00",
+    "arrival_local": "2027-04-14T07:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1251",
+    "airline": "AirVeda",
+    "flight_number": "AV 746",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-14T05:00:00",
+    "arrival_local": "2027-04-14T07:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1259",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 177",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-14T08:00:00",
+    "arrival_local": "2027-04-14T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-202",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 811",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-14T08:00:00",
+    "arrival_local": "2027-04-14T21:40:00",
+    "stops": 1,
+    "duration_minutes": 610,
+    "price_per_seat": {
+      "amount": 30240,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1245",
+    "airline": "AirVeda",
+    "flight_number": "AV 369",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-14T09:00:00",
+    "arrival_local": "2027-04-14T11:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1250",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 409",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-14T10:00:00",
+    "arrival_local": "2027-04-14T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1243",
+    "airline": "AirVeda",
+    "flight_number": "AV 117",
+    "from": "KIX",
+    "to": "BOM",
+    "departure_local": "2027-04-14T11:00:00",
+    "arrival_local": "2027-04-14T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1260",
+    "airline": "AirVeda",
+    "flight_number": "AV 262",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-14T11:00:00",
+    "arrival_local": "2027-04-14T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-755",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 397",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-14T12:30:00",
+    "arrival_local": "2027-04-14T19:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1241",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 792",
+    "from": "HND",
+    "to": "DEL",
+    "departure_local": "2027-04-14T13:00:00",
+    "arrival_local": "2027-04-14T18:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1244",
+    "airline": "AirVeda",
+    "flight_number": "AV 218",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-14T13:00:00",
+    "arrival_local": "2027-04-14T18:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1255",
+    "airline": "AirVeda",
+    "flight_number": "AV 445",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-14T13:00:00",
+    "arrival_local": "2027-04-14T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-754",
+    "airline": "AirVeda",
+    "flight_number": "AV 469",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-14T13:00:00",
+    "arrival_local": "2027-04-14T19:00:00",
+    "stops": 0,
+    "duration_minutes": 570,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1249",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 253",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-14T14:00:00",
+    "arrival_local": "2027-04-14T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1253",
+    "airline": "AirVeda",
+    "flight_number": "AV 116",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-14T14:00:00",
+    "arrival_local": "2027-04-14T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1257",
+    "airline": "AirVeda",
+    "flight_number": "AV 442",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-14T14:00:00",
+    "arrival_local": "2027-04-14T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1246",
+    "airline": "AirVeda",
+    "flight_number": "AV 401",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-14T15:00:00",
+    "arrival_local": "2027-04-14T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1248",
+    "airline": "AirVeda",
+    "flight_number": "AV 874",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-14T16:00:00",
+    "arrival_local": "2027-04-14T21:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1252",
+    "airline": "AirVeda",
+    "flight_number": "AV 562",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-14T16:00:00",
+    "arrival_local": "2027-04-14T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1261",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 174",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-14T20:00:00",
+    "arrival_local": "2027-04-15T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 34000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1264",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 524",
+    "from": "MAA",
+    "to": "KIX",
+    "departure_local": "2027-04-14T20:00:00",
+    "arrival_local": "2027-04-15T06:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1254",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 114",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-14T21:00:00",
+    "arrival_local": "2027-04-15T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1258",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 326",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-14T21:00:00",
+    "arrival_local": "2027-04-15T02:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-756",
+    "airline": "AirVeda",
+    "flight_number": "AV 759",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-14T21:00:00",
+    "arrival_local": "2027-04-15T08:30:00",
+    "stops": 0,
+    "duration_minutes": 480,
+    "price_per_seat": {
+      "amount": 40320,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1256",
+    "airline": "AirVeda",
+    "flight_number": "AV 842",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-14T22:00:00",
+    "arrival_local": "2027-04-15T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-203",
+    "airline": "AirVeda",
+    "flight_number": "AV 520",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-14T23:50:00",
+    "arrival_local": "2027-04-15T10:30:00",
+    "stops": 0,
+    "duration_minutes": 430,
+    "price_per_seat": {
+      "amount": 26460,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1269",
+    "airline": "AirVeda",
+    "flight_number": "AV 251",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-15T03:00:00",
+    "arrival_local": "2027-04-15T05:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1265",
+    "airline": "AirVeda",
+    "flight_number": "AV 681",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-15T04:00:00",
+    "arrival_local": "2027-04-15T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1275",
+    "airline": "AirVeda",
+    "flight_number": "AV 748",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-15T04:00:00",
+    "arrival_local": "2027-04-15T06:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-757",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 417",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-15T06:30:00",
+    "arrival_local": "2027-04-15T20:50:00",
+    "stops": 1,
+    "duration_minutes": 650,
+    "price_per_seat": {
+      "amount": 24360,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1271",
+    "airline": "AirVeda",
+    "flight_number": "AV 841",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-15T09:00:00",
+    "arrival_local": "2027-04-15T10:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1270",
+    "airline": "AirVeda",
+    "flight_number": "AV 601",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-15T10:00:00",
+    "arrival_local": "2027-04-15T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1262",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 233",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-15T11:00:00",
+    "arrival_local": "2027-04-15T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-758",
+    "airline": "AirVeda",
+    "flight_number": "AV 349",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-15T11:00:00",
+    "arrival_local": "2027-04-15T17:50:00",
+    "stops": 0,
+    "duration_minutes": 620,
+    "price_per_seat": {
+      "amount": 39480,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1263",
+    "airline": "AirVeda",
+    "flight_number": "AV 472",
+    "from": "NRT",
+    "to": "BOM",
+    "departure_local": "2027-04-15T13:00:00",
+    "arrival_local": "2027-04-15T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1267",
+    "airline": "AirVeda",
+    "flight_number": "AV 420",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-15T13:00:00",
+    "arrival_local": "2027-04-15T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1273",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 262",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-15T13:00:00",
+    "arrival_local": "2027-04-15T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1266",
+    "airline": "AirVeda",
+    "flight_number": "AV 659",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-15T15:00:00",
+    "arrival_local": "2027-04-15T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1276",
+    "airline": "AirVeda",
+    "flight_number": "AV 760",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-15T15:00:00",
+    "arrival_local": "2027-04-15T20:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-759",
+    "airline": "AirVeda",
+    "flight_number": "AV 894",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-15T17:30:00",
+    "arrival_local": "2027-04-16T00:00:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1279",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 656",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-04-15T20:00:00",
+    "arrival_local": "2027-04-16T06:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 33000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1272",
+    "airline": "AirVeda",
+    "flight_number": "AV 281",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-15T21:00:00",
+    "arrival_local": "2027-04-16T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1278",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 317",
+    "from": "BOM",
+    "to": "KIX",
+    "departure_local": "2027-04-15T21:00:00",
+    "arrival_local": "2027-04-16T08:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-760",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 255",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-15T21:15:00",
+    "arrival_local": "2027-04-16T07:45:00",
+    "stops": 0,
+    "duration_minutes": 420,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1268",
+    "airline": "AirVeda",
+    "flight_number": "AV 144",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-15T22:00:00",
+    "arrival_local": "2027-04-16T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1274",
+    "airline": "AirVeda",
+    "flight_number": "AV 178",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-15T22:00:00",
+    "arrival_local": "2027-04-16T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1285",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 788",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-16T03:00:00",
+    "arrival_local": "2027-04-16T05:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1289",
+    "airline": "AirVeda",
+    "flight_number": "AV 583",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-16T03:00:00",
+    "arrival_local": "2027-04-16T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1293",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 459",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-16T04:00:00",
+    "arrival_local": "2027-04-16T06:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1291",
+    "airline": "AirVeda",
+    "flight_number": "AV 854",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-16T05:00:00",
+    "arrival_local": "2027-04-16T07:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1283",
+    "airline": "AirVeda",
+    "flight_number": "AV 166",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-16T08:00:00",
+    "arrival_local": "2027-04-16T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1287",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 228",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-16T08:00:00",
+    "arrival_local": "2027-04-16T10:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1295",
+    "airline": "AirVeda",
+    "flight_number": "AV 344",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-16T08:00:00",
+    "arrival_local": "2027-04-16T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-301",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 833",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-16T08:15:00",
+    "arrival_local": "2027-04-16T22:50:00",
+    "stops": 1,
+    "duration_minutes": 665,
+    "price_per_seat": {
+      "amount": 28140,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1281",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 599",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-16T09:00:00",
+    "arrival_local": "2027-04-16T11:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1294",
+    "airline": "AirVeda",
+    "flight_number": "AV 432",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-16T10:00:00",
+    "arrival_local": "2027-04-16T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1277",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 436",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-16T11:00:00",
+    "arrival_local": "2027-04-16T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-412",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 806",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-16T11:00:00",
+    "arrival_local": "2027-04-16T17:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 26880,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-411",
+    "airline": "AirVeda",
+    "flight_number": "AV 515",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-16T12:00:00",
+    "arrival_local": "2027-04-16T18:00:00",
+    "stops": 0,
+    "duration_minutes": 570,
+    "price_per_seat": {
+      "amount": 26040,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1282",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 342",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-16T15:00:00",
+    "arrival_local": "2027-04-16T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1286",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 542",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-16T15:00:00",
+    "arrival_local": "2027-04-16T20:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1290",
+    "airline": "AirVeda",
+    "flight_number": "AV 895",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-16T15:00:00",
+    "arrival_local": "2027-04-16T19:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1280",
+    "airline": "AirVeda",
+    "flight_number": "AV 629",
+    "from": "KIX",
+    "to": "MAA",
+    "departure_local": "2027-04-16T16:00:00",
+    "arrival_local": "2027-04-16T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1284",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 357",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-16T16:00:00",
+    "arrival_local": "2027-04-16T21:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1288",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 829",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-16T16:00:00",
+    "arrival_local": "2027-04-16T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1292",
+    "airline": "AirVeda",
+    "flight_number": "AV 566",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-16T16:00:00",
+    "arrival_local": "2027-04-16T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1298",
+    "airline": "AirVeda",
+    "flight_number": "AV 791",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-16T20:00:00",
+    "arrival_local": "2027-04-17T07:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 27000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1300",
+    "airline": "AirVeda",
+    "flight_number": "AV 817",
+    "from": "MAA",
+    "to": "HND",
+    "departure_local": "2027-04-16T20:00:00",
+    "arrival_local": "2027-04-17T06:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1297",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 826",
+    "from": "DEL",
+    "to": "KIX",
+    "departure_local": "2027-04-16T21:00:00",
+    "arrival_local": "2027-04-17T08:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1296",
+    "airline": "AirVeda",
+    "flight_number": "AV 456",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-16T22:00:00",
+    "arrival_local": "2027-04-17T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-761",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 234",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-16T23:00:00",
+    "arrival_local": "2027-04-17T10:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 31080,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-762",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 623",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-16T23:20:00",
+    "arrival_local": "2027-04-17T10:10:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 30240,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1302",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 556",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-17T04:00:00",
+    "arrival_local": "2027-04-17T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1306",
+    "airline": "AirVeda",
+    "flight_number": "AV 735",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-17T04:00:00",
+    "arrival_local": "2027-04-17T06:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1304",
+    "airline": "AirVeda",
+    "flight_number": "AV 222",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-17T08:00:00",
+    "arrival_local": "2027-04-17T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1310",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 512",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-17T08:00:00",
+    "arrival_local": "2027-04-17T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1308",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 114",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-17T09:00:00",
+    "arrival_local": "2027-04-17T10:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1309",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 698",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-17T10:00:00",
+    "arrival_local": "2027-04-17T14:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1313",
+    "airline": "AirVeda",
+    "flight_number": "AV 189",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-17T10:00:00",
+    "arrival_local": "2027-04-17T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1299",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 474",
+    "from": "KIX",
+    "to": "BOM",
+    "departure_local": "2027-04-17T11:00:00",
+    "arrival_local": "2027-04-17T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-213",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 806",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-17T11:00:00",
+    "arrival_local": "2027-04-17T17:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 27720,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-763",
+    "airline": "AirVeda",
+    "flight_number": "AV 440",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-17T11:00:00",
+    "arrival_local": "2027-04-17T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 33600,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1301",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 757",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-17T13:00:00",
+    "arrival_local": "2027-04-17T18:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1312",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 445",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-17T14:00:00",
+    "arrival_local": "2027-04-17T16:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1303",
+    "airline": "AirVeda",
+    "flight_number": "AV 281",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-17T15:00:00",
+    "arrival_local": "2027-04-17T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1305",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 808",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-17T16:00:00",
+    "arrival_local": "2027-04-17T21:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1311",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 574",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-17T16:00:00",
+    "arrival_local": "2027-04-17T20:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1314",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 701",
+    "from": "DEL",
+    "to": "NRT",
+    "departure_local": "2027-04-17T20:00:00",
+    "arrival_local": "2027-04-18T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1307",
+    "airline": "AirVeda",
+    "flight_number": "AV 816",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-17T21:00:00",
+    "arrival_local": "2027-04-18T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-764",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 735",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-17T21:00:00",
+    "arrival_local": "2027-04-18T07:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 36120,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1316",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 486",
+    "from": "BOM",
+    "to": "HND",
+    "departure_local": "2027-04-17T22:00:00",
+    "arrival_local": "2027-04-18T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-765",
+    "airline": "AirVeda",
+    "flight_number": "AV 549",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-17T23:40:00",
+    "arrival_local": "2027-04-18T10:40:00",
+    "stops": 0,
+    "duration_minutes": 450,
+    "price_per_seat": {
+      "amount": 38640,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1327",
+    "airline": "AirVeda",
+    "flight_number": "AV 197",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-18T04:00:00",
+    "arrival_local": "2027-04-18T05:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-766",
+    "airline": "AirVeda",
+    "flight_number": "AV 714",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-18T07:30:00",
+    "arrival_local": "2027-04-18T22:10:00",
+    "stops": 1,
+    "duration_minutes": 670,
+    "price_per_seat": {
+      "amount": 30240,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1329",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 310",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-18T08:00:00",
+    "arrival_local": "2027-04-18T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1333",
+    "airline": "AirVeda",
+    "flight_number": "AV 551",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-18T08:00:00",
+    "arrival_local": "2027-04-18T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1319",
+    "airline": "AirVeda",
+    "flight_number": "AV 834",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-18T09:00:00",
+    "arrival_local": "2027-04-18T11:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1331",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 777",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-18T09:00:00",
+    "arrival_local": "2027-04-18T11:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1332",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 276",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-18T10:00:00",
+    "arrival_local": "2027-04-18T15:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1315",
+    "airline": "AirVeda",
+    "flight_number": "AV 478",
+    "from": "KIX",
+    "to": "DEL",
+    "departure_local": "2027-04-18T11:00:00",
+    "arrival_local": "2027-04-18T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1330",
+    "airline": "AirVeda",
+    "flight_number": "AV 289",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-18T11:00:00",
+    "arrival_local": "2027-04-18T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1334",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 873",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-18T11:00:00",
+    "arrival_local": "2027-04-18T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-211",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 806",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-18T11:00:00",
+    "arrival_local": "2027-04-18T17:30:00",
+    "stops": 0,
+    "duration_minutes": 600,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-767",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 231",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-18T11:00:00",
+    "arrival_local": "2027-04-18T16:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 36960,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1321",
+    "airline": "AirVeda",
+    "flight_number": "AV 113",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-18T13:00:00",
+    "arrival_local": "2027-04-18T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1325",
+    "airline": "AirVeda",
+    "flight_number": "AV 706",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-18T13:00:00",
+    "arrival_local": "2027-04-18T15:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1323",
+    "airline": "AirVeda",
+    "flight_number": "AV 681",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-18T14:00:00",
+    "arrival_local": "2027-04-18T16:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1328",
+    "airline": "AirVeda",
+    "flight_number": "AV 440",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-18T15:00:00",
+    "arrival_local": "2027-04-18T19:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1317",
+    "airline": "AirVeda",
+    "flight_number": "AV 316",
+    "from": "NRT",
+    "to": "BOM",
+    "departure_local": "2027-04-18T16:00:00",
+    "arrival_local": "2027-04-18T21:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 36000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1318",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 446",
+    "from": "HND",
+    "to": "MAA",
+    "departure_local": "2027-04-18T16:00:00",
+    "arrival_local": "2027-04-18T21:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1326",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 827",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-18T16:00:00",
+    "arrival_local": "2027-04-18T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 21000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-212",
+    "airline": "AirVeda",
+    "flight_number": "AV 521",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-18T18:30:00",
+    "arrival_local": "2027-04-18T23:30:00",
+    "stops": 0,
+    "duration_minutes": 510,
+    "price_per_seat": {
+      "amount": 27300,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1335",
+    "airline": "AirVeda",
+    "flight_number": "AV 723",
+    "from": "DEL",
+    "to": "HND",
+    "departure_local": "2027-04-18T20:00:00",
+    "arrival_local": "2027-04-19T07:20:00",
+    "stops": 0,
+    "duration_minutes": 470,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1320",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 120",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-18T21:00:00",
+    "arrival_local": "2027-04-19T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1324",
+    "airline": "AirVeda",
+    "flight_number": "AV 190",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-18T21:00:00",
+    "arrival_local": "2027-04-19T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 12000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1322",
+    "airline": "AirVeda",
+    "flight_number": "AV 898",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-18T22:00:00",
+    "arrival_local": "2027-04-19T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1338",
+    "airline": "AirVeda",
+    "flight_number": "AV 177",
+    "from": "MAA",
+    "to": "NRT",
+    "departure_local": "2027-04-18T22:00:00",
+    "arrival_local": "2027-04-19T08:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 30000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-768",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 524",
+    "from": "BLR",
+    "to": "NRT",
+    "departure_local": "2027-04-18T22:00:00",
+    "arrival_local": "2027-04-19T09:10:00",
+    "stops": 0,
+    "duration_minutes": 460,
+    "price_per_seat": {
+      "amount": 40320,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-769",
+    "airline": "AirVeda",
+    "flight_number": "AV 826",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-18T22:40:00",
+    "arrival_local": "2027-04-19T09:40:00",
+    "stops": 0,
+    "duration_minutes": 450,
+    "price_per_seat": {
+      "amount": 32760,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1349",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 229",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-19T03:00:00",
+    "arrival_local": "2027-04-19T05:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1339",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 100",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-19T04:00:00",
+    "arrival_local": "2027-04-19T06:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1343",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 537",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-19T04:00:00",
+    "arrival_local": "2027-04-19T06:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1341",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 577",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-19T08:00:00",
+    "arrival_local": "2027-04-19T10:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1347",
+    "airline": "AirVeda",
+    "flight_number": "AV 506",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-19T08:00:00",
+    "arrival_local": "2027-04-19T10:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1336",
+    "airline": "AirVeda",
+    "flight_number": "AV 511",
+    "from": "NRT",
+    "to": "DEL",
+    "departure_local": "2027-04-19T11:00:00",
+    "arrival_local": "2027-04-19T16:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 31000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1342",
+    "airline": "AirVeda",
+    "flight_number": "AV 847",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-19T11:00:00",
+    "arrival_local": "2027-04-19T16:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1337",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 894",
+    "from": "HND",
+    "to": "BOM",
+    "departure_local": "2027-04-19T13:00:00",
+    "arrival_local": "2027-04-19T18:50:00",
+    "stops": 0,
+    "duration_minutes": 560,
+    "price_per_seat": {
+      "amount": 35000,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-770",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 664",
+    "from": "HND",
+    "to": "BLR",
+    "departure_local": "2027-04-19T13:00:00",
+    "arrival_local": "2027-04-19T19:10:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 34440,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1345",
+    "airline": "AirVeda",
+    "flight_number": "AV 741",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-19T14:00:00",
+    "arrival_local": "2027-04-19T15:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 11000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1346",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 502",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-19T15:00:00",
+    "arrival_local": "2027-04-19T19:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-771",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 138",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-19T17:00:00",
+    "arrival_local": "2027-04-19T23:10:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 28560,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1340",
+    "airline": "AirVeda",
+    "flight_number": "AV 165",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-19T21:00:00",
+    "arrival_local": "2027-04-20T02:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1344",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 241",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-19T21:00:00",
+    "arrival_local": "2027-04-20T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1350",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 428",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-19T21:00:00",
+    "arrival_local": "2027-04-20T02:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1348",
+    "airline": "AirVeda",
+    "flight_number": "AV 384",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-19T22:00:00",
+    "arrival_local": "2027-04-20T02:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1352",
+    "airline": "AirVeda",
+    "flight_number": "AV 552",
+    "from": "BOM",
+    "to": "NRT",
+    "departure_local": "2027-04-19T22:00:00",
+    "arrival_local": "2027-04-20T09:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 32000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1353",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 678",
+    "from": "MAA",
+    "to": "HND",
+    "departure_local": "2027-04-19T22:00:00",
+    "arrival_local": "2027-04-20T08:50:00",
+    "stops": 0,
+    "duration_minutes": 440,
+    "price_per_seat": {
+      "amount": 28000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-772",
+    "airline": "AirVeda",
+    "flight_number": "AV 412",
+    "from": "BLR",
+    "to": "HND",
+    "departure_local": "2027-04-19T22:00:00",
+    "arrival_local": "2027-04-20T09:30:00",
+    "stops": 0,
+    "duration_minutes": 480,
+    "price_per_seat": {
+      "amount": 29400,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-773",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 852",
+    "from": "BLR",
+    "to": "KIX",
+    "departure_local": "2027-04-19T23:00:00",
+    "arrival_local": "2027-04-20T10:50:00",
+    "stops": 0,
+    "duration_minutes": 500,
+    "price_per_seat": {
+      "amount": 34440,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1363",
+    "airline": "AirVeda",
+    "flight_number": "AV 899",
+    "from": "BOM",
+    "to": "DXB",
+    "departure_local": "2027-04-20T03:00:00",
+    "arrival_local": "2027-04-20T04:50:00",
+    "stops": 0,
+    "duration_minutes": 200,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1359",
+    "airline": "AirVeda",
+    "flight_number": "AV 557",
+    "from": "DEL",
+    "to": "DXB",
+    "departure_local": "2027-04-20T04:00:00",
+    "arrival_local": "2027-04-20T06:15:00",
+    "stops": 0,
+    "duration_minutes": 225,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1361",
+    "airline": "AirVeda",
+    "flight_number": "AV 293",
+    "from": "DEL",
+    "to": "AUH",
+    "departure_local": "2027-04-20T08:00:00",
+    "arrival_local": "2027-04-20T10:25:00",
+    "stops": 0,
+    "duration_minutes": 235,
+    "price_per_seat": {
+      "amount": 19000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1369",
+    "airline": "AirVeda",
+    "flight_number": "AV 614",
+    "from": "MAA",
+    "to": "AUH",
+    "departure_local": "2027-04-20T08:00:00",
+    "arrival_local": "2027-04-20T11:00:00",
+    "stops": 0,
+    "duration_minutes": 270,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1367",
+    "airline": "AirVeda",
+    "flight_number": "AV 166",
+    "from": "MAA",
+    "to": "DXB",
+    "departure_local": "2027-04-20T09:00:00",
+    "arrival_local": "2027-04-20T11:50:00",
+    "stops": 0,
+    "duration_minutes": 260,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1354",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 575",
+    "from": "NRT",
+    "to": "MAA",
+    "departure_local": "2027-04-20T11:00:00",
+    "arrival_local": "2027-04-20T16:10:00",
+    "stops": 0,
+    "duration_minutes": 520,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1366",
+    "airline": "AirVeda",
+    "flight_number": "AV 606",
+    "from": "AUH",
+    "to": "BOM",
+    "departure_local": "2027-04-20T11:00:00",
+    "arrival_local": "2027-04-20T15:45:00",
+    "stops": 0,
+    "duration_minutes": 195,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1357",
+    "airline": "AirVeda",
+    "flight_number": "AV 645",
+    "from": "BLR",
+    "to": "AUH",
+    "departure_local": "2027-04-20T13:00:00",
+    "arrival_local": "2027-04-20T15:55:00",
+    "stops": 0,
+    "duration_minutes": 265,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 8,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1365",
+    "airline": "AirVeda",
+    "flight_number": "AV 496",
+    "from": "BOM",
+    "to": "AUH",
+    "departure_local": "2027-04-20T13:00:00",
+    "arrival_local": "2027-04-20T15:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 4,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1355",
+    "airline": "AirVeda",
+    "flight_number": "AV 124",
+    "from": "BLR",
+    "to": "DXB",
+    "departure_local": "2027-04-20T14:00:00",
+    "arrival_local": "2027-04-20T16:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1356",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 723",
+    "from": "DXB",
+    "to": "BLR",
+    "departure_local": "2027-04-20T15:00:00",
+    "arrival_local": "2027-04-20T20:30:00",
+    "stops": 0,
+    "duration_minutes": 240,
+    "price_per_seat": {
+      "amount": 13000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1351",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 515",
+    "from": "HND",
+    "to": "DEL",
+    "departure_local": "2027-04-20T16:00:00",
+    "arrival_local": "2027-04-20T21:30:00",
+    "stops": 0,
+    "duration_minutes": 540,
+    "price_per_seat": {
+      "amount": 29000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1362",
+    "airline": "AirVeda",
+    "flight_number": "AV 100",
+    "from": "AUH",
+    "to": "DEL",
+    "departure_local": "2027-04-20T16:00:00",
+    "arrival_local": "2027-04-20T21:10:00",
+    "stops": 0,
+    "duration_minutes": 220,
+    "price_per_seat": {
+      "amount": 15000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-775",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 882",
+    "from": "KIX",
+    "to": "BLR",
+    "departure_local": "2027-04-20T17:00:00",
+    "arrival_local": "2027-04-20T23:10:00",
+    "stops": 0,
+    "duration_minutes": 580,
+    "price_per_seat": {
+      "amount": 35280,
+      "currency": "INR"
+    },
+    "seats_left": 6,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-774",
+    "airline": "Nippon Sky",
+    "flight_number": "NS 781",
+    "from": "NRT",
+    "to": "BLR",
+    "departure_local": "2027-04-20T18:30:00",
+    "arrival_local": "2027-04-21T00:10:00",
+    "stops": 0,
+    "duration_minutes": 550,
+    "price_per_seat": {
+      "amount": 31920,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1360",
+    "airline": "AirVeda",
+    "flight_number": "AV 242",
+    "from": "DXB",
+    "to": "DEL",
+    "departure_local": "2027-04-20T21:00:00",
+    "arrival_local": "2027-04-21T02:00:00",
+    "stops": 0,
+    "duration_minutes": 210,
+    "price_per_seat": {
+      "amount": 20000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1364",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 306",
+    "from": "DXB",
+    "to": "BOM",
+    "departure_local": "2027-04-20T21:00:00",
+    "arrival_local": "2027-04-21T01:35:00",
+    "stops": 0,
+    "duration_minutes": 185,
+    "price_per_seat": {
+      "amount": 17000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1368",
+    "airline": "AirVeda",
+    "flight_number": "AV 244",
+    "from": "DXB",
+    "to": "MAA",
+    "departure_local": "2027-04-20T21:00:00",
+    "arrival_local": "2027-04-21T02:35:00",
+    "stops": 0,
+    "duration_minutes": 245,
+    "price_per_seat": {
+      "amount": 14000,
+      "currency": "INR"
+    },
+    "seats_left": 7,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1358",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 639",
+    "from": "AUH",
+    "to": "BLR",
+    "departure_local": "2027-04-20T22:00:00",
+    "arrival_local": "2027-04-21T03:40:00",
+    "stops": 0,
+    "duration_minutes": 250,
+    "price_per_seat": {
+      "amount": 16000,
+      "currency": "INR"
+    },
+    "seats_left": 9,
+    "cabin": "ECONOMY"
+  },
+  {
+    "flight_id": "FL-1370",
+    "airline": "Sandline Airways",
+    "flight_number": "SL 367",
+    "from": "AUH",
+    "to": "MAA",
+    "departure_local": "2027-04-20T22:00:00",
+    "arrival_local": "2027-04-21T03:45:00",
+    "stops": 0,
+    "duration_minutes": 255,
+    "price_per_seat": {
+      "amount": 18000,
+      "currency": "INR"
+    },
+    "seats_left": 5,
+    "cabin": "ECONOMY"
+  }
+]

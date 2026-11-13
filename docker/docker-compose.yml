@@ -17,6 +17,28 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
 
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: booking-app:latest
+    container_name: booking-app
+    restart: unless-stopped
+    env_file:
+      - path: ../.env          # POSTGRES_PASSWORD (never committed); see .env.example
+        required: false
+    environment:
+      POSTGRES_HOST: db
+      DB_PORT: "5432"          # container-to-container port (host mapping uses DB_PORT from .env)
+      POSTGRES_USER: booking
+      POSTGRES_DB: ${APP_DB:-bookingDB}
+      CATALOG_DIR: /app/data/catalog
+    ports:
+      - "127.0.0.1:${APP_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
   adminer:
     image: adminer
     container_name: booking-adminer

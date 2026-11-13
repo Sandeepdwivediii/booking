@@ -1,0 +1,50 @@
+{
+  "trip_id": "trip-1",
+  "traveler": {
+    "name": "Menon family",
+    "home_airport": "BLR",
+    "adults": 2,
+    "children": 1,
+    "child_ages": [
+      6
+    ]
+  },
+  "start_date": "2027-04-10",
+  "end_date": "2027-04-16",
+  "budget_inr": 350000,
+  "total_inr": 116200,
+  "items": [
+    {
+      "item_id": "i1",
+      "type": "flight",
+      "name": "AV 520 BLR to NRT",
+      "city": "Tokyo",
+      "status": "PLANNED",
+      "catalog_id": "FL-401",
+      "room_id": null,
+      "start": "2027-04-09T23:50",
+      "end": "2027-04-10T10:30",
+      "quantity": 3,
+      "price_inr": 75600,
+      "booking": null,
+      "sources": [],
+      "warnings": []
+    },
+    {
+      "item_id": "i2",
+      "type": "hotel",
+      "name": "Sakura Garden Hotel",
+      "city": "Kyoto",
+      "status": "PLANNED",
+      "catalog_id": "HTL-KYO-004",
+      "room_id": "RM-KYO-004-B",
+      "start": "2027-04-11",
+      "end": "2027-04-16",
+      "quantity": 1,
+      "price_inr": 40600,
+      "booking": null,
+      "sources": [],
+      "warnings": []
+    }
+  ]
+}

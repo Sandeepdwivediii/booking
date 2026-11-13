@@ -1,0 +1,1416 @@
+[
+  {
+    "transfer_id": "TR-NRT-ASA-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Asakusa",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Asakusa",
+    "from_point": "NRT",
+    "to_point": "Asakusa area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 75,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 13440,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-ASA-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Asakusa",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Asakusa",
+    "from_point": "NRT",
+    "to_point": "Asakusa area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 95,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-ASA-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Asakusa",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Asakusa",
+    "from_point": "HND",
+    "to_point": "Asakusa area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 40,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 5040,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-ASA-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Asakusa",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Asakusa",
+    "from_point": "HND",
+    "to_point": "Asakusa area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 55,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-UEN-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Ueno",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Ueno",
+    "from_point": "NRT",
+    "to_point": "Ueno area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 70,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 12880,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-UEN-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Ueno",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Ueno",
+    "from_point": "NRT",
+    "to_point": "Ueno area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 90,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-UEN-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Ueno",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Ueno",
+    "from_point": "HND",
+    "to_point": "Ueno area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 40,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 5320,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-UEN-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Ueno",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Ueno",
+    "from_point": "HND",
+    "to_point": "Ueno area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 55,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-GNZ-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Ginza",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "from_point": "NRT",
+    "to_point": "Ginza area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 80,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 14000,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-GNZ-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Ginza",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "from_point": "NRT",
+    "to_point": "Ginza area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 100,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-GNZ-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Ginza",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "from_point": "HND",
+    "to_point": "Ginza area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 30,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 4200,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-GNZ-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Ginza",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "from_point": "HND",
+    "to_point": "Ginza area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 45,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SJK-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Shinjuku",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "from_point": "NRT",
+    "to_point": "Shinjuku area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 90,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 15680,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SJK-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Shinjuku",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "from_point": "NRT",
+    "to_point": "Shinjuku area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 110,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SJK-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Shinjuku",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "from_point": "HND",
+    "to_point": "Shinjuku area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 40,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 5880,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SJK-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Shinjuku",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "from_point": "HND",
+    "to_point": "Shinjuku area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 55,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SNG-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Shinagawa",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shinagawa",
+    "from_point": "NRT",
+    "to_point": "Shinagawa area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 85,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 15120,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SNG-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Shinagawa",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shinagawa",
+    "from_point": "NRT",
+    "to_point": "Shinagawa area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 105,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SNG-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Shinagawa",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shinagawa",
+    "from_point": "HND",
+    "to_point": "Shinagawa area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 25,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 3920,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SNG-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Shinagawa",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shinagawa",
+    "from_point": "HND",
+    "to_point": "Shinagawa area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 40,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SBY-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Narita airport taxi to Shibuya",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "from_point": "NRT",
+    "to_point": "Shibuya area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 95,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 16240,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SBY-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Narita limousine bus to Shibuya",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "from_point": "NRT",
+    "to_point": "Shibuya area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:00",
+    "duration_minutes": 115,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1792,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 896,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SBY-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Haneda airport taxi to Shibuya",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "from_point": "HND",
+    "to_point": "Shibuya area hotels",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 35,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 5040,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-HND-SBY-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Haneda limousine bus to Shibuya",
+    "airport": "HND",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "from_point": "HND",
+    "to_point": "Shibuya area hotels",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:00",
+    "duration_minutes": 50,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-NRT-SJK-VAN",
+    "type": "AIRPORT_VAN",
+    "name": "Narita private van to Shinjuku",
+    "airport": "NRT",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "from_point": "NRT",
+    "to_point": "Shinjuku area hotels",
+    "max_passengers": 8,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 90,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 21280,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-NMB-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Kansai airport taxi to Namba",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Namba",
+    "from_point": "KIX",
+    "to_point": "Namba area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 50,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 9520,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-NMB-SHUTTLE",
+    "type": "AIRPORT_BUS",
+    "name": "KIX Late-night Shuttle to Namba",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Namba",
+    "from_point": "KIX",
+    "to_point": "Namba area hotels",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "00:30",
+    "duration_minutes": 60,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 728,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 364,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-UMD-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Kansai airport taxi to Umeda",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Umeda",
+    "from_point": "KIX",
+    "to_point": "Umeda area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 60,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 10640,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-UMD-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Kansai limousine bus to Umeda",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Umeda",
+    "from_point": "KIX",
+    "to_point": "Umeda area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "23:00",
+    "duration_minutes": 75,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 896,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 448,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-SOS-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Kansai airport taxi to Shin-Osaka",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Shin-Osaka",
+    "from_point": "KIX",
+    "to_point": "Shin-Osaka area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 60,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 10920,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-SOS-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Kansai limousine bus to Shin-Osaka",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Shin-Osaka",
+    "from_point": "KIX",
+    "to_point": "Shin-Osaka area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "23:00",
+    "duration_minutes": 75,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 896,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 448,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-TNJ-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Kansai airport taxi to Tennoji",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Tennoji",
+    "from_point": "KIX",
+    "to_point": "Tennoji area hotels",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 45,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 8960,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-TNJ-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Kansai limousine bus to Tennoji",
+    "airport": "KIX",
+    "city": "Osaka",
+    "area": "Tennoji",
+    "from_point": "KIX",
+    "to_point": "Tennoji area hotels",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "23:00",
+    "duration_minutes": 60,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 896,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 448,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-KYO-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Kansai airport taxi to Kyoto",
+    "airport": "KIX",
+    "city": "Kyoto",
+    "area": null,
+    "from_point": "KIX",
+    "to_point": "Kyoto hotels (all areas)",
+    "max_passengers": 4,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 90,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 16800,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KIX-KYO-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Kansai limousine bus to Kyoto",
+    "airport": "KIX",
+    "city": "Kyoto",
+    "area": null,
+    "from_point": "KIX",
+    "to_point": "Kyoto hotels (all areas)",
+    "max_passengers": 99,
+    "service_from": "06:30",
+    "service_until": "22:30",
+    "duration_minutes": 100,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1568,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 784,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-TYO-CITY-TAXI",
+    "type": "CITY_TAXI",
+    "name": "Tokyo city taxi, hotel to Tokyo Station",
+    "airport": null,
+    "city": "Tokyo",
+    "area": null,
+    "from_point": "Tokyo hotels",
+    "to_point": "Tokyo Station",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 25,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1680,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KYO-CITY-TAXI",
+    "type": "CITY_TAXI",
+    "name": "Kyoto city taxi, hotel to Kyoto Station",
+    "airport": null,
+    "city": "Kyoto",
+    "area": null,
+    "from_point": "Kyoto hotels",
+    "to_point": "Kyoto Station",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 15,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1008,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-OSA-CITY-TAXI",
+    "type": "CITY_TAXI",
+    "name": "Osaka city taxi, hotel to Shin-Osaka Station",
+    "airport": null,
+    "city": "Osaka",
+    "area": null,
+    "from_point": "Osaka hotels",
+    "to_point": "Shin-Osaka Station",
+    "max_passengers": 4,
+    "service_from": "05:00",
+    "service_until": "24:00",
+    "duration_minutes": 20,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1232,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KYO-BUS-206",
+    "type": "CITY_BUS",
+    "name": "Kyoto City Bus 206 to Kiyomizu Gojo Station",
+    "airport": null,
+    "city": "Kyoto",
+    "area": null,
+    "from_point": "Kyoto Station",
+    "to_point": "Kiyomizu Gojo Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "22:00",
+    "duration_minutes": 20,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 129,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 67,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-TYO-KYO-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Tokyo to Kyoto",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Tokyo",
+    "to_city": "Kyoto",
+    "from_point": "Tokyo Station",
+    "to_point": "Kyoto Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "21:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 135,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 7935,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 3968,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KYO-TYO-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Kyoto to Tokyo",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Kyoto",
+    "to_city": "Tokyo",
+    "from_point": "Kyoto Station",
+    "to_point": "Tokyo Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "21:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 135,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 7935,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 3968,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-OSA-KYO-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Osaka to Kyoto",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Osaka",
+    "to_city": "Kyoto",
+    "from_point": "Shin-Osaka Station",
+    "to_point": "Kyoto Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 15,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 812,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 406,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-KYO-OSA-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Kyoto to Osaka",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Kyoto",
+    "to_city": "Osaka",
+    "from_point": "Kyoto Station",
+    "to_point": "Shin-Osaka Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 15,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 812,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 406,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-TYO-OSA-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Tokyo to Osaka",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Tokyo",
+    "to_city": "Osaka",
+    "from_point": "Tokyo Station",
+    "to_point": "Shin-Osaka Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "21:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 150,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 8243,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 4122,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-OSA-TYO-01",
+    "type": "TRAIN",
+    "name": "Shinkansen Osaka to Tokyo",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_city": "Osaka",
+    "to_city": "Tokyo",
+    "from_point": "Shin-Osaka Station",
+    "to_point": "Tokyo Station",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "21:30",
+    "frequency_minutes": 30,
+    "duration_minutes": 150,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 8243,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 4122,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-DTN-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Dubai airport taxi to Downtown",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Downtown",
+    "from_point": "DXB",
+    "to_point": "Downtown area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 25,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1718,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-DTN-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Dubai airport shuttle to Downtown",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Downtown",
+    "from_point": "DXB",
+    "to_point": "Downtown area hotels",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 45,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-MAR-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Dubai airport taxi to Dubai Marina",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Dubai Marina",
+    "from_point": "DXB",
+    "to_point": "Dubai Marina area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 40,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 2748,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-MAR-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Dubai airport shuttle to Dubai Marina",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Dubai Marina",
+    "from_point": "DXB",
+    "to_point": "Dubai Marina area hotels",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 60,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-DRA-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Dubai airport taxi to Deira",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Deira",
+    "from_point": "DXB",
+    "to_point": "Deira area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 15,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1260,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-DRA-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Dubai airport shuttle to Deira",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Deira",
+    "from_point": "DXB",
+    "to_point": "Deira area hotels",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 35,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-BSH-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Dubai airport taxi to Al Barsha",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Al Barsha",
+    "from_point": "DXB",
+    "to_point": "Al Barsha area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 35,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 2290,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-BSH-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Dubai airport shuttle to Al Barsha",
+    "airport": "DXB",
+    "city": "Dubai",
+    "area": "Al Barsha",
+    "from_point": "DXB",
+    "to_point": "Al Barsha area hotels",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "23:00",
+    "duration_minutes": 55,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-COR-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Abu Dhabi airport taxi to Corniche",
+    "airport": "AUH",
+    "city": "Abu Dhabi",
+    "area": "Corniche",
+    "from_point": "AUH",
+    "to_point": "Corniche area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 35,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 2176,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-YAS-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Abu Dhabi airport taxi to Yas Island",
+    "airport": "AUH",
+    "city": "Abu Dhabi",
+    "area": "Yas Island",
+    "from_point": "AUH",
+    "to_point": "Yas Island area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 15,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1260,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-SDY-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Abu Dhabi airport taxi to Saadiyat",
+    "airport": "AUH",
+    "city": "Abu Dhabi",
+    "area": "Saadiyat",
+    "from_point": "AUH",
+    "to_point": "Saadiyat area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 30,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1946,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-MRY-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Abu Dhabi airport taxi to Al Maryah",
+    "airport": "AUH",
+    "city": "Abu Dhabi",
+    "area": "Al Maryah",
+    "from_point": "AUH",
+    "to_point": "Al Maryah area hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 30,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1946,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-ALL-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Abu Dhabi airport bus to city hotels",
+    "airport": "AUH",
+    "city": "Abu Dhabi",
+    "area": null,
+    "from_point": "AUH",
+    "to_point": "Abu Dhabi hotels (all areas)",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:30",
+    "duration_minutes": 50,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 458,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 229,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-ABU-TAXI",
+    "type": "AIRPORT_TAXI",
+    "name": "Dubai airport taxi to Abu Dhabi",
+    "airport": "DXB",
+    "city": "Abu Dhabi",
+    "area": null,
+    "from_point": "DXB",
+    "to_point": "Abu Dhabi hotels (all areas)",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 100,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 7328,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-ABU-BUS",
+    "type": "AIRPORT_BUS",
+    "name": "Dubai airport coach to Abu Dhabi",
+    "airport": "DXB",
+    "city": "Abu Dhabi",
+    "area": null,
+    "from_point": "DXB",
+    "to_point": "Abu Dhabi hotels (all areas)",
+    "max_passengers": 99,
+    "service_from": "06:00",
+    "service_until": "22:00",
+    "duration_minutes": 120,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 1030,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 572,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-CITY-TAXI",
+    "type": "CITY_TAXI",
+    "name": "Dubai city taxi, hotel to Al Ghubaiba bus station",
+    "airport": null,
+    "city": "Dubai",
+    "area": null,
+    "from_point": "Dubai hotels",
+    "to_point": "Al Ghubaiba bus station",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 20,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 1030,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-AUH-CITY-TAXI",
+    "type": "CITY_TAXI",
+    "name": "Abu Dhabi city taxi, hotel to central bus station",
+    "airport": null,
+    "city": "Abu Dhabi",
+    "area": null,
+    "from_point": "Abu Dhabi hotels",
+    "to_point": "Abu Dhabi central bus station",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 15,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 687,
+      "currency": "INR"
+    }
+  },
+  {
+    "transfer_id": "TR-DXB-AUH-BUS",
+    "type": "INTERCITY_BUS",
+    "name": "Intercity bus Dubai to Abu Dhabi",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_point": "Al Ghubaiba bus station",
+    "to_point": "Abu Dhabi central bus station",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:30",
+    "duration_minutes": 150,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    },
+    "from_city": "Dubai",
+    "to_city": "Abu Dhabi",
+    "frequency_minutes": 30,
+    "door_to_door": false
+  },
+  {
+    "transfer_id": "TR-DXB-AUH-TAXI",
+    "type": "INTERCITY_TAXI",
+    "name": "Intercity taxi Dubai to Abu Dhabi (hotel to hotel)",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_point": "Dubai hotels",
+    "to_point": "Abu Dhabi hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 100,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 6870,
+      "currency": "INR"
+    },
+    "from_city": "Dubai",
+    "to_city": "Abu Dhabi",
+    "door_to_door": true
+  },
+  {
+    "transfer_id": "TR-AUH-DXB-BUS",
+    "type": "INTERCITY_BUS",
+    "name": "Intercity bus Abu Dhabi to Dubai",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_point": "Abu Dhabi central bus station",
+    "to_point": "Al Ghubaiba bus station",
+    "max_passengers": 99,
+    "service_from": "05:30",
+    "service_until": "23:30",
+    "duration_minutes": 150,
+    "pricing": "PER_PERSON",
+    "price": {
+      "amount": 572,
+      "currency": "INR"
+    },
+    "child_price": {
+      "amount": 344,
+      "currency": "INR"
+    },
+    "from_city": "Abu Dhabi",
+    "to_city": "Dubai",
+    "frequency_minutes": 30,
+    "door_to_door": false
+  },
+  {
+    "transfer_id": "TR-AUH-DXB-TAXI",
+    "type": "INTERCITY_TAXI",
+    "name": "Intercity taxi Abu Dhabi to Dubai (hotel to hotel)",
+    "airport": null,
+    "city": null,
+    "area": null,
+    "from_point": "Abu Dhabi hotels",
+    "to_point": "Dubai hotels",
+    "max_passengers": 4,
+    "service_from": "00:00",
+    "service_until": "24:00",
+    "duration_minutes": 100,
+    "pricing": "PER_VEHICLE",
+    "price": {
+      "amount": 6870,
+      "currency": "INR"
+    },
+    "from_city": "Abu Dhabi",
+    "to_city": "Dubai",
+    "door_to_door": true
+  }
+]
