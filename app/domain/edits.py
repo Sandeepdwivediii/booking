@@ -180,6 +180,32 @@ def _set_transfer(catalog, trip: dict, arrival: bool, t, pickup: datetime) -> st
     return f"{label} airport transfer changed to {t['name']} ({t['transfer_id']}), pickup {item['start']}."
 
 
+def _checkin_notes(catalog, trip: dict, affected: set) -> list[str]:
+    """G1 display warning (never a rejection, check-in times are not judged): an affected hotel is
+    reached only on a later date than its check-in date, so the first paid night is largely unused."""
+    notes = []
+    hotels = _hotels(trip)
+    for h in hotels:
+        if h["item_id"] not in affected:
+            continue
+        if h is hotels[0]:
+            via = _role(trip, "arrival_transfer")
+        else:
+            via = [t for t in _role(trip, "intercity_transfer") if t["start"][:10] == h["start"]]
+        if not via or not via[0]["end"]:
+            continue
+        arrive = parse_local(via[0]["end"])
+        hotel = catalog.hotels[h["catalog_id"]]
+        h["warnings"] = []  # hotel warnings are only ever this note; recomputed for affected hotels
+        if arrive.date().isoformat() > h["start"]:
+            msg = (f"Check-in: travelers reach {hotel['name']} at {format_local(arrive)}, after the check-in date "
+                   f"{h['start']} (check-in from {hotel.get('check_in_from', 'n/a')}); the first night is paid but "
+                   f"largely unused.")
+            h["warnings"] = [msg]
+            notes.append(msg)
+    return notes
+
+
 # ============================================================================ change handlers
 
 def _replace_hotel(catalog, trip, change):
@@ -346,6 +372,10 @@ def apply_change(catalog, trip: dict, change: dict) -> dict:
         _reprice(catalog, candidate)
         found = validate_trip(catalog, candidate, "modified")
         if not found:
+            affected = {change["item_id"]} if op == "replace_hotel" else set()
+            if op == "replace_flight" and any(arrival for arrival, _ in needs):
+                affected.add(_hotels(candidate)[0]["item_id"])
+            notes += _checkin_notes(catalog, candidate, affected)
             return {"ok": True, "trip": candidate, "violations": [], "adjustments": notes}
         first_failure = first_failure or found
     return _reject(first_failure)
