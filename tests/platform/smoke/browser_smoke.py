@@ -110,7 +110,12 @@ try:
 
     if REAL:  # edits arrive with Tanish's Phase 5; UI must say so honestly
         click("Change flight")
-        wait("document.body.innerText.includes('not available yet')", "real domain: edit shows not-available message")
+        wait("document.body.innerText.includes('not available yet') || [...document.querySelectorAll('#package button')].some(b => b.textContent === 'Choose') || document.body.innerText.includes('No other valid options')",
+             "real domain: change flight -> options or honest not-available message")
+        if not js("document.body.innerText.includes('not available yet')"):  # real edits implemented
+            click("Remove")
+            wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')",
+                 "real remove attraction -> v2 (re-validated by domain)")
         real_pid = js("new URLSearchParams(location.search).get('package')")
         click("Confirm and book")
         wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")

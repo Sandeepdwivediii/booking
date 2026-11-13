@@ -257,6 +257,16 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
 
 `python -m pytest -q` → **667 passed, 0 failed, 15 skipped**. Skips: 11 Phase 5 [real] + 2 Phase 6 [real] BLOCKED on real `change()`, 1 fake-not-applicable, 1 obsolete "adapter missing" test.
 
+### Tanish Phase 5 (`49f3bc6`) — evaluated, NOT merged (awaiting Sandeep approval)
+
+- `49f3bc6 domain: Phase 5 change() and alternatives()`: 6 files, all Tanish-owned; no `NotImplementedError` left.
+- Evaluated in a throwaway detached worktree (sandeep `5c750f3` + `49f3bc6`, clean merge; removed afterwards; `sandeep` not changed):
+  - full suite **726 passed, 0 failed, 2 skipped** (neither skip is a block);
+  - **all 13 formerly BLOCKED [real] cases PASS**: ED-09…ED-17, PR-18 (server totals), SY-18 (forged IDs), BK-10, BK-11;
+  - real-mode browser smoke 12/12 incl. a real edit (remove attraction → v2), no JS errors.
+- The only failure in the first evaluation run was my own obsolete Phase 4 assertion ("real edits → 503"). It's now adaptive (503 while unimplemented, contract-valid 200 after), and the smoke real mode exercises real edits when available.
+- To close Phase 5: merge `49f3bc6` into `sandeep`, rerun the full suite on `sandeep`, fast-forward `integration`.
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).

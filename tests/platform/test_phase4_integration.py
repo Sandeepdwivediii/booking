@@ -285,14 +285,20 @@ def test_real_confirm_books_validated_snapshot(real, raw_catalog):
     assert real.get(f"/api/reservations/{res['reference']}").json() == res
 
 
-def test_real_edits_report_not_available_until_phase5(real):
+def test_real_edits_honest_until_available(real):
+    """Before Tanish's Phase 5: 503 "not available yet". After: contract-valid real alternatives."""
+    from app.contracts import alternatives_shape_errors
     pid = real.post("/api/packages/build", json=MENON).json()["package_id"]
     alt = real.get(f"/api/packages/{pid}/alternatives", params={"component": "outbound_flight"})
-    ch = real.patch(f"/api/packages/{pid}", json={"op": "remove_attraction", "item_id": "i1"},
-                    headers={"If-Match": '"1"', "Idempotency-Key": "phase4-edit-0001"})
-    for r in (alt, ch):
-        assert r.status_code == 503 and r.json()["error"]["code"] == "SERVICE_UNAVAILABLE"
-    assert real.get(f"/api/packages/{pid}").json()["version"] == 1
+    if alt.status_code == 503:
+        assert alt.json()["error"]["code"] == "SERVICE_UNAVAILABLE"
+        ch = real.patch(f"/api/packages/{pid}", json={"op": "remove_attraction", "item_id": "i1"},
+                        headers={"If-Match": '"1"', "Idempotency-Key": "phase4-edit-0001"})
+        assert ch.status_code == 503 and real.get(f"/api/packages/{pid}").json()["version"] == 1
+    else:
+        assert alt.status_code == 200
+        assert alternatives_shape_errors(alt.json()["alternatives"], "outbound_flight") == []
+
 
 
 # ---------------------------------------------------------------- cross-lane sweep (both independent oracles)
