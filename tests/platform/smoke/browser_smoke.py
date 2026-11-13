@@ -1,7 +1,8 @@
 """Manual browser smoke test (not collected by pytest): real app + TEST-ONLY fake domain on the
 disposable test DB, driven through headless Chrome via the DevTools protocol.
 
-Usage: python tests/platform/smoke/browser_smoke.py <repo_root> <chrome.exe> <screenshot_dir>
+Usage: python tests/platform/smoke/browser_smoke.py <repo_root> <chrome.exe> <screenshot_dir> [real]
+  real -> production loader (Tanish's domain on the original catalog) instead of the fake.
 """
 import dataclasses
 import json
@@ -13,6 +14,7 @@ import time
 import urllib.request
 
 REPO, CHROME, SHOTS = sys.argv[1], sys.argv[2], sys.argv[3]
+REAL = len(sys.argv) > 4 and sys.argv[4] == "real"
 sys.path.insert(0, REPO)
 
 import uvicorn  # noqa: E402
@@ -25,7 +27,7 @@ from tests.platform.fixtures.fake_domain import ApiFakeDomain  # noqa: E402
 APP_PORT, CDP_PORT = 8767, 9333
 fake = ApiFakeDomain()
 app = create_app(dataclasses.replace(get_settings(), database_url=get_test_database_url()),
-                 domain_loader=lambda _d: (fake, None))
+                 domain_loader=None if REAL else (lambda _d: (fake, None)))
 server = uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=APP_PORT, log_level="warning"))
 threading.Thread(target=server.run, daemon=True).start()
 
@@ -102,6 +104,16 @@ try:
     results.append(("PASS" if "?package=" in js("location.search") else "FAIL", "URL has ?package=<id>"))
     shot("1_package")
 
+    if REAL:  # edits arrive with Tanish's Phase 5; UI must say so honestly
+        click("Change flight")
+        wait("document.body.innerText.includes('not available yet')", "real domain: edit shows not-available message")
+        click("Confirm and book")
+        wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")
+        ref = js("new URLSearchParams(location.search).get('reservation')")
+        shot("real_booked")
+        cdp("Page.reload")
+        wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "real: refresh after booking shows reservation")
+        raise SystemExit
     click("Remove")
     wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')", "remove attraction -> v2")
     click("+ Add attraction")
@@ -142,6 +154,8 @@ try:
     js(f"document.getElementById('lookup-ref').value = '{ref}'; document.querySelector('#lookup-form button').click(); true")
     wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "lookup by reference opens summary")
     ws.close()
+except SystemExit:
+    pass
 finally:
     chrome.terminate()
     server.should_exit = True

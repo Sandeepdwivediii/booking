@@ -54,6 +54,11 @@ def install_error_handlers(app: FastAPI) -> None:
         log.warning("database error: %s", type(exc).__name__)
         return envelope(503, "SERVICE_UNAVAILABLE", "Database is not available.")
 
+    @app.exception_handler(NotImplementedError)
+    async def _not_yet(_: Request, exc: NotImplementedError):
+        log.warning("domain feature not implemented yet: %s", exc)
+        return envelope(503, "SERVICE_UNAVAILABLE", "This option is not available yet.")
+
     @app.exception_handler(StarletteHTTPException)
     async def _http(_: Request, exc: StarletteHTTPException):
         code = "NOT_FOUND" if exc.status_code == 404 else "INVALID_REQUEST"

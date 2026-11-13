@@ -151,6 +151,7 @@ function entryLine(e, ctx) {
   let when = "";
   if (e.kind === "check_in") when = "Check-in";
   else if (e.kind === "check_out") when = "Check-out";
+  else if (e.type === "flight") when = e.time ? `${e.time} dep` : "";  // arrival is in another time zone: shown in details
   else when = e.time ? (e.end_time ? `${e.time}–${e.end_time}` : e.time) : "";
   li.append(el("span", when, "when"));
   const what = el("div", undefined, "what");

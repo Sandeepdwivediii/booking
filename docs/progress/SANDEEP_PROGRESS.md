@@ -128,6 +128,51 @@ Concurrency and atomicity verified on real PostgreSQL. The edit/confirm logic is
 
 Browser smoke (`tests/platform/smoke/browser_smoke.py`, headless Chrome via DevTools, real app + fake domain on `bookingDB_test`): **20/20 PASS, no JS errors**. It covers options/health, the 422 field error, build → package view, remove/add attraction, the refused over-budget hotel, the stale-tab VERSION_CONFLICT + reload, refresh persistence, confirm → reference, the read-only booked view, refresh after booking, and lookup (unknown / malformed / valid).
 
+## Phase 4 — Integration checkpoint (real domain): PASS
+
+### Integration
+
+- Reviewed `origin/feat/tanish-domain` @ `b3b37be` (3 commits, 19 files, **all in Tanish-owned paths**: `app/domain/**`, `tests/domain/**`, `tests/domain_fixtures/**`, `docs/HANDOFF_TANISH.md`; stdlib-only imports + `app.contracts`; no `docker/`, no platform files, no contract changes).
+  - `options`, `build` and `validate` are real.
+  - `alternatives`/`change` are a documented Phase 5 skeleton: argument checks, then `NotImplementedError`, with no fake data.
+  - His handoff reports 273 domain tests passing.
+- Merged into `sandeep` with `--no-ff` (merge commit `75bbd7d`), without switching branches. A dry-run `merge-tree` was clean; the merge changed 0 `docker/` files. No Tanish file was modified.
+- Production path: `load_domain` → `app.domain.adapter.create_domain(data/catalog)`. The app reports health `ready` on `bookingDB` (no writes). Tests assert there is no fake fallback: production loader type, and no `tests` imports or `FakeDomain` anywhere in `app/**`.
+- `NotImplementedError` from the domain → 503 `SERVICE_UNAVAILABLE` "This option is not available yet." (was a generic 500). Flight times in the UI now show the departure only (arrival is in another time zone, shown in details).
+
+### Tests (`python -m pytest -q` full → 590 passed, 0 failed, 1 skipped)
+
+- Real-adapter contract test (`test_real_domain_factory_matches_contract`) now **runs and passes** (was the pending skip). The one skip is the Phase 1 "adapter missing" loader test, now inapplicable.
+- `tests/platform/test_phase4_integration.py` (31 tests, **real domain + original catalog + real PostgreSQL**, no fakes):
+  - Build → persist → GET → export for 4 requests: Menon Japan, DEL UAE solo, BOM Japan infant+teen, and MAA UAE 10 nights across two cities. Each export passes **Tanish's validator** (`initial` + `confirm`), my **attraction oracle**, and my new **catalog oracle** (`tests/platform/fixtures/catalog_oracle.py`, raw JSON only, no `app.*` imports). The catalog oracle re-derives every price, quantity, ID, room/hotel/city link, per-night availability, seat count, catalog flight times, flight duration across time zones (UTC), pickup ≥ landing + 60, airport ≥ departure − 180, completeness and total.
+  - Real OVER_BUDGET (budget 0 and cheapest−1 → exact cheapest/shortfall; budget == cheapest → BUILT), real NO_PACKAGE (reason code + reason), neither persisted; deterministic rebuild; real confirm (snapshot passes booked shape, validator and catalog oracle; lookup works); real edits → honest 503.
+  - Sweep test: 54 request combinations → every BUILT trip passes both oracles. A one-off full sweep found **843 BUILT trips (379 multi-city) + 261 NO_PACKAGE, 0 oracle findings**.
+
+| Phase 4 ID | Result | Evidence (real exports) |
+|---|---|---|
+| SY-06 | PASS | 2-item sample flagged by catalog oracle + Tanish validator; real exports complete |
+| SY-07 | PASS | missing `room_id` flagged; stored draft without it → export refused (500) |
+| SY-08 | PASS | flight qty/price derived from catalog; mutation flagged |
+| SY-09 | PASS | PER_VEHICLE qty = ceil(travelers/max); people-qty mutation flagged |
+| SY-10 | PASS | BOOKED-in-draft flagged; export normalizes draft items to PLANNED/null |
+| SY-12 | PASS | `sources: []` on every item; missing → shape error |
+| SY-13 | PASS | invented ID per type flagged by catalog oracle and `UNKNOWN_CATALOG_ID` |
+| SY-15 | PASS | UTC timeline order + flight duration across IST/JST/GST; reorder flagged; UI keeps domain order |
+| BK-15 | PASS | real draft and export byte-identical after a fresh app instance (restart) |
+
+Also re-run on the real domain: IN-03, IN-06, IN-07, IN-10, IN-13 → PASS.
+
+Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** (options, health, 422, real build → view, edit shows "not available yet", real confirm → reference, refresh) and **fake mode 20/20 PASS**; no JS errors.
+
+### Coverage: real vs fake
+
+- **Real domain:** build, validate, confirm, export, OVER_BUDGET/NO_PACKAGE, the SY IDs and BK-15 above.
+- **Fake domain only** (machinery tests, not proof of real behaviour): PATCH/alternatives flows, ED-* groundwork, the concurrency tests. **BLOCKED for real** until Tanish's Phase 5 `alternatives`/`change`.
+
+### Notes for Tanish (not defects)
+
+- Cheapest Menon package uses a next-morning airport pickup (legal, flagged in `warnings`, shown in the UI). Consider whether demo UX would prefer a same-evening option when the price is equal.
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).
@@ -136,6 +181,6 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`, headless Chrome via DevT
 
 - `docker/data/db/**` shows as locally modified (live Postgres writes to tracked files). Never stage them; avoid `git checkout -- .`, `reset --hard`, `stash`, or branch switches that touch those paths.
 
-## Next: Phase 4 (awaiting Sandeep approval)
+## Next: Phase 5 (awaiting Sandeep approval)
 
-Integration checkpoint: review and merge Tanish's adapter into `integration`; real `POST /api/packages/build` → persisted DRAFT → GET → export passing independent validation (contract checkers + attraction oracle on real BUILT trips); SY-06/07/08/09/10/12/13/15, BK-15; local/UTC timeline check; real-adapter contract test un-skipped.
+Wire real alternatives/PATCH once Tanish's `apply_change`/`list_alternatives` land; ED-09..ED-19, PR-18, SY-18 on the real domain (2-tab PATCH, PATCH vs confirm, idempotency, unchanged row on rejection); UI polish for edit errors.
