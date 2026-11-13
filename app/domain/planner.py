@@ -507,3 +507,92 @@ def build_trip(catalog, request: dict, trip_id: str) -> dict:
                        suggestion=f"Increase the budget to at least INR {cheapest:,}, or reduce the nights "
                                   f"or number of travelers.")
     return _result("BUILT", trip=trip, cheapest=cheapest)
+
+
+# ============================================================================ G3: change city plan (extension)
+
+def _request_from_trip(trip: dict) -> dict:
+    """The original 7-field request, recovered from a trip (travelers/country/dates/budget are fixed)."""
+    start, end = date.fromisoformat(trip["start_date"]), date.fromisoformat(trip["end_date"])
+    return {"departure_city": trip["traveler"]["home_airport"], "destination_country": trip["country"],
+            "start_date": trip["start_date"], "nights": (end - start).days, "adults": trip["traveler"]["adults"],
+            "children_ages": list(trip["traveler"]["child_ages"]), "budget_inr": trip["budget_inr"]}
+
+
+def _plan_problems(catalog, country, cities, nights, total_nights: int) -> list[dict]:
+    from app.domain.validator import violation
+    if (not isinstance(cities, list) or not isinstance(nights, list) or not cities or len(cities) != len(nights)
+            or not all(isinstance(c, str) for c in cities)
+            or not all(isinstance(n, int) and not isinstance(n, bool) for n in nights)):
+        return [violation("CHANGE_MALFORMED", "city plan needs equal-length lists of city names and night counts")]
+    out = []
+    known = [c["name"] for c in country["cities"]]
+    links = {(l["from_city"], l["to_city"]) for l in country["links"]}
+    for c in cities:
+        if c not in known:
+            out.append(violation("CITY_NOT_IN_COUNTRY", f"{c!r} is not a city of {country['name']}"))
+    if len(set(cities)) != len(cities):
+        out.append(violation("CITY_REPEATED", "each city may appear only once"))
+    if any(n < catalog.rules["min_nights_per_city"] for n in nights):
+        out.append(violation("CITY_MIN_NIGHTS", f"every city needs at least {catalog.rules['min_nights_per_city']} "
+                                                f"consecutive nights"))
+    if sum(nights) != total_nights:
+        out.append(violation("PLAN_NIGHTS_MISMATCH", f"nights must add up to the trip's {total_nights} nights"))
+    for a, b in zip(cities, cities[1:]):
+        if (a, b) not in links:
+            out.append(violation("NO_CITY_LINK", f"no directed transfer link {a} -> {b}"))
+    return out
+
+
+def city_plan_options(catalog, trip: dict) -> list[dict]:
+    """Every feasible city plan for this trip's fixed request, cheapest first (for a plan picker)."""
+    req = _request_from_trip(trip)
+    party = Party(req["adults"], len(req["children_ages"]))
+    country = catalog.countries[req["destination_country"]]
+    search = _Search(catalog, party, req["departure_city"], date.fromisoformat(req["start_date"]), req["nights"],
+                     country)
+    out = []
+    for cities, split in city_plans(country, req["nights"], catalog.rules["min_nights_per_city"]):
+        total, _ = search.evaluate(cities, split)
+        if total is not None:
+            out.append({"cities": list(cities), "nights": list(split), "total_inr": total,
+                        "price_diff_inr": total - trip["total_inr"], "within_budget": total <= req["budget_inr"]})
+    return sorted(out, key=lambda p: (p["total_inr"], p["cities"], p["nights"]))
+
+
+def rebuild_city_plan(catalog, trip: dict, cities, nights) -> dict:
+    """G3: rebuild the complete package for a chosen city plan. Returns a ChangeResult-shaped dict:
+    the cheapest valid package for exactly that plan, or ok=false (original trip never modified)."""
+    from app.domain.validator import violation
+    reject = lambda v: {"ok": False, "trip": None, "violations": v, "adjustments": []}  # noqa: E731
+    req = _request_from_trip(trip)
+    country = catalog.countries.get(req["destination_country"])
+    if country is None:
+        return reject([violation("COUNTRY_UNKNOWN", f"unknown country {req['destination_country']!r}")])
+    problems = _plan_problems(catalog, country, cities, nights, req["nights"])
+    if problems:
+        return reject(problems)
+    party = Party(req["adults"], len(req["children_ages"]))
+    search = _Search(catalog, party, req["departure_city"], date.fromisoformat(req["start_date"]), req["nights"],
+                     country)
+    total, detail = search.evaluate(tuple(cities), tuple(nights))
+    if total is None:
+        code = STAGES[detail]
+        text = STAGE_TEXT[code].format(home=req["departure_city"], start=req["start_date"],
+                                       end=trip["end_date"], T=party.travelers)
+        return reject([violation(code, f"No complete package for {' -> '.join(cities)}: {text}.")])
+    new = assemble_trip(catalog, req, trip["trip_id"], detail)
+    problems = [v for v in validate_trip(catalog, new, "initial") if v["code"] != "OVER_BUDGET"]
+    if new["total_inr"] != total or problems:
+        raise RuntimeError(f"city-plan rebuild produced an invalid trip: {problems[:3]}")
+    if new["total_inr"] > req["budget_inr"]:
+        return reject([violation("OVER_BUDGET", f"the cheapest package for {' -> '.join(cities)} costs INR "
+                                                f"{new['total_inr']:,}, over the budget of INR {req['budget_inr']:,}")])
+    old_plan = " -> ".join(f"{h['city']} ({(date.fromisoformat(h['end']) - date.fromisoformat(h['start'])).days})"
+                           for h in sorted((i for i in trip["items"] if i["role"] == "hotel_stay"),
+                                           key=lambda i: i["start"]))
+    new_plan = " -> ".join(f"{c} ({n})" for c, n in zip(cities, nights))
+    diff = new["total_inr"] - trip["total_inr"]
+    return {"ok": True, "trip": new, "violations": [],
+            "adjustments": [f"City plan changed from {old_plan} to {new_plan}; flights, hotels, transfers and "
+                            f"attractions were rebuilt (total {diff:+,} INR)."]}
