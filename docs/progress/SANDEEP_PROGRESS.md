@@ -219,6 +219,44 @@ Browser smoke (`tests/platform/smoke/browser_smoke.py`): **real mode 8/8 PASS** 
 
 Tanish: implement `list_alternatives` / `apply_change` (contract §2: hotel incl. same-hotel rooms, flights, attractions with `start_time`; all-or-nothing, re-price, `validate(…, "modified")`, `adjustments`). No platform change is needed; rerun `python -m pytest -q tests/platform/test_phase5_edits.py`.
 
+## Phase 6 — Confirmation and reservations (M7)
+
+### Implemented
+
+- Confirm/lookup machinery from Phase 3 reused unchanged in logic. Additions:
+  - **DB-level immutability** (`app/db.py`, idempotent DDL in `create_schema`): triggers reject UPDATE/DELETE on `app_reservations` and any UPDATE/DELETE of an `app_packages` row whose status is `BOOKED`. They're installed on the next app start (also on `bookingDB`; additive, no data change).
+  - Reference generator resolved at call time (`confirm_package(rng=None)`), so tests and the smoke script can inject collisions and leading zeros through HTTP.
+- Browser smoke: SY-16 steps (old draft URL / Back after booking → persisted booked state, no edit or confirm controls) and BK-06 in the UI (real mode forces a `00…` reference).
+- `tests/platform/test_phase6_bookings.py`: real domain (production loader) on real PostgreSQL. Concurrency runs over **real HTTP** against a live uvicorn server (threadpool, sockets) with `httpx` clients and a barrier.
+
+### Acceptance (real domain unless stated)
+
+| ID | Result | Evidence |
+|---|---|---|
+| BK-01 | PASS | live HTTP: double click (same key ×2 + new key) and 20 concurrent confirms → 1 reservation, 1 reference; 201 bodies identical |
+| BK-02 | PASS | retry with same key → identical status + body |
+| BK-03 | PASS | confirm, fresh app instance, retry same key → same body; other key → same reference; lookup |
+| BK-04 | PASS | live HTTP: 2 packages concurrently → distinct references, 1 reservation each |
+| BK-05 | PASS | generator returns an existing reference twice → retried → new reference; old booking intact |
+| BK-06 | PASS | `0012345678` kept in JSON (string), DB TEXT, URL, export, GET; `12345678` → 404; UI shows `00…` (browser) |
+| BK-07 | PASS | crash after reservation INSERT → 500, everything rolled back, still confirmable |
+| BK-08 | PASS | crash after status UPDATE → same |
+| BK-09 | PASS | 4 distinct keys → 201, 200, 200, 200, one reservation |
+| BK-10 | [fake] PASS / **[real] BLOCKED** | needs a real successful edit |
+| BK-11 | [fake] PASS / **[real] BLOCKED** | needs a real domain-rejected edit; supplementary [real] PASS: platform-rejected edits (forged amount 422, stale 409) never reach the booking |
+| BK-12 | PASS | unknown 10-digit → 404 `NOT_FOUND` envelope |
+| BK-13 | PASS | 10 malformed forms (short, long, letters, spaces, fullwidth digits, injection, 2000 chars) → 404, no leak |
+| BK-16 | PASS | OVER_BUDGET / NO_PACKAGE persist nothing; confirming a non-existent package → 404, no reservation |
+| SY-16 | PASS | API: booked GET shows status + reference, PATCH → ALREADY_BOOKED, alternatives → 409; browser fake 22/22 and real 11/11 |
+
+Also: DB triggers block snapshot/package tampering (4 statements raise); booked export == snapshot, passes the booked shape, Tanish's `validate(…, "confirm")` and my catalog oracle.
+
+Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (the Phase 3 service-level mutation check also still applies).
+
+### Test totals
+
+`python -m pytest -q` → **667 passed, 0 failed, 15 skipped**. Skips: 11 Phase 5 [real] + 2 Phase 6 [real] BLOCKED on real `change()`, 1 fake-not-applicable, 1 obsolete "adapter missing" test.
+
 ## Open issues (deferred by Sandeep; not Phase 0 scope)
 
 - 1,271 PostgreSQL files tracked under `docker/data/db/**` (`.gitignore` only ignores `/data/db/`). Do not untrack without explicit approval; safe procedure: stop db → back up → ignore `docker/data/` → `git rm -r --cached docker/data/db` → verify → commit; other clones must back up before pulling (git would delete their copies).

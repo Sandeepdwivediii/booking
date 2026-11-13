@@ -154,7 +154,8 @@ def random_reference() -> str:
 
 
 def confirm_package(factory: sessionmaker, domain: DomainPort, package_id: str, key: str,
-                    rng: Callable[[], str] = random_reference) -> Outcome:
+                    rng: Callable[[], str] | None = None) -> Outcome:
+    rng = rng or (lambda: random_reference())  # resolved at call time (tests may patch random_reference)
     req_hash = request_hash({"confirm": package_id})
     with transaction(factory) as session:
         _lock_timeout(session)

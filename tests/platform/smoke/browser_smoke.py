@@ -26,6 +26,10 @@ from tests.platform.fixtures.fake_domain import ApiFakeDomain  # noqa: E402
 
 APP_PORT, CDP_PORT = 8767, 9333
 fake = ApiFakeDomain()
+if REAL:  # BK-06 in the UI: force a leading-zero reservation number
+    import random
+    from app.services import transactions as tx
+    tx.random_reference = lambda: "00" + f"{random.randrange(10**8):08d}"
 app = create_app(dataclasses.replace(get_settings(), database_url=get_test_database_url()),
                  domain_loader=None if REAL else (lambda _d: (fake, None)))
 server = uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=APP_PORT, log_level="warning"))
@@ -107,12 +111,19 @@ try:
     if REAL:  # edits arrive with Tanish's Phase 5; UI must say so honestly
         click("Change flight")
         wait("document.body.innerText.includes('not available yet')", "real domain: edit shows not-available message")
+        real_pid = js("new URLSearchParams(location.search).get('package')")
         click("Confirm and book")
         wait("/Booked! Your reservation number is [0-9]{10}/.test(document.body.innerText)", "real confirm -> reservation number")
         ref = js("new URLSearchParams(location.search).get('reservation')")
         shot("real_booked")
+        results.append(("PASS" if ref.startswith("00") and len(ref) == 10 else "FAIL", f"BK-06 UI keeps leading zeros: {ref}"))
         cdp("Page.reload")
         wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "real: refresh after booking shows reservation")
+        js("history.back(); true")  # SY-16: Back to the draft URL must show the persisted booked state
+        wait(f"location.search.includes('package={real_pid}') && document.body.innerText.includes('Booked · reservation {ref}')",
+             "SY-16 real: Back shows booked state")
+        results.append(("PASS" if not js("[...document.querySelectorAll('#package button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book','+ Add attraction'].includes(b.textContent))") else "FAIL",
+                        "SY-16 real: no edit/confirm controls after Back"))
         raise SystemExit
     click("Remove")
     wait("document.body.innerText.includes('Draft · version 2') && document.body.innerText.includes('Package updated')", "remove attraction -> v2")
@@ -147,6 +158,10 @@ try:
 
     cdp("Page.reload")
     wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "refresh after booking shows reservation")
+    cdp("Page.navigate", url=f"{base}/?package={pid}")  # SY-16: old draft URL
+    wait(f"document.body.innerText.includes('Booked · reservation {ref}')", "SY-16: draft URL shows booked state")
+    results.append(("PASS" if not js("[...document.querySelectorAll('#package button')].some(b => ['Remove','Change hotel','Change flight','Confirm and book','+ Add attraction'].includes(b.textContent))") else "FAIL",
+                    "SY-16: no edit/confirm controls on booked package"))
     js("document.getElementById('lookup-ref').value = '0000000000'; document.querySelector('#lookup-form button').click(); true")
     wait("document.body.innerText.includes('Reservation not found.')", "unknown reference -> not found")
     js("document.getElementById('lookup-ref').value = '12ab'; document.querySelector('#lookup-form button').click(); true")
