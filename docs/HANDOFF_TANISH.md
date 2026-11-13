@@ -1,6 +1,61 @@
 # Handoff — Tanish (Developer A, domain)
 
-## Phase 5 — edits and alternatives (latest)
+## Phase 7 — final domain verification (latest)
+
+```text
+Developer: Tanish (A)
+Phase: 7 — complete. No discrepancies found; no production changes (domain frozen since e9c61c5 / 49f3bc6 code).
+Remote: origin/integration = 70012ee (app/domain + contract identical to this branch); origin/sandeep = 7d3f4d4
+Added: tests/domain_fixtures/judge_oracle.py  independent §4 rules + prices from RAW JSON (no app.* imports)
+       tests/domain/test_phase7_final.py      34 tests (sweep, brute force, alternatives, boundaries, oracle self-tests)
+feat/tanish-domain: 459 passed, 3 skipped (API modules BLOCKED: no app.main on branch)
+integration 70012ee + all domain tests, disposable PostgreSQL 127.0.0.1:55435: 783 passed, 0 failed, 2 skipped
+  (both skips are Sandeep's by-design placeholders)
+```
+
+Evidence:
+- SY-17 sweep: 4 homes × 2 countries × 5 start dates × nights {3,4,6,10} × 3 parties (incl. infant age 0,
+  child 17, 4A+3C) → every BUILT trip passes the independent judge; `NO_OUTBOUND_FLIGHT` re-derived from raw flights.
+- M8 on official data: independent exhaustive 3-night brute force (own pickup scans, every room count,
+  every attraction pair, branch-and-bound) = planner cheapest on 5 requests (INR 227,584 / 134,952 /
+  77,104 / 293,714 / 140,952) and both say no package on the 6th; budget = min → BUILT, min−1 → OVER_BUDGET (shortfall 1).
+- Every listed alternative (hotel per hotel item, both flights, attractions on every trip day, limit 50) on
+  5 official trips incl. 2-city Japan plans: `change()` succeeds, diff == listed `price_diff_inr`, judge passes.
+- Rejected edits (duplicate, Nara, closed ATT-TYO-006, missing item, wrong-date flight) leave the trip untouched.
+- Boundaries: first night 04-01, return 04-20, 10 nights, 03-31 / 04-21 returns → `OUTSIDE_DATA_WINDOW`;
+  15-traveler party respects seats/rooms. Judge oracle self-tests prove it detects 6 defect classes.
+
+Remaining risks: the brute force covers single-city 3-night trips on official data (multi-city exactness is
+covered by the Phase 3 random-catalog oracle); the judges' own tool may interpret display-only items
+(e.g. long airport waits, warned) differently; G1–G4/S1–S3 not implemented (await approval).
+
+---
+
+## Phase 6 — booked export & confirm validation
+
+```text
+Developer: Tanish (A)
+Phase: 6 — complete. No production code changes needed (no domain defects found); domain frozen except P0.
+Remote state: origin/integration = 70012ee (contains domain 49f3bc6, identical app/domain + contract);
+              origin/sandeep = 1aaabd1 (his Phase 7)
+Added: tests/domain_fixtures/booked_oracle.py  independent BOOKED oracle (no app.contracts code)
+       tests/domain/test_phase6_booked.py      BK-14, SY-11, tampering, validate(mode="confirm")
+       tests/domain/test_phase6_api_confirm.py real confirm/reservation/export on the platform
+On feat/tanish-domain: 425 passed, 3 skipped (the 3 API modules BLOCKED: no app.main on this branch)
+On integration 70012ee + these tests, disposable PostgreSQL 127.0.0.1:55434:
+  Phase 6 modules 23 passed; full suite 749 passed, 0 failed, 2 skipped (Sandeep's by-design placeholders)
+PASS IDs: BK-14, SY-11 (+ BK-10, BK-11, snapshot immutability/restart, CONFIRM_REJECTED on tampered draft)
+```
+
+Verified: every booked item `BOOKED` with `booking == {"reference": ref}` (10 ASCII digits, string, leading
+zeros kept); top-level-only `BOOKED` fails both oracles; snapshot == confirmed draft + stamp only; PATCH after
+confirm → 409 `ALREADY_BOOKED`; retries (same/different key) return the same reference; one reservation row;
+lookup/export identical after restart; confirm re-validates the LATEST draft (edited → booked as v2; rejected
+edit → last valid draft; DB-tampered price → 422 `CONFIRM_REJECTED`, no reservation, still DRAFT).
+
+---
+
+## Phase 5 — edits and alternatives
 
 ```text
 Developer: Tanish (A)
