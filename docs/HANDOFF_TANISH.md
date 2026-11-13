@@ -1,6 +1,30 @@
 # Handoff — Tanish (Developer A, domain)
 
-## Phase 5 — edits and alternatives (latest)
+## Phase 6 — booked export & confirm validation (latest)
+
+```text
+Developer: Tanish (A)
+Phase: 6 — complete. No production code changes needed (no domain defects found); domain frozen except P0.
+Remote state: origin/integration = 70012ee (contains domain 49f3bc6, identical app/domain + contract);
+              origin/sandeep = 1aaabd1 (his Phase 7)
+Added: tests/domain_fixtures/booked_oracle.py  independent BOOKED oracle (no app.contracts code)
+       tests/domain/test_phase6_booked.py      BK-14, SY-11, tampering, validate(mode="confirm")
+       tests/domain/test_phase6_api_confirm.py real confirm/reservation/export on the platform
+On feat/tanish-domain: 425 passed, 3 skipped (the 3 API modules BLOCKED: no app.main on this branch)
+On integration 70012ee + these tests, disposable PostgreSQL 127.0.0.1:55434:
+  Phase 6 modules 23 passed; full suite 749 passed, 0 failed, 2 skipped (Sandeep's by-design placeholders)
+PASS IDs: BK-14, SY-11 (+ BK-10, BK-11, snapshot immutability/restart, CONFIRM_REJECTED on tampered draft)
+```
+
+Verified: every booked item `BOOKED` with `booking == {"reference": ref}` (10 ASCII digits, string, leading
+zeros kept); top-level-only `BOOKED` fails both oracles; snapshot == confirmed draft + stamp only; PATCH after
+confirm → 409 `ALREADY_BOOKED`; retries (same/different key) return the same reference; one reservation row;
+lookup/export identical after restart; confirm re-validates the LATEST draft (edited → booked as v2; rejected
+edit → last valid draft; DB-tampered price → 422 `CONFIRM_REJECTED`, no reservation, still DRAFT).
+
+---
+
+## Phase 5 — edits and alternatives
 
 ```text
 Developer: Tanish (A)
