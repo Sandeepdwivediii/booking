@@ -205,9 +205,20 @@ def test_official_options():
 
 
 def test_adapter_satisfies_port_and_unbuilt_methods_do_not_fake(cat):
+    """Phase 5 skeletons: argument errors follow the contract; real work is not faked."""
+    from app.contracts import InvalidRequestError
     domain = Domain(cat)
     assert isinstance(domain, DomainPort)
-    for call in (lambda: domain.build({}, "t"), lambda: domain.validate({}, "initial"),
-                 lambda: domain.alternatives({}, "hotel", {}), lambda: domain.change({}, {})):
-        with pytest.raises(NotImplementedError):
-            call()
+    with pytest.raises(NotImplementedError):
+        domain.alternatives({}, "hotel", {"item_id": "i3"})
+    with pytest.raises(NotImplementedError):
+        domain.alternatives({}, "attraction", {"date": "2027-04-11"})
+    with pytest.raises(NotImplementedError):
+        domain.change({}, {"op": "remove_attraction", "item_id": "i4"})
+    for component, filters in (("spa", {}), ("hotel", {}), ("attraction", {"date": "11/04/2027"})):
+        with pytest.raises(InvalidRequestError):
+            domain.alternatives({}, component, filters)
+    rejected = domain.change({}, {"op": "teleport"})
+    assert rejected["ok"] is False and rejected["violations"][0]["code"] == "UNKNOWN_OP"
+    with pytest.raises(InvalidRequestError):
+        domain.build({}, "t")

@@ -1,7 +1,7 @@
 """DomainPort implementation (contract v1.1.0) and the factory the platform calls at startup.
 
-Phase status: options() is real. build/validate/alternatives/change are NOT implemented yet
-(Phases 2-5) and raise NotImplementedError instead of returning fake results.
+Phase status: options(), build() and validate() are real. alternatives()/change() validate their
+arguments but raise NotImplementedError for real work until Phase 5 (no fake results).
 """
 
 from __future__ import annotations
@@ -9,6 +9,9 @@ from __future__ import annotations
 from pathlib import Path
 
 from app.domain.catalog import Catalog, load_catalog
+from app.domain.edits import apply_change, list_alternatives
+from app.domain.planner import build_trip
+from app.domain.validator import validate_trip
 
 
 class Domain:
@@ -25,16 +28,16 @@ class Domain:
         return self._catalog.options()
 
     def build(self, request: dict, trip_id: str) -> dict:
-        raise NotImplementedError("DomainPort.build: planner not implemented yet (Phase 3)")
+        return build_trip(self._catalog, request, trip_id)
 
     def validate(self, trip: dict, mode: str) -> list[dict]:
-        raise NotImplementedError("DomainPort.validate: validator not implemented yet (Phase 2-3)")
+        return validate_trip(self._catalog, trip, mode)
 
     def alternatives(self, trip: dict, component: str, filters: dict) -> list[dict]:
-        raise NotImplementedError("DomainPort.alternatives: not implemented yet (Phase 5)")
+        return list_alternatives(self._catalog, trip, component, filters)
 
     def change(self, trip: dict, change: dict) -> dict:
-        raise NotImplementedError("DomainPort.change: not implemented yet (Phase 5)")
+        return apply_change(self._catalog, trip, change)
 
 
 def create_domain(catalog_dir: str | Path) -> Domain:

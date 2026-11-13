@@ -118,6 +118,29 @@ def next_departure(earliest: datetime, start: str, end: str,
     return best
 
 
+def latest_departure(latest: datetime, start: str, end: str,
+                     frequency_minutes: int | None) -> datetime | None:
+    """Latest legal departure at or before `latest` (mirror of next_departure)."""
+    best: datetime | None = None
+    for o, c in _candidate_windows(latest, start, end):
+        if o > latest:
+            continue
+        cand = min(c, latest)
+        if frequency_minutes:
+            step = timedelta(minutes=frequency_minutes)
+            cand = o + ((cand - o) // step) * step
+        if best is None or cand > best:
+            best = cand
+    return best
+
+
+WEEKDAY_CODES = ("MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN")
+
+
+def weekday_code(day: date) -> str:
+    return WEEKDAY_CODES[day.weekday()]
+
+
 def flight_utc(flight, airports) -> tuple[datetime, datetime]:
     """(departure_utc, arrival_utc) of a catalog flight using each airport's own time zone.
     Never subtract the two local strings: they are in different zones (FL-11)."""
