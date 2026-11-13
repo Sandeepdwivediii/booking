@@ -1,7 +1,7 @@
-# Integration Contract — Build My Holiday (v1.1.0, DRAFT for final review)
+# Integration Contract — Build My Holiday (v1.2.0)
 
 Executable source of truth: `app/contracts.py` (stdlib only, **Python 3.11+** for `typing.NotRequired`; Docker images must use `python:3.11` or newer). This doc explains it.
-v1.1.0 = v1.0.0 (`fd4f331`) + fixes from Tanish's Phase 0 review (see §6).
+v1.1.0 = v1.0.0 (`fd4f331`) + fixes from Tanish's Phase 0 review; v1.2.0 adds the optional G3 extension (see §6).
 Owners: Sandeep (platform, publishes) · Tanish (domain, reviews/approves). Any change after
 freeze = proposal here → both approve → one small integration commit.
 
@@ -128,6 +128,20 @@ Optional `limit` (default 20). Unknown component / missing required filter / mal
 - `ok=false` ⇒ `trip=null`, ≥ 1 violation (unknown item/op/id, rule break, over budget). Never raises for user-level problems.
 - Domain may re-select dependent **transfers** (airport/intercity) to keep the trip valid and must describe each in `adjustments` (G1). It must not silently remove or move attractions.
 
+### G3 extension — change city plan (v1.2.0, additive)
+
+Agreed from Tanish's proposal (`0d7c931`, docs/HANDOFF_TANISH.md). DomainPort and `CHANGE_OPS` are unchanged
+(adding the op there would reach `apply_change`'s per-op tables). Optional domain methods, detected by the platform:
+
+- `city_plan_options(trip) -> [CityPlanOption]` — feasible plans `{cities, nights, total_inr, price_diff_inr, within_budget}`, cheapest first.
+- `rebuild_city_plan(trip, cities, nights) -> ChangeResult` — cheapest complete package for exactly that plan;
+  traveler/country/dates/nights/budget/trip_id fixed; `ok=false` with violations when malformed, infeasible or over budget.
+
+HTTP: `PATCH /api/packages/{id}` also accepts `{"op":"change_city_plan","cities":[str],"nights":[int]}` with the same
+If-Match, Idempotency-Key, locking and 422 `INVALID_CHANGE` semantics. `GET /api/packages/{id}/city-plans` returns
+`{package_id, version, current:{cities,nights}, plans:[CityPlanOption + {current, change}]}` (409 when BOOKED).
+A domain without the methods yields 503 `SERVICE_UNAVAILABLE`.
+
 ## 3. Errors
 
 Exceptions (in `app.contracts`): `DomainError(message, details)` base · `CatalogUnavailableError` (`CATALOG_UNAVAILABLE` → 503) · `InvalidRequestError` (`INVALID_REQUEST` → 422). Anything else = bug → 500 `INTERNAL_ERROR`, no traceback in response.
@@ -171,5 +185,6 @@ API envelope: `{"error": {"code", "message", "details"}}`.
 
 ## 6. Changelog
 
+- **1.2.0** (Phase 9, from Tanish proposal `0d7c931`): additive G3 extension — `change_city_plan` PATCH body, optional `city_plan_options`/`rebuild_city_plan`, `GET /city-plans`. No breaking change.
 - **1.1.0** (Tanish review of `fd4f331`): attraction day rules for all modes; `booked_trip_shape_errors`; `change_result_shape_errors(result, original_trip)` checks fixed fields + budget; BUILT `end_date` and `cheapest_total_inr` invariants; OVER_BUDGET `reason_code` null + non-empty `reason`; `options()` documented as derived; item `city`/`quantity` semantics; alternatives (same-hotel rooms, `start_time`, `[]` vs `InvalidRequestError`); `build_request_errors` + `OUTSIDE_DATA_WINDOW`; Python 3.11+; contract tests committed. Reference/`HH:MM` checks use `fullmatch` with ASCII digits (rejects trailing newline and non-ASCII digits).
 - **1.0.0**: initial draft.

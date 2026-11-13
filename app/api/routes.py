@@ -18,7 +18,7 @@ from app.services.packages import (
 from app.services.request_validation import validate_against_options
 from app.services.runtime import Runtime
 from app.services.transactions import (
-    confirm_package, edit_package, get_alternatives, get_reservation, parse_idempotency_key, parse_if_match,
+    confirm_package, edit_package, get_alternatives, get_city_plans, get_reservation, parse_idempotency_key, parse_if_match,
 )
 
 log = logging.getLogger(__name__)
@@ -133,6 +133,15 @@ def alternatives_route(package_id: str, request: Request,
     rt.require_db()
     filters = {k: v for k, v in {"item_id": item_id, "date": date, "limit": limit}.items() if v is not None}
     return {"alternatives": get_alternatives(rt.sessionmaker, domain, pid, component, filters)}
+
+
+@router.get("/packages/{package_id}/city-plans")
+def city_plans_route(package_id: str, request: Request):
+    rt = _rt(request)
+    pid = parse_package_id(package_id)
+    domain = rt.require_domain()
+    rt.require_db()
+    return get_city_plans(rt.sessionmaker, domain, pid)
 
 
 @router.patch("/packages/{package_id}")

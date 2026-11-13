@@ -1,5 +1,30 @@
 # Handoff — Tanish (Developer A, domain)
 
+## Phase 9 — optional G3 change city plan (latest)
+
+```text
+Phase: 9 (extension) — domain complete on feat/tanish-domain; NOT exposed through the frozen contract yet.
+Implemented (planner.py): rebuild_city_plan(catalog, trip, cities, nights) -> ChangeResult-shaped dict;
+  city_plan_options(catalog, trip) -> feasible plans cheapest first {cities, nights, total_inr, price_diff_inr,
+  within_budget}. Adapter: Domain.rebuild_city_plan / Domain.city_plan_options (extra methods, not DomainPort).
+Rules: traveler/country/dates/nights/budget/trip_id fixed (recovered from the trip); plan checks
+  CHANGE_MALFORMED, CITY_NOT_IN_COUNTRY, CITY_REPEATED, CITY_MIN_NIGHTS, PLAN_NIGHTS_MISMATCH, NO_CITY_LINK;
+  exact cheapest package for exactly that plan via the existing planner search; infeasible -> stage code
+  (NO_OUTBOUND_FLIGHT, ...); over budget -> OVER_BUDGET; self-validated; input never mutated.
+Tests: tests/domain/test_phase9_g3.py — G3-A01..A10 PASS (15 tests; official catalog + synthetic for
+  reversed link / infeasible plan; independent judge oracle). Branch: 484 passed, 3 skipped (API BLOCKED).
+```
+
+**Contract proposal for Sandeep (additive, backward compatible, NOT applied — needs both approvals):**
+1. New ChangeRequest op `change_city_plan`: `{"op": "change_city_plan", "cities": [str], "nights": [int]}`
+   added to `CHANGE_OPS` / `ChangeIn`; routed through the existing PATCH (If-Match, idempotency, ChangeResult,
+   422 `INVALID_CHANGE`). Domain side: `apply_change` dispatches to `rebuild_city_plan`.
+2. Optional read-only route `GET /api/packages/{id}/city-plans` → `domain.city_plan_options(trip)` (not part of
+   DomainPort; platform may call it when `hasattr(domain, "city_plan_options")`).
+Note: `change_result_shape_errors` already accepts the rebuilt trip (fixed fields, budget, modified rules).
+
+---
+
 ## Phase 8 — optional G1 + G2 (latest)
 
 ```text

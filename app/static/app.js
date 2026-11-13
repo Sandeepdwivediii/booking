@@ -265,6 +265,40 @@ async function showAlternatives(ctx, component, filters, title, currentPrice) {
   panel.append(ul, actionButton("Close", async () => { panel.hidden = true; }));
 }
 
+const planLabel = (p) => p.cities.map((c, i) => `${c} (${p.nights[i]} night${p.nights[i] === 1 ? "" : "s"})`).join(" → ");
+
+// G3: catalog-supported city plans from the server; only within-budget, non-current plans can be chosen.
+async function showCityPlans(ctx) {
+  const panel = ctx.panel;
+  packageMessage(ctx, null);
+  panel.replaceChildren(el("h3", "Change cities"), el("p", "Finding complete trips for each city plan…", "hint"));
+  panel.hidden = false;
+  const { status, body } = await api(`/api/packages/${encodeURIComponent(ctx.view.package_id)}/city-plans`);
+  panel.replaceChildren(el("h3", "Change cities"),
+    el("p", "Same dates, travellers and budget. Flights, hotels, transfers and attractions are rebuilt for the plan you choose.", "hint"));
+  if (status !== 200) { panel.hidden = true; return explainError(ctx, status, body); }
+  if (body.version !== ctx.view.version) { panel.hidden = true; return explainError(ctx, 409, { error: { code: "VERSION_CONFLICT" } }); }
+  const others = body.plans.filter((p) => !p.current);
+  if (!others.length) panel.append(el("p", "No other city plan can be built for this trip.", "hint"));
+  const ul = el("ul", undefined, "alts city-plans");
+  for (const p of others) {
+    const li = el("li");
+    const info = el("div");
+    const left = ctx.view.trip.budget_inr - p.total_inr;
+    info.append(el("strong", planLabel(p)),
+      el("small", `New total ${inr(p.total_inr)} · ${left >= 0 ? inr(left) + " left" : inr(-left) + " over budget"}`,
+        p.within_budget ? "budget-ok" : "warning"));
+    const d = p.price_diff_inr;
+    const price = el("span", undefined, "num price-col");
+    price.append(el("span", inr(p.total_inr)), el("span", signedDiff(d), "diff " + (d > 0 ? "up" : d < 0 ? "down" : "same")));
+    const choose = actionButton("Choose", () => applyChange(ctx, p.change));
+    if (!p.within_budget) { choose.disabled = true; choose.title = "Over your budget"; }
+    li.append(info, price, choose);
+    ul.append(li);
+  }
+  panel.append(ul, actionButton("Close", async () => { panel.hidden = true; }));
+}
+
 async function applyChange(ctx, change) {
   packageMessage(ctx, "Checking the whole package…", "info");
   let res;
@@ -381,6 +415,10 @@ function renderPackage(view) {
     c.className = "primary";
     c.id = "confirm-btn";
     actions.append(c);
+    const cities = actionButton("Change cities", () => showCityPlans(ctx));
+    cities.className = "secondary";
+    cities.id = "change-cities-btn";
+    actions.append(cities);
   }
   const exp = el("a", "Download JSON", "button");
   exp.href = `/api/packages/${encodeURIComponent(view.package_id)}/export`;

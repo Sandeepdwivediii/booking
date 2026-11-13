@@ -317,3 +317,12 @@ Concurrency proof: with `FOR UPDATE` removed, the 20-request HTTP burst fails (t
   - **PASS:** G1-B01 (real conflicting outbound flight → 422 naming the item, row byte-identical), G1-B02 (hotel swap → transfers re-picked + check-in note, `validate(modified)` clean), G1-B03, G1-B04 (two tabs → 200/409), G1-B05, G2-B01 (+/0/− all occur; preview total == saved total; UI labels via Node), G2-B02 (forged `price_diff_inr`/totals → 422), G2-B03 (stale option → 409, row unchanged, repriced vs new version), G2-B04 (no over-budget offers; forced one → 422 OVER_BUDGET, row unchanged, still confirmable).
 - Regression: `python -m pytest -q` → 805 passed, 0 failed, 2 skipped; browser smoke fake 22/22, real 15/15; no JS errors.
 - Note for Tanish: the initial build doesn't add the edit-time check-in note for the same hotel (an edit back to the original hotel does). The warning is true in both cases; it's a consistency gap, not a rule violation.
+
+## Phase 9 — G3 change cities and rebuild (optional extension)
+
+- Integration: `integration` advanced to `068a4f7` (merge of `sandeep` e368088 — Phase 7 UI, redesign, Phase 8); 805 passed in a throwaway worktree before push.
+- Merged Tanish's Phase 9 domain `0d7c931` only (`b07fa5f`); Phase 10 `d7e9da7` excluded.
+- Interface: Tanish's proposal implemented as-is in platform files — PATCH body `{"op":"change_city_plan","cities":[...],"nights":[...]}` routed to optional `domain.rebuild_city_plan`; `GET /api/packages/{id}/city-plans` from optional `domain.city_plan_options` (plans + `current` + ready `change`). Domain without the methods -> 503. Not added to `CHANGE_OPS` (would hit `apply_change` per-op tables). `app/contracts.py` / `docs/INTEGRATION_CONTRACT.md` v1.2.0 note NOT applied — frozen-file edit awaits joint approval.
+- Reuses the PATCH transaction unchanged: row lock, If-Match, request-hash idempotency, shape check, atomic write. No schema change.
+- UI: "Change cities" on drafts -> plan list with new total, budget left, signed diff; over-budget plans disabled; current plan hidden; stale version -> conflict message.
+- Tests `tests/platform/test_phase9_g3.py` (real domain + PostgreSQL): G3-B01..B07 PASS (16 tests). Full suite 836 passed / 2 skipped; browser smoke fake 22/22, real 15/15; scratch CDP flow (choose plan -> v2 -> reload) PASS, no JS errors.

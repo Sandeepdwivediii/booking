@@ -17,6 +17,7 @@ import json
 import logging
 import re
 import secrets
+from datetime import date
 from typing import Callable
 
 from sqlalchemy import func, select, text
@@ -25,6 +26,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from app.api.errors import ApiError
 from app.contracts import (
+    CITY_PLAN_OP,
     ALTERNATIVE_COMPONENTS, CHANGE_OPS, REFERENCE_RE, DomainPort, alternatives_shape_errors,
     change_result_shape_errors, trip_shape_errors, violation_shape_errors,
 )
@@ -97,10 +99,26 @@ def _error_body(code: str, message: str, details=None) -> dict:
 
 # ---------------------------------------------------------------- PATCH
 
+# G3 extension (contract v1.2.0): not a DomainPort.change op; routed to the optional domain method.
+
+
+def _extension(domain, name: str):
+    fn = getattr(domain, name, None)
+    if not callable(fn):
+        raise ApiError(503, "SERVICE_UNAVAILABLE", "Changing cities is not available right now.")
+    return fn
+
+
+def _apply_change(domain, trip: dict, change: dict) -> dict:
+    if change["op"] == CITY_PLAN_OP:
+        return _extension(domain, "rebuild_city_plan")(trip, list(change["cities"]), list(change["nights"]))
+    return domain.change(trip, change)
+
+
 def edit_package(factory: sessionmaker, domain: DomainPort, package_id: str, if_match: int, key: str,
                  change: dict) -> Outcome:
-    if not isinstance(change, dict) or change.get("op") not in CHANGE_OPS:
-        raise ApiError(422, "VALIDATION_ERROR", f"Change op must be one of: {', '.join(sorted(CHANGE_OPS))}.")
+    if not isinstance(change, dict) or change.get("op") not in CHANGE_OPS | {CITY_PLAN_OP}:
+        raise ApiError(422, "VALIDATION_ERROR", f"Change op must be one of: {', '.join(sorted(CHANGE_OPS | {CITY_PLAN_OP}))}.")
     req_hash = request_hash({"change": change})
     with transaction(factory) as session:
         _lock_timeout(session)
@@ -115,7 +133,7 @@ def edit_package(factory: sessionmaker, domain: DomainPort, package_id: str, if_
                            {"current_version": pkg.version})
 
         original = pkg.trip
-        result = domain.change(original, change)
+        result = _apply_change(domain, original, change)
         problems = change_result_shape_errors(result, original)
         if problems:
             log.error("domain.change violated the contract: %s", problems[:5])
@@ -238,3 +256,38 @@ def get_alternatives(factory: sessionmaker, domain: DomainPort, package_id: str,
         log.error("domain.alternatives violated the contract: %s", problems[:5])
         raise ApiError(500, "INTERNAL_ERROR", "Planner returned invalid alternatives.")
     return alts
+
+
+# ---------------------------------------------------------------- G3 city plans (read-only)
+
+def current_city_plan(trip: dict) -> dict:
+    stays = sorted((i for i in trip["items"] if i["role"] == "hotel_stay"), key=lambda i: i["start"])
+    nights = [(date.fromisoformat(i["end"][:10]) - date.fromisoformat(i["start"][:10])).days for i in stays]
+    return {"cities": [i["city"] for i in stays], "nights": nights}
+
+
+def _plan_ok(p) -> bool:
+    return (isinstance(p, dict) and isinstance(p.get("cities"), list) and isinstance(p.get("nights"), list)
+            and len(p["cities"]) == len(p["nights"]) > 0 and all(isinstance(c, str) and c for c in p["cities"])
+            and all(type(n) is int and n > 0 for n in p["nights"])
+            and all(type(p.get(k)) is int for k in ("total_inr", "price_diff_inr"))
+            and type(p.get("within_budget")) is bool)
+
+
+def get_city_plans(factory: sessionmaker, domain, package_id: str) -> dict:
+    options = _extension(domain, "city_plan_options")
+    with transaction(factory) as session:
+        pkg = get_package(session, package_id)
+        status, trip, version = pkg.status, pkg.trip, pkg.version
+    if status == "BOOKED":
+        raise ApiError(409, "ALREADY_BOOKED", "This package is already booked and can no longer be changed.")
+    plans = options(trip)
+    if not isinstance(plans, list) or not all(_plan_ok(p) for p in plans):
+        log.error("domain.city_plan_options returned an invalid shape")
+        raise ApiError(500, "INTERNAL_ERROR", "Planner returned invalid city plans.")
+    current = current_city_plan(trip)
+    out = [{"cities": p["cities"], "nights": p["nights"], "total_inr": p["total_inr"],
+            "price_diff_inr": p["price_diff_inr"], "within_budget": p["within_budget"],
+            "current": p["cities"] == current["cities"] and p["nights"] == current["nights"],
+            "change": {"op": CITY_PLAN_OP, "cities": p["cities"], "nights": p["nights"]}} for p in plans]
+    return {"package_id": package_id, "version": version, "current": current, "plans": out}
